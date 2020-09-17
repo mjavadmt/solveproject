@@ -8,4 +8,8 @@ from .models import *
 
 def first_page(request):
     return render(request, "djangoapp/firstpage.html")
+
+
+def showchat(request):
+    return render(request , "djangoapp/chat.html")
 # Create your views here.
