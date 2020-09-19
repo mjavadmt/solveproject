@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500&display=swap");
  *, *:before, *:after {
 	 box-sizing: border-box;
 }
@@ -14,6 +14,7 @@
 	 background: #444753;
 	 border-radius: 5px;
 }
+
  .people-list {
 	 width: 260px;
 	 float: left;
