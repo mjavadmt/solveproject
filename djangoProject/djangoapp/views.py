@@ -6,8 +6,8 @@ from django.urls import reverse
 from .models import *
 
 
-def first_page(request):
-    return render(request, "djangoapp/firstpage.html")
+def Index(request):
+    return render(request, "djangoapp/Index.html")
 
 
 def show_chat(request):
