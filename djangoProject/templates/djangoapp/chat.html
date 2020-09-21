@@ -16,13 +16,14 @@
 </head>
 
 <body>
+<a href="083116sal_rep.pdf" download="August 31 2016 Sales Report">Download the report</a>
 {% for chat in all_chats %}
     <p>{{ chat }}</p>
 {% endfor %}
 <div class="container clearfix">
     <div class="people-list" id="people-list">
         <div class="search">
-            <input type="text" placeholder="search"/>
+            <input onkeyup="for_function(this)" type="text" placeholder="search"/>
             <i class="fa fa-search"></i>
         </div>
         <ul id="change_hover" class="list">
@@ -107,9 +108,9 @@
         <div class="chat-message clearfix">
             <textarea name="message-to-send" id="message-to-send"
                       placeholder="Type your message" rows="3"></textarea>
-
-            <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
-            <i class="fa fa-file-image-o"></i>
+            <input type="file" id="imgupload" style="display:none"/>
+            &nbsp;&nbsp;&nbsp;
+            <i id="OpenImgUpload" class="fa fa-2x fa-paperclip" aria-hidden="true"></i>
 
             <button>Send</button>
 
@@ -118,23 +119,14 @@
     </div> <!-- end chat -->
 
 </div> <!-- end container -->
-<script>
-    let get_ul = document.getElementById("change_hover").children;
-    let get_names = document.getElementsByClassName("name");
-    console.log(get_ul);
-    for (let i = 0; i < get_ul.length; i++) {
-        get_ul[i].onmouseover = () => {
-            get_ul[i].style.cursor = "pointer";
-            get_names[i].style.color = "#c2ef0b";
-        }
-        get_ul[i].onmouseout = () => {
-            get_names[i].style.color = "white";
-        }
-        console.log(i);
-    }
-</script>
+
 <script>
     $(document).ready(function () {
+        $('#OpenImgUpload').click(function(){ $('#imgupload').trigger('click'); });
+        $('#OpenImgUpload').mouseover(function ()
+        {
+            this.style.cursor = "pointer";
+        })
         let MyBlah = function () {
             let date = new Date();
             let find_ul = document.getElementById("unordered_list_id");
@@ -190,25 +182,41 @@
                 }
             })
         }
-        var searchFilter = {
-            options: {valueNames: ['name']},
-            init: function () {
-                var userList = new List('people-list', this.options);
-                var noItems = $('<li id="no-items-found">No items found</li>');
 
-                userList.on('updated', function (list) {
-                    if (list.matchingItems.length === 0) {
-                        $(list.list).append(noItems);
-                    } else {
-                        noItems.detach();
-                    }
-                });
-            }
-        };
-        searchFilter.init();
     });
 </script>
 
+<script>
+    function for_function(get_inp) {
+        let get_names = document.getElementsByClassName("name");
+        for(let j = 0 ; j<get_names.length;j++)
+        {
+            if (! get_names[j].innerHTML.toLowerCase().includes(get_inp.value.toLowerCase()))
+            {
+                get_names[j].parentNode.parentNode.style.display = "none" ;
+            }
+            else
+            {
+                get_names[j].parentNode.parentNode.style.display = "block" ;
+            }
+        }
+    }
+</script>
+<script>
+        let get_ul = document.getElementById("change_hover").children;
+        let get_names = document.getElementsByClassName("name");
+        console.log(get_ul);
+        for (let i = 0; i < get_ul.length; i++) {
+            get_ul[i].onmouseover = () => {
+                get_ul[i].style.cursor = "pointer";
+                get_names[i].style.color = "#c2ef0b";
+            }
+            get_ul[i].onmouseout = () => {
+                get_names[i].style.color = "white";
+            }
+            console.log(i);
+        }
+</script>
 </body>
 
 </html>
