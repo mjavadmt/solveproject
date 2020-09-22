@@ -1,314 +1,232 @@
 {% extends 'djangoapp/layout.html' %}
 {% load static %}
 {% block head %}
-    {#    <link rel="stylesheet" type="text/css" href= {% static 'djangoapp/slider.css' %}/>#}
+
     <style>
-        {#*, *:before, *:after {#}
-        {#    box-sizing: border-box;#}
-        {#    margin: 0;#}
-        {#    padding: 0;#}
-        {#}#}
 
-        {#body {#}
-        {#    overflow: hidden;#}
-        {#    font-family: Helvetica, Arial, sans-serif;#}
-        {#}#}
 
-        .slider {
+        .slideshow-container {
+            max-width: 1000px;
             position: relative;
-            height: 50vh;
+            /* margin: auto */
+        }
+
+        .mySlides {
+            display: none;
+            height: 400px;
+            border: solid 1px black;
 
         }
 
-        .slider__slides {
-            z-index: 1;
-            position: relative;
-            height: 100%;
-        }
-
-        .slider__control {
-            z-index: 2;
-            position: absolute;
-            top: 50%;
-            left: 5%;
-            width: 60px;
-            height: 60px;
-            margin-left: -30px;
-            margin-top: -30px;
-            border-radius: 50%;
-            background: #fff;
-            transition: background-color 0.3s;
+        .prev,
+        .next {
             cursor: pointer;
-        }
-
-        .slider__control--right {
-            left: 95%;
-        }
-
-        .slider__control:hover {
-            background-color: #2da6ff;
-        }
-
-        .slider__control-line {
             position: absolute;
-            left: 23px;
             top: 50%;
-            width: 3px;
-            height: 14px;
-            transform-origin: 50% 0;
-            transform: rotate(-45deg);
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: #222428;
+            font-weight: bold;
+            font-size: 30px;
+            transition: .6s ease;
+            border-radius: 0 3px 3px 0
         }
 
-        .slider__control-line:nth-child(2) {
-            transform: translateY(1px) rotate(-135deg);
+        .next {
+            right: -50px;
+            border-radius: 3px 3px 3px 3px
         }
 
-        .slider__control--right .slider__control-line {
-            left: 37px;
-            transform-origin: 1px 0;
-            transform: rotate(45deg);
+        .prev {
+            left: -50px;
+            border-radius: 3px 3px 3px 3px
         }
 
-        .slider__control--right .slider__control-line:nth-child(2) {
-            transform: translateY(1px) rotate(135deg);
+        .prev:hover,
+        .next:hover {
+            color: #f2f2f2;
+            background-color: rgba(0, 0, 0, 0.8)
         }
 
-        .slider__control-line:after {
-            content: "";
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding-top: 12px;
+            padding-bottom: 12px;
             position: absolute;
-            left: 0;
-            top: 0;
+            bottom: 0;
             width: 100%;
-            height: 100%;
-            background-color: #e2e2e2;
-            transition: background-color 0.3s;
+            text-align: center;
+            background-color: #222428
         }
 
-        .slider__control:hover .slider__control-line:after {
-            background-color: #fff;
-        }
-
-        .slider__control.a--rotation .slider__control-line:after {
-            animation: arrowLineRotation 0.49s;
-        }
-
-        .slider__control.a--rotation .slider__control-line:nth-child(1):after {
-            animation: arrowLineRotationRev 0.49s;
-        }
-
-        @keyframes arrowLineRotation {
-            to {
-                transform: rotate(180deg);
-            }
-        }
-
-        @keyframes arrowLineRotationRev {
-            to {
-                transform: rotate(-180deg);
-            }
-        }
-
-        .slide {
-            overflow: hidden;
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
             position: absolute;
-            left: 50%;
-            top: 50%;
-            width: 150vmax;
-            height: 150vmax;
-            transform: translate(-50%, -50%);
+            top: 0
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
             border-radius: 50%;
-            transition: clip-path 0s 0.91s;
-            clip-path: circle(30px at 120vw 50%);
+            display: inline-block;
+            transition: background-color .6s ease
         }
 
-        .slide.s--prev {
-            clip-path: circle(30px at 30vw 50%);
+        .active1,
+        .dot:hover {
+            background-color: #717171
         }
-
-        .slide.s--active {
-            z-index: 1;
-            transition: clip-path 1.3s;
-            clip-path: circle(120vmax at 120vw 50%);
-        }
-
-        .slide.s--active.s--active-prev {
-            clip-path: circle(120vmax at 30vw 50%);
-        }
-
-        .slide:nth-child(1) .slide__inner {
-            background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/onepgscr-2.jpg");
-        }
-
-        .slide:nth-child(2) .slide__inner {
-            background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/onepgscr-3.jpg");
-        }
-
-        .slide:nth-child(3) .slide__inner {
-            background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/onepgscr-4.jpg");
-        }
-
-        .slide:nth-child(4) .slide__inner {
-            background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/onepgscr-5.jpg");
-        }
-
-        .slide:nth-child(5) .slide__inner {
-            background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/onepgscr-6.jpg");
-        }
-
-        .slide__inner {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            width: 100vw;
-            height: 100vh;
-            margin-left: -50vw;
-            margin-top: -50vh;
-            background-size: cover;
-            background-position: center center;
-        }
-
-        .slide__inner:before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.3);
-        }
-
-        .slide__content {
-            position: absolute;
-            left: 5%;
-            top: 50%;
-            margin-left: -30px;
-            margin-top: 48px;
-            max-width: 480px;
-            color: #fff;
-        }
-
-        .slide__heading {
-            margin-bottom: 20px;
-            font-size: 60px;
-        }
-
-        .slide__text {
-            font-size: 25px;
-        }
-
-        .slide__text a {
-            color: inherit;
-        }
-
     </style>
+
 {% endblock %}
 
 {% block body %}
-    <div class="slider" >
-        <!-- slides -->
-        <div class="slider__slides">
-            <div class="slide s--active">
-                <div class="slide__inner">
-                    <div class="slide__content">
-                        <h2 class="slide__heading">Clip-Path Revealing Slider</h2>
-                        <p class="slide__text">Greetings, Traveler!</p>
-                    </div>
-                </div>
+
+    <div style="display: inline;"> writing sth mn oo to mast hame dard khaste az party o adamye tush</div>
+    <div class="slideshow-container" style="width: 30%;margin-left: 63%;">
+        <div class="slideshow-inner">
+            <div class="mySlides fade">
+                <img
+                        src="https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528__340.jpg"
+                        style="width: 100%; height: 100%"
+                        alt="sally lightfoot crab"
+                />
+                <div class="text">Sally Lightfoot Crab</div>
             </div>
-            <div class="slide">
-                <div class="slide__inner">
-                    <div class="slide__content">
-                        <h2 class="slide__heading">Simple Animation</h2>
-                        <p class="slide__text">Clip-path magic!</p>
-                    </div>
-                </div>
+
+            <div class="mySlides fade">
+                <img
+                        src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
+                        style="width: 100%; height: 100%"
+                        alt="fighting nazca boobies"
+                />
+                <div class="text">A scuffle between two Nazca Boobies</div>
             </div>
-            <div class="slide">
-                <div class="slide__inner">
-                    <div class="slide__content">
-                        <h2 class="slide__heading">Very Stylish Effect!</h2>
-                        <p class="slide__text">It looks cool, isn't it?</p>
-                    </div>
-                </div>
+
+            <div class="mySlides fade">
+                <img
+                        src="https://i.pinimg.com/originals/ca/76/0b/ca760b70976b52578da88e06973af542.jpg"
+                        style="width: 100%; height: 100%"
+                        alt="otovalo waterfall"
+                />
+                <div class="text">A waterfall discovered on a hike in Otovalo</div>
             </div>
-            <div class="slide">
-                <div class="slide__inner">
-                    <div class="slide__content">
-                        <h2 class="slide__heading">Limited browser support</h2>
-                        <p class="slide__text">Forget about IE/Edge and FF</p>
-                    </div>
-                </div>
-            </div>
-            <div class="slide s--prev">
-                <div class="slide__inner">
-                    <div class="slide__content">
-                        <h2 class="slide__heading">Check my other stuff!</h2>
-                        <p class="slide__text"><a href="https://codepen.io/suez/pens/public/" target="_blank">Other
-                            demos</a> and <a href="https://twitter.com/NikolayTalanov" target="_blank">Twitter</a></p>
-                    </div>
-                </div>
+
+            <div class="mySlides fade">
+                <img
+                        src="https://images.pexels.com/photos/1819650/pexels-photo-1819650.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                        style="width: 100%; height: 100%"
+                        alt="pelican"
+                />
+                <div class="text">Pelican</div>
             </div>
         </div>
-        <!-- slides end -->
-        <div class="slider__control">
-            <div class="slider__control-line"></div>
-            <div class="slider__control-line"></div>
-        </div>
-        <div class="slider__control slider__control--right m--right">
-            <div class="slider__control-line"></div>
-            <div class="slider__control-line"></div>
-        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br/>
+
+    <div style="margin-left: 75%;">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
     </div>
     <script>
-        (function () {
-            var $slides = document.querySelectorAll('.slide');
-            var $controls = document.querySelectorAll('.slider__control');
-            var numOfSlides = $slides.length;
-            var slidingAT = 1300; // sync this with scss variable
-            var slidingBlocked = false;
+        var slideIndex = 1;
 
-            [].slice.call($slides).forEach(function ($el, index) {
-                var i = index + 1;
-                $el.classList.add('slide-' + i);
-                $el.dataset.slide = i;
-            });
+        var myTimer;
 
-            [].slice.call($controls).forEach(function ($el) {
-                $el.addEventListener('click', controlClickHandler);
-            });
+        var slideshowContainer;
 
-            function controlClickHandler() {
-                if (slidingBlocked) return;
-                slidingBlocked = true;
+        window.addEventListener("load", function () {
+            showSlides(slideIndex);
+            myTimer = setInterval(function () {
+                plusSlides(1);
+            }, 4000);
 
-                var $control = this;
-                var isRight = $control.classList.contains('m--right');
-                var $curActive = document.querySelector('.slide.s--active');
-                var index = +$curActive.dataset.slide;
-                (isRight) ? index++ : index--;
-                if (index < 1) index = numOfSlides;
-                if (index > numOfSlides) index = 1;
-                var $newActive = document.querySelector('.slide-' + index);
+            //COMMENT OUT THE LINE BELOW TO KEEP ARROWS PART OF MOUSEENTER PAUSE/RESUME
+            slideshowContainer = document.getElementsByClassName(
+                "slideshow-inner"
+            )[0];
 
-                $control.classList.add('a--rotation');
-                $curActive.classList.remove('s--active', 's--active-prev');
-                document.querySelector('.slide.s--prev').classList.remove('s--prev');
+            //UNCOMMENT OUT THE LINE BELOW TO KEEP ARROWS PART OF MOUSEENTER PAUSE/RESUME
+            // slideshowContainer = document.getElementsByClassName('slideshow-container')[0];
 
-                $newActive.classList.add('s--active');
-                if (!isRight) $newActive.classList.add('s--active-prev');
+            slideshowContainer.addEventListener("mouseenter", pause);
+            slideshowContainer.addEventListener("mouseleave", resume);
+        });
 
+        // NEXT AND PREVIOUS CONTROL
+        function plusSlides(n) {
+            clearInterval(myTimer);
+            if (n < 0) {
+                showSlides((slideIndex -= 1));
+            } else {
+                showSlides((slideIndex += 1));
+            }
 
-                var prevIndex = index - 1;
-                if (prevIndex < 1) prevIndex = numOfSlides;
+            //COMMENT OUT THE LINES BELOW TO KEEP ARROWS PART OF MOUSEENTER PAUSE/RESUME
 
-                document.querySelector('.slide-' + prevIndex).classList.add('s--prev');
+            if (n === -1) {
+                myTimer = setInterval(function () {
+                    plusSlides(n + 2);
+                }, 4000);
+            } else {
+                myTimer = setInterval(function () {
+                    plusSlides(n + 1);
+                }, 4000);
+            }
+        }
 
-                setTimeout(function () {
-                    $control.classList.remove('a--rotation');
-                    slidingBlocked = false;
-                }, slidingAT * 0.75);
-            };
-        }());
+        //Controls the current slide and resets interval if needed
+        function currentSlide(n) {
+            clearInterval(myTimer);
+            myTimer = setInterval(function () {
+                plusSlides(n + 1);
+            }, 4000);
+            showSlides((slideIndex = n));
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {
+                slideIndex = 1;
+            }
+            if (n < 1) {
+                slideIndex = slides.length;
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active1", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active1";
+        }
+
+        pause = () => {
+            clearInterval(myTimer);
+        };
+
+        resume = () => {
+            clearInterval(myTimer);
+            myTimer = setInterval(function () {
+                plusSlides(slideIndex);
+            }, 4000);
+        };
     </script>
 
 {% endblock %}
