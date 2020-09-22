@@ -5,226 +5,247 @@
     <style>
 
 
-        .slideshow-container {
-            max-width: 1000px;
+        .carousel > input[type="radio"]:nth-child(1):checked ~ .carousel__prev > label:nth-child(5), .carousel > input[type="radio"]:nth-child(1):checked ~ .carousel__next > label:nth-child(2), .carousel > input[type="radio"]:nth-child(2):checked ~ .carousel__prev > label:nth-child(1), .carousel > input[type="radio"]:nth-child(2):checked ~ .carousel__next > label:nth-child(3), .carousel > input[type="radio"]:nth-child(3):checked ~ .carousel__prev > label:nth-child(2), .carousel > input[type="radio"]:nth-child(3):checked ~ .carousel__next > label:nth-child(4), .carousel > input[type="radio"]:nth-child(4):checked ~ .carousel__prev > label:nth-child(3), .carousel > input[type="radio"]:nth-child(4):checked ~ .carousel__next > label:nth-child(5), .carousel > input[type="radio"]:nth-child(5):checked ~ .carousel__prev > label:nth-child(4), .carousel > input[type="radio"]:nth-child(5):checked ~ .carousel__next > label:nth-child(1) {
+            opacity: 1 !important;
+            z-index: 3;
+        }
+
+
+        .container {
+            width: 900px;
+            min-width: 900px;
+        {#margin: 50px auto;#} margin-left: 3%;
+
+        }
+
+        .carousel {
+            width: 100%;
             position: relative;
-            /* margin: auto */
+            overflow: hidden;
         }
 
-        .mySlides {
-            display: none;
-            height: 400px;
-            border: solid 1px black;
-
+        .carousel > input[type="radio"] {
+            position: absolute;
+            left: 0;
+            opacity: 0;
+            top: 0;
         }
 
-        .prev,
-        .next {
+        .carousel > input[type="radio"]:checked ~ .carousel__items .carousel__item, .carousel > input[type="radio"]:checked ~ .carousel__prev > label, .carousel > input[type="radio"]:checked ~ .carousel__next > label {
+            opacity: 0;
+        }
+
+        .carousel > input[type="radio"]:nth-child(1):checked ~ .carousel__items .carousel__item:nth-child(1) {
+            opacity: 1;
+        }
+
+        .carousel > input[type="radio"]:nth-child(1):checked ~ .carousel__nav > label:nth-child(1) {
+            background: #ccc;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .carousel > input[type="radio"]:nth-child(2):checked ~ .carousel__items .carousel__item:nth-child(2) {
+            opacity: 1;
+        }
+
+        .carousel > input[type="radio"]:nth-child(2):checked ~ .carousel__nav > label:nth-child(2) {
+            background: #ccc;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .carousel > input[type="radio"]:nth-child(3):checked ~ .carousel__items .carousel__item:nth-child(3) {
+            opacity: 1;
+        }
+
+        .carousel > input[type="radio"]:nth-child(3):checked ~ .carousel__nav > label:nth-child(3) {
+            background: #ccc;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .carousel > input[type="radio"]:nth-child(4):checked ~ .carousel__items .carousel__item:nth-child(4) {
+            opacity: 1;
+        }
+
+        .carousel > input[type="radio"]:nth-child(4):checked ~ .carousel__nav > label:nth-child(4) {
+            background: #ccc;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .carousel > input[type="radio"]:nth-child(5):checked ~ .carousel__items .carousel__item:nth-child(5) {
+            opacity: 1;
+        }
+
+        .carousel > input[type="radio"]:nth-child(5):checked ~ .carousel__nav > label:nth-child(5) {
+            background: #ccc;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .carousel__items {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            width: 100%;
+            height: 600px;
+            position: relative;
+        }
+
+        .carousel__item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            transition: opacity 2s;
+            -webkit-transition: opacity 2s;
+        }
+
+        .carousel__item img {
+            width: 100%;
+            vertical-align: middle;
+        }
+
+        .carousel__prev > label, .carousel__next > label {
+            border: 1px solid #fff;
+            border-radius: 50%;
             cursor: pointer;
+            display: block;
+            width: 40px;
+            height: 40px;
             position: absolute;
             top: 50%;
-            width: auto;
-            margin-top: -22px;
-            padding: 16px;
-            color: #222428;
-            font-weight: bold;
-            font-size: 30px;
-            transition: .6s ease;
-            border-radius: 0 3px 3px 0
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            transition: all 0.3s ease;
+            -webkit-transition: all 0.3s ease;
+            opacity: 0;
+            z-index: 2;
         }
 
-        .next {
-            right: -50px;
-            border-radius: 3px 3px 3px 3px
+        .carousel__prev > label:hover, .carousel__next > label:hover, .carousel__prev > label:focus, .carousel__next > label:focus {
+            opacity: 0.5 !important;
         }
 
-        .prev {
-            left: -50px;
-            border-radius: 3px 3px 3px 3px
-        }
-
-        .prev:hover,
-        .next:hover {
-            color: #f2f2f2;
-            background-color: rgba(0, 0, 0, 0.8)
-        }
-
-        .text {
-            color: #f2f2f2;
-            font-size: 15px;
-            padding-top: 12px;
-            padding-bottom: 12px;
+        .carousel__prev > label:before, .carousel__next > label:before, .carousel__prev > label:after, .carousel__next > label:after {
+            content: "";
             position: absolute;
-            bottom: 0;
-            width: 100%;
+            width: inherit;
+            height: inherit;
+        }
+
+        .carousel__prev > label:before, .carousel__next > label:before {
+            background: linear-gradient(to top, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%), linear-gradient(to left, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%);
+            width: 60%;
+            height: 60%;
+            top: 20%;
+        }
+
+        .carousel__prev > label {
+            left: 2%;
+        }
+
+        .carousel__prev > label:before {
+            left: 35%;
+            top: 20%;
+            transform: rotate(135deg);
+            -webkit-transform: rotate(135deg);
+        }
+
+        .carousel__next > label {
+            right: 2%;
+        }
+
+        .carousel__next > label:before {
+            left: 10%;
+            transform: rotate(315deg);
+            -webkit-transform: rotate(315deg);
+        }
+
+        .carousel__nav {
+            position: absolute;
+            bottom: 3%;
+            left: 0;
             text-align: center;
-            background-color: #222428
+            width: 100%;
+            z-index: 3;
         }
 
-        .numbertext {
-            color: #f2f2f2;
-            font-size: 12px;
-            padding: 8px 12px;
-            position: absolute;
-            top: 0
-        }
-
-        .dot {
-            cursor: pointer;
-            height: 15px;
-            width: 15px;
-            margin: 0 2px;
-            background-color: #bbb;
-            border-radius: 50%;
+        .carousel__nav > label {
+            border: 1px solid #fff;
             display: inline-block;
-            transition: background-color .6s ease
+            border-radius: 50%;
+            cursor: pointer;
+            margin: 0 0.125%;
+            width: 20px;
+            height: 20px;
         }
 
-        .active1,
-        .dot:hover {
-            background-color: #717171
-        }
+
     </style>
 
 {% endblock %}
 
 {% block body %}
-    <div class="slideshow-container" style="width: 30%;margin-left: 63%;">
-        <div class="slideshow-inner">
-            <div class="mySlides ">
-                <img
-                        src="https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528__340.jpg"
-                        style="width: 100%; height: 100%"
-                        alt="sally lightfoot crab"
-                />
-                <div class="text">Sally Lightfoot Crab</div>
+    <div style="background-color: #3b5998;padding: 1%;">
+        <img style="width: 25%; float: right;margin: 5%" src={% static 'djangoapp/9442search-Bilingual-Translation-Jobs.jpg' %}>
+        <div style="display: inline">
+            <div class="container" \>
+                <div class="carousel">
+                    <input type="radio" id="carousel-1" name="carousel[]" checked>
+                    <input type="radio" id="carousel-2" name="carousel[]">
+                    <input type="radio" id="carousel-3" name="carousel[]">
+                    <input type="radio" id="carousel-4" name="carousel[]">
+                    <input type="radio" id="carousel-5" name="carousel[]">
+                    <ul class="carousel__items">
+                        <li class="carousel__item"><img
+                                src={% static 'djangoapp/illustration_cover.png' %}
+                                        alt=""></li>
+                        <li class="carousel__item"><img
+                                src={% static 'djangoapp/freelancer-job-professional-digital-nomad-indore-png-favpng-iS3JgfScmWiVR3zCWp6bw2vdE.jpg' %};
+                                alt=""></li>
+                        <li class="carousel__item"><img
+                                src={% static 'djangoapp/chatstyle.css' %}
+                                alt=""></li>
+                        <li class="carousel__item"><img
+                                src={% static 'djangoapp/20180111134829-freelance-2906725-1920.png' %}
+                                alt=""></li>
+                        <li class="carousel__item"><img
+                                src={% static 'djangoapp/bootstrap-stack.png' %}
+                                alt=""></li>
+                    </ul>
+                    <div class="carousel__prev">
+                        <label for="carousel-1"></label>
+                        <label for="carousel-2"></label>
+                        <label for="carousel-3"></label>
+                        <label for="carousel-4"></label>
+                        <label for="carousel-5"></label>
+                    </div>
+                    <div class="carousel__next">
+                        <label for="carousel-1"></label>
+                        <label for="carousel-2"></label>
+                        <label for="carousel-3"></label>
+                        <label for="carousel-4"></label>
+                        <label for="carousel-5"></label>
+                    </div>
+                    <div class="carousel__nav">
+                        <label for="carousel-1"></label>
+                        <label for="carousel-2"></label>
+                        <label for="carousel-3"></label>
+                        <label for="carousel-4"></label>
+                        <label for="carousel-5"></label>
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="mySlides ">
-                <img
-                        src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
-                        style="width: 100%; height: 100%"
-                        alt="fighting nazca boobies"
-                />
-                <div class="text">A scuffle between two Nazca Boobies</div>
-            </div>
-
-            <div class="mySlides ">
-                <img
-                        src="https://i.pinimg.com/originals/ca/76/0b/ca760b70976b52578da88e06973af542.jpg"
-                        style="width: 100%; height: 100%"
-                        alt="otovalo waterfall"
-                />
-                <div class="text">A waterfall discovered on a hike in Otovalo</div>
-            </div>
-
-            <div class="mySlides ">
-                <img
-                        src="https://images.pexels.com/photos/1819650/pexels-photo-1819650.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                        style="width: 100%; height: 100%"
-                        alt="pelican"
-                />
-                <div class="text">Pelican</div>
-            </div>
         </div>
-
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
-    <br/>
 
-    <div style="margin-left: 75%;">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
-        <span class="dot" onclick="currentSlide(4)"></span>
-    </div>
-    <script>
-        var slideIndex = 1;
-
-        var myTimer;
-
-        var slideshowContainer;
-
-        window.addEventListener("load", function () {
-            showSlides(slideIndex);
-            myTimer = setInterval(function () {
-                plusSlides(1);
-            }, 4000);
-
-            //COMMENT OUT THE LINE BELOW TO KEEP ARROWS PART OF MOUSEENTER PAUSE/RESUME
-            slideshowContainer = document.getElementsByClassName(
-                "slideshow-inner"
-            )[0];
-
-            //UNCOMMENT OUT THE LINE BELOW TO KEEP ARROWS PART OF MOUSEENTER PAUSE/RESUME
-            // slideshowContainer = document.getElementsByClassName('slideshow-container')[0];
-
-            slideshowContainer.addEventListener("mouseenter", pause);
-            slideshowContainer.addEventListener("mouseleave", resume);
-        });
-
-        // NEXT AND PREVIOUS CONTROL
-        function plusSlides(n) {
-            clearInterval(myTimer);
-            if (n < 0) {
-                showSlides((slideIndex -= 1));
-            } else {
-                showSlides((slideIndex += 1));
-            }
-
-            //COMMENT OUT THE LINES BELOW TO KEEP ARROWS PART OF MOUSEENTER PAUSE/RESUME
-
-            if (n === -1) {
-                myTimer = setInterval(function () {
-                    plusSlides(n + 2);
-                }, 4000);
-            } else {
-                myTimer = setInterval(function () {
-                    plusSlides(n + 1);
-                }, 4000);
-            }
-        }
-
-        //Controls the current slide and resets interval if needed
-        function currentSlide(n) {
-            clearInterval(myTimer);
-            myTimer = setInterval(function () {
-                plusSlides(n + 1);
-            }, 4000);
-            showSlides((slideIndex = n));
-        }
-
-        function showSlides(n) {
-            var i;
-            var slides = document.getElementsByClassName("mySlides");
-            var dots = document.getElementsByClassName("dot");
-            if (n > slides.length) {
-                slideIndex = 1;
-            }
-            if (n < 1) {
-                slideIndex = slides.length;
-            }
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active1", "");
-            }
-            slides[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].className += " active1";
-        }
-
-        pause = () => {
-            clearInterval(myTimer);
-        };
-
-        resume = () => {
-            clearInterval(myTimer);
-            myTimer = setInterval(function () {
-                plusSlides(slideIndex);
-            }, 4000);
-        };
-    </script>
 
 {% endblock %}
