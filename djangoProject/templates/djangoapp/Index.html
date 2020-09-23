@@ -1,7 +1,7 @@
 {% extends 'djangoapp/layout.html' %}
 {% load static %}
 {% block head %}
-
+    <link href='https://fonts.googleapis.com/css?family=Wire+One|Raleway:300' rel='stylesheet' type='text/css'>
     <style>
 
 
@@ -185,14 +185,427 @@
             height: 20px;
         }
 
+        {#    divideer#}
+        .split-layout {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media screen and (min-width: 30em) {
+            .split-layout {
+                flex-direction: row;
+                align-items: stretch;
+            }
+        }
+
+        .split-layout__item {
+            flex: 1;
+        }
+
+        @media screen and (min-width: 30em) {
+            .split-layout__item {
+                padding-left: 1em;
+            }
+
+            .split-layout__item:first-child {
+                padding: 0;
+            }
+        }
+
+        .split-layout__divider {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        @media screen and (min-width: 30em) {
+            .split-layout__divider {
+                flex-direction: column;
+            }
+        }
+
+        .split-layout__label {
+            padding: 1em;
+        }
+
+        .split-layout__rule {
+            flex: 1;
+            border-style: solid;
+            border-color: rgba(255, 255, 255, .3);
+            border-width: 1px 0 0 0;
+        }
+
+        @media screen and (min-width: 30em) {
+            .split-layout__rule {
+                border-width: 0 1px 0 0;
+            }
+        }
+
+        /* =DEMO STYLES --------------------------------------------------------------------*/
+        .wrapper {
+            padding: 2em;
+            background: #0f0f10;
+            color: #fff;
+        }
+
+        {#    go but#}
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:900');
+
+
+        #wrapper {
+        {#width: 100vw;#}{#height: 100vh;#} box-sizing: border-box;
+            display: flex;
+        {#align-items: center;#} justify-content: center;
+        }
+
+        .my-super-cool-btn {
+            position: relative;
+            text-decoration: none;
+        {#color: #fff;#} letter-spacing: 1px;
+            font-size: 2rem;
+            box-sizing: border-box;
+        }
+
+        .my-super-cool-btn span {
+            position: relative;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            height: 200px;
+        }
+
+        .my-super-cool-btn span:before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: absolute;
+            border-radius: 100%;
+            border: 7px solid #007bb6;
+            box-sizing: border-box;
+            transition: all .85s cubic-bezier(0.25, 1, 0.33, 1);
+            box-shadow: 0 30px 85px rgba(0, 0, 0, 0.14), 0 15px 35px rgba(0, 0, 0, 0.14);
+        }
+
+        .my-super-cool-btn:hover span:before {
+            transform: scale(0.8);
+            box-shadow: 0 20px 55px rgba(0, 0, 0, 0.14), 0 15px 35px rgba(0, 0, 0, 0.14);
+        }
+
+        .my-super-cool-btn .dots-container {
+            opacity: 0;
+            animation: intro 1.6s;
+            animation-fill-mode: forwards;
+        }
+
+        .my-super-cool-btn .dot {
+            width: 8px;
+            height: 8px;
+            display: block;
+            background-color: #F1C61B;
+            border-radius: 100%;
+            position: absolute;
+            transition: all .85s cubic-bezier(0.25, 1, 0.33, 1);
+        }
+
+        .my-super-cool-btn .dot:nth-child(1) {
+            top: 50px;
+            left: 50px;
+            transform: rotate(-140deg);
+            animation: swag1-out 0.3s;
+            animation-fill-mode: forwards;
+            opacity: 0;
+        }
+
+        .my-super-cool-btn .dot:nth-child(2) {
+            top: 50px;
+            right: 50px;
+            transform: rotate(140deg);
+            animation: swag2-out 0.3s;
+            animation-fill-mode: forwards;
+            opacity: 0;
+        }
+
+        .my-super-cool-btn .dot:nth-child(3) {
+            bottom: 50px;
+            left: 50px;
+            transform: rotate(140deg);
+            animation: swag3-out 0.3s;
+            animation-fill-mode: forwards;
+            opacity: 0;
+        }
+
+        .my-super-cool-btn .dot:nth-child(4) {
+            bottom: 50px;
+            right: 50px;
+            transform: rotate(-140deg);
+            animation: swag4-out 0.3s;
+            animation-fill-mode: forwards;
+            opacity: 0;
+        }
+
+        .my-super-cool-btn:hover .dot:nth-child(1) {
+            animation: swag1 0.3s;
+            animation-fill-mode: forwards;
+        }
+
+        .my-super-cool-btn:hover .dot:nth-child(2) {
+            animation: swag2 0.3s;
+            animation-fill-mode: forwards;
+        }
+
+        .my-super-cool-btn:hover .dot:nth-child(3) {
+            animation: swag3 0.3s;
+            animation-fill-mode: forwards;
+        }
+
+        .my-super-cool-btn:hover .dot:nth-child(4) {
+            animation: swag4 0.3s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes intro {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes swag1 {
+            0% {
+                top: 50px;
+                left: 50px;
+                width: 8px;
+            }
+            50% {
+                width: 30px;
+                opacity: 1;
+            }
+            100% {
+                top: 20px;
+                left: 20px;
+                width: 8px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes swag1-out {
+            0% {
+                top: 20px;
+                left: 20px;
+                width: 8px;
+            }
+            50% {
+                width: 30px;
+                opacity: 1;
+            }
+            100% {
+                top: 50px;
+                left: 50px;
+                width: 8px;
+                opacity: 0;
+            }
+        }
+
+        @keyframes swag2 {
+            0% {
+                top: 50px;
+                right: 50px;
+                width: 8px;
+            }
+            50% {
+                width: 30px;
+                opacity: 1;
+            }
+            100% {
+                top: 20px;
+                right: 20px;
+                width: 8px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes swag2-out {
+            0% {
+                top: 20px;
+                right: 20px;
+                width: 8px;
+            }
+            50% {
+                width: 30px;
+                opacity: 1;
+            }
+            100% {
+                top: 50px;
+                right: 50px;
+                width: 8px;
+                opacity: 0;
+            }
+        }
+
+        @keyframes swag3 {
+            0% {
+                bottom: 50px;
+                left: 50px;
+                width: 8px;
+            }
+            50% {
+                width: 30px;
+                opacity: 1;
+            }
+            100% {
+                bottom: 20px;
+                left: 20px;
+                width: 8px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes swag3-out {
+            0% {
+                bottom: 20px;
+                left: 20px;
+                width: 8px;
+            }
+            50% {
+                width: 30px;
+                opacity: 1;
+            }
+            100% {
+                bottom: 50px;
+                left: 50px;
+                width: 8px;
+                opacity: 0;
+            }
+        }
+
+        @keyframes swag4 {
+            0% {
+                bottom: 50px;
+                right: 50px;
+                width: 8px;
+            }
+            50% {
+                width: 30px;
+                opacity: 1;
+            }
+            100% {
+                bottom: 20px;
+                right: 20px;
+                width: 8px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes swag4-out {
+            0% {
+                bottom: 20px;
+                right: 20px;
+                width: 8px;
+            }
+            50% {
+                width: 30px;
+                opacity: 1;
+            }
+            100% {
+                bottom: 50px;
+                right: 50px;
+                width: 8px;
+                opacity: 0;
+            }
+        }
+
+        {#    divider#}
+
+        .colour-block {
+            background: #40639B;
+        {#width: 60%;#} padding: 7% 20% 10% 20%;
+            color: #fff;
+        }
+
+        .white-block3 {
+            background: #fff;
+            {#width: 60%;#}
+            padding: 5%;
+            color: #40639B;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 80px;
+            font-family: 'wire one', serif;
+            font-weight: normal;
+        }
+
+        p {
+            font-size: 20px;
+            font-family: 'Raleway', serif;
+        }
+
+
+        /*------------*/
+        /* ARROW DOWN */
+        /*------------*/
+        .arrow-down {
+            height: 100px;
+        }
+
+        .arrow-down:before {
+            content: "";
+            position: absolute;
+            left: 0px;
+            width: 50%;
+            height: 100px;
+            background: linear-gradient(to left bottom, #40639B 49%, #fff 50%);
+        }
+
+        .arrow-down:after {
+            content: "";
+            position: absolute;
+            right: 0px;
+            width: 50%;
+            height: 100px;
+            background: linear-gradient(to right bottom, #40639B 49%, #fff 50%);
+        }
+
+
+        /*------------*/
+        /* ARROW UP   */
+        /*------------*/
+        .arrow-up {
+            height: 100px;
+        }
+
+        .arrow-up:before {
+            content: "";
+            position: absolute;
+            left: 0px;
+            width: 50%;
+            height: 100px;
+            background: linear-gradient(to right bottom, #fff 49%, #40639B 50%);
+        }
+
+        .arrow-up:after {
+            content: "";
+            position: absolute;
+            right: 0px;
+            width: 50%;
+            height: 100px;
+            background: linear-gradient(to left bottom, #fff 49%, #40639B 50%);
+        }
+
 
     </style>
 
 {% endblock %}
 
 {% block body %}
-    <div style="background-color: #3b5998;padding: 1%;">
-        <img style="width: 25%; float: right;margin: 5%" src={% static 'djangoapp/9442search-Bilingual-Translation-Jobs.jpg' %}>
+    <div style="background-color: #c5ead2;padding: 1%;">
+        <p style="width: 25%; float: right;margin: 5%"> fdgsdgfsdg fsd</p>
         <div style="display: inline">
             <div class="container" \>
                 <div class="carousel">
@@ -210,13 +623,13 @@
                                 alt=""></li>
                         <li class="carousel__item"><img
                                 src={% static 'djangoapp/chatstyle.css' %}
-                                alt=""></li>
+                                        alt=""></li>
                         <li class="carousel__item"><img
                                 src={% static 'djangoapp/20180111134829-freelance-2906725-1920.png' %}
-                                alt=""></li>
+                                        alt=""></li>
                         <li class="carousel__item"><img
                                 src={% static 'djangoapp/bootstrap-stack.png' %}
-                                alt=""></li>
+                                        alt=""></li>
                     </ul>
                     <div class="carousel__prev">
                         <label for="carousel-1"></label>
@@ -246,6 +659,69 @@
 
         </div>
     </div>
+
+    <link href='https://fonts.googleapis.com/css?family=Wire+One|Raleway:300' rel='stylesheet' type='text/css'>
+
+
+    <div class="arrow-up"></div>
+    <div class="colour-block">
+        <h1>Responsive Arrow Page Dividers.</h1>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
+            sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
+            ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+    </div>
+    <div class="arrow-down"></div>
+    <div class="white-block3">
+        <div class="wrapper">
+            <div class="split-layout">
+
+                <div class="split-layout__item">
+                    <div id="wrapper">
+                        <a style="text-decoration: none" href="#" class="my-super-cool-btn">
+                            <div class="dots-container">
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                            <span style="color: white"> پروژه ها</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="split-layout__divider">
+                    <div class="split-layout__rule"></div>
+                    <div class="split-layout__label"><i class="fa fa-handshake-o" aria-hidden="true"></i></div>
+                    <div class="split-layout__rule"></div>
+                </div>
+
+                <div class="split-layout__item">
+                    <div id="wrapper">
+                        <a style="text-decoration: none" href="#" class="my-super-cool-btn">
+                            <div class="dots-container">
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                            <span style="color: white">ثبت پروژه</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="arrow-up"></div>
+    <div class="colour-block">
+        <h1>Arrow Pointing Up.</h1>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
+            sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
+            ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+    </div>
+
+
+
 
 
 {% endblock %}
