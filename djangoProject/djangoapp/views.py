@@ -30,6 +30,10 @@ def services(request):
     return render(request, "djangoapp/services.html")
 
 
+def about(request):
+    return render(request, "djangoapp/about.html")
+
+
 def show_chat(request):
     return render(request, "djangoapp/chat.html", {
         "all_chats": Temp.objects.all()
