@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="{% static 'djangoapp/css/owl.carousel.css' %} ">
     <link rel="stylesheet" href="{% static 'djangoapp/css/main.css' %} ">
 </head>
-<body>
+<body style="font-family: 'b mitra'">
 
 <header id="header">
     <div class="container main-menu">
@@ -66,12 +66,12 @@
 
 
 
-                    <li><a href="{% url 'price' %}">ورود / ثبت نام</a></li>
-                    <li><a href="{% url 'contact' %}">تماس باما</a></li>
-                    <li><a href="{% url 'about' %}">درباره ما</a></li>
-                    <li><a href="{% url 'services' %}">شکایات و پیشنهادها</a></li>
-                    <li><a href="{% url 'portfolio' %}">تعرفه ها</a></li>
-                    <li><a href="{% url 'Index2' %}">صفخه اصلی</a></li>
+                    <li><a href="{% url 'price' %}" style="font-size: medium;font-family:'B Badr'">ورود / ثبت نام</a></li>
+                    <li><a href="{% url 'contact' %}" style="font-size: medium;font-family:'B Badr'">تماس با ما</a></li>
+                    <li><a href="{% url 'about' %}" style="font-size: medium;font-family:'B Badr'">درباره ما</a></li>
+                    <li><a href="{% url 'services' %}" style="font-size: medium;font-family:'B Badr'">شکایات و پیشنهادها</a></li>
+                    <li><a href="{% url 'portfolio' %}" style="font-size: medium;font-family:'B Badr'">تعرفه ها</a></li>
+                    <li><a href="{% url 'Index2' %}" style="font-size: medium;font-family:'B Badr'">صفخه اصلی</a></li>
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
@@ -86,43 +86,52 @@
                 <img class="img-fluid" src={% static 'djangoapp/img/hero-img.png' %} alt="">
             </div>
             <div class="col-lg-6 col-md-6 banner-left">
-                <h6 style="text-align: right">در </h6>
+                <h6 style="text-align: right;font-weight: bold">در </h6>
                 <h1 style="text-align: center">بلغاری ها</h1>
                 <p>
-                <ul style="text-align: right">
+                <ul style="text-align: right ; font-weight: bold">
                     <li>
                         مناسب ترین مکان برای ثبت پروژه های شما
+                        <i class="fa fa-circle" ></i>
                     </li>
                     <li>
                         امن ترین شیوه پرداخت
+                        <i class="fa fa-circle" ></i>
                     </li>
                     <li>
-                        خدماتی همچون
-                    <li>
-                        طراحی وبسایت
-                    </li>
-                    <li>
-                        ترجمه
-                    </li>
-                    <li>
-                        تولید محتوا
-                    </li>
-                    <li>
-                        برنامه نویسی
-                    </li>
-                    <li>
-                        طراحی لوگو
-                    </li>
-                    </li>
+                        <ul>
+                            :خدماتی همچون
+                            <i class="fa fa-circle" ></i>
+                            <br>
+                            <br>
+                            <li style="margin-right: 3% ; display: inline;border: 2px solid mediumpurple;border-radius: 5px;padding: 4px">
+                                طراحی وبسایت
 
+                            </li>
+                            <li style="margin-right: 3% ; display: inline;border: 2px solid mediumpurple;border-radius: 5px;padding: 4px">
+                                ترجمه
+
+                            </li>
+                            <li style="margin-right: 3% ; display: inline;border: 2px solid mediumpurple;border-radius: 5px;padding: 4px">
+                                تولید محتوا
+
+                            </li >
+                            <li style="margin-right: 3% ; display: inline;border: 2px solid mediumpurple;border-radius: 5px;padding: 4px">
+                                برنامه نویسی
+
+                            </li>
+                            <li style="margin-right: 3% ; display: inline;border: 2px solid mediumpurple;border-radius: 5px;padding: 4px">
+                                طراحی لوگو
+
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
-
-
                 </p>
-                <a href="#" class="primary-btn text-uppercase">انجام پروژه</a>
-                <a href="#" class="primary-btn text-uppercase">ثبت پروژه</a>
+                <br>
+                <a href="#facts-area" class="primary-btn text-uppercase" style="scroll-behavior: smooth">انجام پروژه</a>
+                <a href="#facts-area" class="primary-btn text-uppercase" style="scroll-behavior: smooth">ثبت پروژه</a>
             </div>
-
         </div>
     </div>
 </section>
