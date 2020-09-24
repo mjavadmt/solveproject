@@ -7,7 +7,7 @@ from .models import *
 
 
 def Index(request):
-    return render(request, "djangoapp/Index.html")
+    return render(request, "djangoapp/about.html")
 
 
 def show_chat(request):
