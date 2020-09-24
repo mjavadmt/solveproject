@@ -36,16 +36,17 @@
 		    <div class="container main-menu">
 		    	<div class="row align-items-center justify-content-between d-flex">
 			      <div id="logo">
-			        <a href="index.html"><img src={% static 'djangoapp/img/logo.png' %} alt="" title="" /></a>
+			        <a href="{% url 'Index2' %}"><img src={% static 'djangoapp/img/logo.png' %} alt="" title="" /></a>
 			      </div>
 			      <nav id="nav-menu-container">
 			        <ul class="nav-menu">
-                        <li><a href="price.html">ورود / ثبت نام</a></li>
-                        <li><a href="contact.html">تماس باما</a></li>
-                        <li><a href="about.html">درباره ما</a></li>
-                        <li><a href="services.html">شکایات / پیشنهادها</a></li>
-                        <li><a href="portfolio.html">تعرفه ها</a></li>
-                        <li><a href="index.html">صفخه اصلی</a></li>
+
+			          <li><a href="{% url 'Index2' %}">صفخه اصلی</a></li>
+			          <li><a href="{% url 'about' %}">درباره ما</a></li>
+			          <li><a href="{% url 'services' %}">شکایات / پیشنهادها</a></li>
+			          <li><a href="{% url 'portfolio' %} ">تعرفه ها</a></li>
+			          <li><a href="{% url 'price' %} ">ورود / ثبت نام</a></li>
+
 			        </ul>
 			      </nav><!-- #nav-menu-container -->
 		    	</div>
@@ -60,7 +61,11 @@
 							<h1 class="text-white">
 								درباره من
 							</h1>
+<<<<<<< HEAD
 							<p class="text-white link-nav"><a href="index.html">صفحه اصلی </a>  <span class="lnr lnr-arrow-right"></span>  <a href="about.html"> درباره من</a></p>
+=======
+							<p class="text-white link-nav"><a href="{% url 'Index2' %}">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="about.html"> About Me</a></p>
+>>>>>>> e68dd97015236d47ed9e372cea8b6e71ed03a3a9
 						</div>
 					</div>
 				</div>
@@ -80,7 +85,20 @@
 							<p>
 								تولید محتوا
 							</p>
+<<<<<<< HEAD
 							<a href="#" class="primary-btn text-uppercase">اطلاعات بیشتر</a>
+=======
+							<a href="{% url 'Index2' %}" class="primary-btn text-uppercase">View Full Details</a>
+						</div>
+						<div class="col-lg-12 pt-60">
+							<p>
+								It won’t be a bigger problem to find one video game lover in your neighbor. Since the introduction of Virtual Game, it has been achieving great heights so far as its popularity and technological advancement are concerned. The history of video game is as interesting as a fairy tale.
+							</p>
+							<p>
+								The quality of today’s video game was not at all there when video game first conceptualized and played ever. During the formulative years, video games were created by using various interactive electronic devices with various display formats. The first ever video game was designed in 1947 by Thomas T. Goldsmith Jr.
+							</p>
+							<h4 class="pt-30">Tools Expertness</h4>
+>>>>>>> e68dd97015236d47ed9e372cea8b6e71ed03a3a9
 						</div>
 {#                        نیاز نبود همچین چیزی                      #}
 {#						<div class="col-lg-12 pt-60">#}
@@ -245,19 +263,19 @@
 		            <div class="brand-wrap">
 		                <div class="row align-items-center active-brand-carusel justify-content-start no-gutters">
 		                    <div class="col single-brand">
-		                        <a href="#"><img class="mx-auto" src={% static 'djangoapp/img/l1.png' %} alt=""></a>
+		                        <a href="{% url 'Index2' %}"><img class="mx-auto" src={% static 'djangoapp/img/l1.png' %} alt=""></a>
 		                    </div>
 		                    <div class="col single-brand">
-		                        <a href="#"><img class="mx-auto" src={% static 'djangoapp/img/l2.png' %} alt=""></a>
+		                        <a href="{% url 'Index2' %}"><img class="mx-auto" src={% static 'djangoapp/img/l2.png' %} alt=""></a>
 		                    </div>
 		                    <div class="col single-brand">
-		                        <a href="#"><img class="mx-auto" src={% static 'djangoapp/img/l3.png' %} alt=""></a>
+		                        <a href="{% url 'Index2' %}"><img class="mx-auto" src={% static 'djangoapp/img/l3.png' %} alt=""></a>
 		                    </div>
 		                    <div class="col single-brand">
-		                        <a href="#"><img class="mx-auto" src={% static 'djangoapp/img/l4.png' %} alt=""></a>
+		                        <a href="{% url 'Index2' %}"><img class="mx-auto" src={% static 'djangoapp/img/l4.png' %} alt=""></a>
 		                    </div>
 		                    <div class="col single-brand">
-		                        <a href="#"><img class="mx-auto" src={% static 'djangoapp/img/l5.png' %} alt=""></a>
+		                        <a href="{% url 'Index2' %}"><img class="mx-auto" src={% static 'djangoapp/img/l5.png' %} alt=""></a>
 		                    </div>
 		                </div>
 		            </div>
@@ -304,10 +322,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                                 <h4>Follow Me</h4>
                                 <p>Let us be social</p>
                                 <div class="footer-social d-flex align-items-center">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-dribbble"></i></a>
-                                    <a href="#"><i class="fa fa-behance"></i></a>
+                                    <a href="{% url 'Index2' %}"><i class="fa fa-facebook"></i></a>
+                                    <a href="{% url 'Index2' %}"><i class="fa fa-twitter"></i></a>
+                                    <a href="{% url 'Index2' %}"><i class="fa fa-dribbble"></i></a>
+                                    <a href="{% url 'Index2' %}"><i class="fa fa-behance"></i></a>
+                                    <img>
                                 </div>
                             </div>
                         </div>
