@@ -10,6 +10,26 @@ def Index(request):
     return render(request, "djangoapp/home.html")
 
 
+def contact(request):
+    return render(request, "djangoapp/contact.html")
+
+
+def elements(request):
+    return render(request, "djangoapp/elements.html")
+
+
+def portfolio(request):
+    return render(request, "djangoapp/portfolio.html")
+
+
+def price(request):
+    return render(request, "djangoapp/price.html")
+
+
+def services(request):
+    return render(request, "djangoapp/services.html")
+
+
 def show_chat(request):
     return render(request, "djangoapp/chat.html", {
         "all_chats": Temp.objects.all()
