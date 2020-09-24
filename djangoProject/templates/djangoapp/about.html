@@ -36,33 +36,33 @@
 		    <div class="container main-menu">
 		    	<div class="row align-items-center justify-content-between d-flex">
 			      <div id="logo">
-			        <a href="index.html"><img src={% static 'djangoapp/img/logo.png' %} alt="" title="" /></a>
+			        <a href="{% url 'Index2' %}"><img src={% static 'djangoapp/img/logo.png' %} alt="" title="" /></a>
 			      </div>
 			      <nav id="nav-menu-container">
 			        <ul class="nav-menu">
-			          <li><a href="index.html">Home</a></li>
-			          <li><a href="about.html">About</a></li>
-			          <li><a href="services.html">Services</a></li>
-			          <li><a href="portfolio.html">Portfolio</a></li>
-			          <li><a href="price.html">Pricing</a></li>
+			          <li><a href="{% url 'Index2' %}">Home</a></li>
+			          <li><a href="{% url 'about' %}">About</a></li>
+			          <li><a href="{% url 'services' %}">Services</a></li>
+			          <li><a href="{% url 'portfolio' %} ">Portfolio</a></li>
+			          <li><a href="{% url 'price' %} ">Pricing</a></li>
 			          <li class="menu-has-children"><a href="">Blog</a>
 			            <ul>
 			              <li><a href="blog-home.html">Blog Home</a></li>
 			              <li><a href="blog-single.html">Blog Single</a></li>
 			            </ul>
 			          </li>
-			          <li class="menu-has-children"><a href="">Pages</a>
+			          <li class="menu-has-children"><a href="{% url 'Index2' %}">Pages</a>
 			            <ul>
-		            	  <li><a href="elements.html">Elements</a></li>
-				          <li class="menu-has-children"><a href="">Level 2 </a>
+		            	  <li><a href="{% url 'elements' %}">Elements</a></li>
+				          <li class="menu-has-children"><a href="{% url 'Index2' %}">Level 2 </a>
 				            <ul>
-				              <li><a href="#">Item One</a></li>
-				              <li><a href="#">Item Two</a></li>
+				              <li><a href="{% url 'Index2' %}">Item One</a></li>
+				              <li><a href="{% url 'Index2' %}">Item Two</a></li>
 				            </ul>
 				          </li>
 			            </ul>
 			          </li>
-			          <li><a href="contact.html">Contact</a></li>
+			          <li><a href="{% url 'contact' %}">Contact</a></li>
 			        </ul>
 			      </nav><!-- #nav-menu-container -->
 		    	</div>
@@ -77,7 +77,7 @@
 							<h1 class="text-white">
 								About Me
 							</h1>
-							<p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="about.html"> About Me</a></p>
+							<p class="text-white link-nav"><a href="{% url 'Index2' %}">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="about.html"> About Me</a></p>
 						</div>
 					</div>
 				</div>
@@ -97,7 +97,7 @@
 							<p>
 								Here, I focus on a range of items and features that we use in life without giving them a second thought. such as Coca Cola. Dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
 							</p>
-							<a href="#" class="primary-btn text-uppercase">View Full Details</a>
+							<a href="{% url 'Index2' %}" class="primary-btn text-uppercase">View Full Details</a>
 						</div>
 						<div class="col-lg-12 pt-60">
 							<p>
@@ -261,19 +261,19 @@
 		            <div class="brand-wrap">
 		                <div class="row align-items-center active-brand-carusel justify-content-start no-gutters">
 		                    <div class="col single-brand">
-		                        <a href="#"><img class="mx-auto" src={% static 'djangoapp/img/l1.png' %} alt=""></a>
+		                        <a href="{% url 'Index2' %}"><img class="mx-auto" src={% static 'djangoapp/img/l1.png' %} alt=""></a>
 		                    </div>
 		                    <div class="col single-brand">
-		                        <a href="#"><img class="mx-auto" src={% static 'djangoapp/img/l2.png' %} alt=""></a>
+		                        <a href="{% url 'Index2' %}"><img class="mx-auto" src={% static 'djangoapp/img/l2.png' %} alt=""></a>
 		                    </div>
 		                    <div class="col single-brand">
-		                        <a href="#"><img class="mx-auto" src={% static 'djangoapp/img/l3.png' %} alt=""></a>
+		                        <a href="{% url 'Index2' %}"><img class="mx-auto" src={% static 'djangoapp/img/l3.png' %} alt=""></a>
 		                    </div>
 		                    <div class="col single-brand">
-		                        <a href="#"><img class="mx-auto" src={% static 'djangoapp/img/l4.png' %} alt=""></a>
+		                        <a href="{% url 'Index2' %}"><img class="mx-auto" src={% static 'djangoapp/img/l4.png' %} alt=""></a>
 		                    </div>
 		                    <div class="col single-brand">
-		                        <a href="#"><img class="mx-auto" src={% static 'djangoapp/img/l5.png' %} alt=""></a>
+		                        <a href="{% url 'Index2' %}"><img class="mx-auto" src={% static 'djangoapp/img/l5.png' %} alt=""></a>
 		                    </div>
 		                </div>
 		            </div>
@@ -320,10 +320,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                                 <h4>Follow Me</h4>
                                 <p>Let us be social</p>
                                 <div class="footer-social d-flex align-items-center">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-dribbble"></i></a>
-                                    <a href="#"><i class="fa fa-behance"></i></a>
+                                    <a href="{% url 'Index2' %}"><i class="fa fa-facebook"></i></a>
+                                    <a href="{% url 'Index2' %}"><i class="fa fa-twitter"></i></a>
+                                    <a href="{% url 'Index2' %}"><i class="fa fa-dribbble"></i></a>
+                                    <a href="{% url 'Index2' %}"><i class="fa fa-behance"></i></a>
+                                    <img>
                                 </div>
                             </div>
                         </div>
