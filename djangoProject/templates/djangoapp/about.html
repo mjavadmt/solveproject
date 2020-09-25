@@ -33,27 +33,49 @@
 		</head>
 		<body>
 		  <header id="header">
-		    <div class="container main-menu">
-		    	<div class="row align-items-center justify-content-between d-flex">
-			      <div id="logo">
-			        <a href="{% url 'Index2' %}"><img src={% static 'djangoapp/img/logo.png' %} alt="" title="" /></a>
-			      </div>
-			      <nav id="nav-menu-container">
-			        <ul class="nav-menu">
+    <div class="container main-menu">
+        <div class="row align-items-center justify-content-between d-flex">
+            <div id="logo">
+                <a href="index.html"><img src="{% static 'djangoapp/img/logo.png' %}" alt="" title=""/></a>
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
 
 
-                        <li><a href="{% url 'price' %} ">ورود / ثبت نام</a></li>
-			          <li><a href="{% url 'about' %}">درباره ما</a></li>
-			          <li><a href="{% url 'services' %}">شکایات / پیشنهادها</a></li>
-			          <li><a href="{% url 'portfolio' %} ">تعرفه ها</a></li>
-                        <li><a href="{% url 'Index2' %}">صفخه اصلی</a></li>
+                    {#                                <li class="menu-has-children"><a href="">Blog</a>#}
+                    {#                                    <ul>#}
+                    {#                                        <li><a href="blog-home.html">Blog Home</a></li>#}
+                    {#                                        <li><a href="blog-single.html">Blog Single</a></li>#}
+                    {#                                    </ul>#}
+                    {#                                </li>#}
+                    {#                                <li class="menu-has-children"><a href="">Pages</a>#}
+                    {#                                    <ul>#}
+                    {#                                        <li><a href="{% url 'elements' %}">Elements</a></li>#}
+                    {#                                        <li class="menu-has-children"><a href="">Level 2 </a>#}
+                    {#                                            <ul>#}
+                    {#                                                <li><a href="#">Item One</a></li>#}
+                    {#                                                <li><a href="#">Item Two</a></li>#}
+                    {#                                            </ul>#}
+                    {#                                        </li>#}
+                    {#                                    </ul>#}
+                    {#                                </li>#}
 
 
-			        </ul>
-			      </nav><!-- #nav-menu-container -->
-		    	</div>
-		    </div>
-		  </header><!-- #header -->
+
+
+
+
+                    <li><a href="{% url 'price' %}" style="font-size: medium;font-family:'B Badr'">ورود / ثبت نام</a></li>
+                    <li><a href="{% url 'contact' %}" style="font-size: medium;font-family:'B Badr'">تماس با ما</a></li>
+                    <li><a href="{% url 'about' %}" style="font-size: medium;font-family:'B Badr'">درباره ما</a></li>
+                    <li><a href="{% url 'services' %}" style="font-size: medium;font-family:'B Badr'">شکایات و پیشنهادها</a></li>
+                    <li><a href="{% url 'portfolio' %}" style="font-size: medium;font-family:'B Badr'">تعرفه ها</a></li>
+                    <li><a href="{% url 'Index2' %}" style="font-size: medium;font-family:'B Badr'">صفخه اصلی</a></li>
+                </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </div>
+</header><!-- #header -->
 
 			<!-- start banner Area -->
 			<section class="about-banner">
