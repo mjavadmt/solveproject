@@ -37,7 +37,7 @@
     <div class="container main-menu">
         <div class="row align-items-center justify-content-between d-flex">
             <div id="logo">
-                <a href="index.html"><img src="{% static 'djangoapp/img/logo.png' %}" alt="" title=""/></a>
+                <a href="{% url 'Index2' %}"><img src="{% static 'djangoapp/img/logo.png' %}" alt="" title=""/></a>
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
@@ -62,14 +62,12 @@
                     {#                                </li>#}
 
 
-
-
-
-
-                    <li><a href="{% url 'price' %}" style="font-size: medium;font-family:'B Badr'">ورود / ثبت نام</a></li>
+                    <li><a href="{% url 'price' %}" style="font-size: medium;font-family:'B Badr'">ورود / ثبت نام</a>
+                    </li>
                     <li><a href="{% url 'contact' %}" style="font-size: medium;font-family:'B Badr'">تماس با ما</a></li>
                     <li><a href="{% url 'about' %}" style="font-size: medium;font-family:'B Badr'">درباره ما</a></li>
-                    <li><a href="{% url 'services' %}" style="font-size: medium;font-family:'B Badr'">شکایات و پیشنهادها</a></li>
+                    <li><a href="{% url 'services' %}" style="font-size: medium;font-family:'B Badr'">شکایات و
+                        پیشنهادها</a></li>
                     <li><a href="{% url 'portfolio' %}" style="font-size: medium;font-family:'B Badr'">تعرفه ها</a></li>
                     <li><a href="{% url 'Index2' %}" style="font-size: medium;font-family:'B Badr'">صفخه اصلی</a></li>
                 </ul>
@@ -83,25 +81,26 @@
     <div class="container">
         <div class="row fullscreen align-items-center justify-content-between">
             <div class="col-lg-6 col-md-6 banner-right d-flex align-self-end">
-                <img style="margin-bottom: 5%" class="img-fluid" src={% static 'djangoapp/img/laptop-and-coffee-on-winter-day-1024x1024.jpg' %} alt="">
+                <img style="margin-bottom: 8%;border-radius: 5px" class="img-fluid"
+                     src={% static 'djangoapp/img/laptop-and-coffee-on-winter-day-1024x1024.jpg' %} alt="">
             </div>
             <div class="col-lg-6 col-md-6 banner-left">
-                <h6 style="text-align: right;font-weight: bold">در </h6>
-                <h1 style="text-align: center;font-family: b">کافه پراجکت</h1>
+
+                <h1 style="text-align: center;font-family: 'B Bardiya'">کافه پراجکت</h1>
                 <p>
                 <ul style="text-align: right ; font-weight: bold">
                     <li>
                         مناسب ترین مکان برای ثبت پروژه های شما
-                        <i style="color:#6f4e37" class="fa fa-circle" ></i>
+                        <i style="color:#6f4e37" class="fa fa-circle"></i>
                     </li>
                     <li>
                         امن ترین شیوه پرداخت
-                        <i style="color:#6f4e37" class="fa fa-circle" ></i>
+                        <i style="color:#6f4e37" class="fa fa-circle"></i>
                     </li>
                     <li>
                         <ul>
                             :خدماتی همچون
-                            <i style="color:#6f4e37" class="fa fa-circle" ></i>
+                            <i style="color:#6f4e37" class="fa fa-circle"></i>
                             <br>
                             <br>
                             <li style="margin-right: 3% ;color: #6f4e37; display: inline;border: 2px solid #eec476;border-radius: 5px;padding: 4px;background-color: #eec476">
@@ -115,7 +114,7 @@
                             <li style="margin-right: 3% ;color: #6f4e37; display: inline;border: 2px solid #eec476;border-radius: 5px;padding: 4px;background-color: #eec476">
                                 تولید محتوا
 
-                            </li >
+                            </li>
                             <li style="margin-right: 3% ;color: #6f4e37; display: inline;border: 2px solid #eec476;border-radius: 5px;padding: 4px;background-color: #eec476">
                                 برنامه نویسی
 
@@ -129,8 +128,13 @@
                 </ul>
                 </p>
                 <br>
-                <a href="#facts-area" class="primary-btn text-uppercase" style="scroll-behavior: smooth">انجام پروژه</a>
-                <a href="#facts-area" class="primary-btn text-uppercase" style="scroll-behavior: smooth">ثبت پروژه</a>
+
+                <a href="#facts-area" class="primary-btn text-uppercase"
+                   style="scroll-behavior: smooth;background: linear-gradient(90deg, rgba(246,207,124,1) 46%, rgba(210,146,26,1) 100%, rgba(0,212,255,1) 100%);color: #6f4e37;font-weight: bold">انجام
+                    پروژه</a>
+                <a href="#facts-area" class="primary-btn text-uppercase"
+                   style="scroll-behavior: smooth;background: linear-gradient(90deg, rgba(246,207,124,1) 46%, rgba(210,146,26,1) 100%, rgba(0,212,255,1) 100%);color: #6f4e37;font-weight: bold">ثبت
+                    پروژه</a>
             </div>
         </div>
     </div>
@@ -142,9 +146,7 @@
     <div class="container">
         <div class="row align-items-center justify-content-between">
             <div class="col-lg-6 col-md-6 home-about-left">
-                <img class="img-fluid" src={% static 'djangoapp/img/about-img.png' %} alt="">
-            </div>
-            <div class="col-lg-5 col-md-6 home-about-right">
+
                 <h6>About Me</h6>
                 <h1 class="text-uppercase">Personal Details</h1>
                 <p>
@@ -154,6 +156,9 @@
                     quis nostrud exercitation ullamco.
                 </p>
                 <a href="#" class="primary-btn text-uppercase">View Full Details</a>
+            </div>
+            <div class="col-lg-5 col-md-6 home-about-right">
+                <img class="img-fluid" src={% static 'djangoapp/img/about-img.png' %} alt="">
             </div>
         </div>
     </div>
@@ -166,9 +171,9 @@
         <div class="row d-flex justify-content-center">
             <div class="menu-content  col-lg-7">
                 <div class="title text-center">
-                    <h1 class="mb-10">My Offered Services</h1>
-                    <p>At about this time of year, some months after New Year’s resolutions have been made
-                        and kept, or made and neglected.</p>
+                    <h1 class="mb-10">دسته بندی ها</h1>
+{#                    <p>At about this time of year, some months after New Year’s resolutions have been made#}
+{#                        and kept, or made and neglected.</p>#}
                 </div>
             </div>
         </div>
