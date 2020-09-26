@@ -30,29 +30,26 @@
     <link rel="stylesheet" href="{% static 'djangoapp/css/animate.min.css' %} ">
     <link rel="stylesheet" href="{% static 'djangoapp/css/owl.carousel.css' %} ">
     <link rel="stylesheet" href="{% static 'djangoapp/css/main.css' %} ">
-    <script>
-        document.addEventListener("DOMContentLoaded", () =>
-        {
-            let links = document.getElementsByClassName("change_hover");
-            for (let i = 0 ;i<links.length ; i++)
-            {
-                links[i].addEventListener("mouseover" , (event) =>
-                {
-                    event.target.style.borderBottom = "1px solid white";
-                    event.target.style.paddingBottom = "2px";
-                })
-                links[i].addEventListener("mouseout",(event) =>
-                {
-                    event.target.style.removeProperty('border-bottom');
-                    event.target.style.removeProperty('padding-bottom');
-                })
-            }
-        })
-    </script>
+
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <style>
+
+        .move_up {
+          position: relative;
+          top: 0;
+          transition: top ease 0.5s;
+        }
+        .move_up:hover{
+            top: -10px;
+        }
+
+    </style>
 </head>
 <body style="font-family: 'b mitra'">
 
-<header id="header" style="background-color: #d1aa57">
+<header id="header">
     <div class="container main-menu">
         <div class="row align-items-center justify-content-between d-flex">
             <div id="logo">
@@ -62,12 +59,12 @@
                 <ul class="nav-menu">
 
 
-                    {#                                                    <li class="menu-has-children"><a href="">Blog</a>#}
+{#                                                    <li class="menu-has-children"><a href="">Blog</a>#}
                     {#                                    <ul>#}
                     {#                                        <li><a href="blog-home.html">Blog Home</a></li>#}
                     {#                                        <li><a href="blog-single.html">Blog Single</a></li>#}
                     {#                                    </ul>#}
-                    {#                                                    </li>#}
+{#                                                    </li>#}
                     {#                                <li class="menu-has-children"><a href="">Pages</a>#}
                     {#                                    <ul>#}
                     {#                                        <li><a href="{% url 'elements' %}">Elements</a></li>#}
@@ -81,17 +78,20 @@
                     {#                                </li>#}
 
 
-                    <li><a class="change_hover" href="{% url 'price' %}" style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">ورود / ثبت نام</a>
+                    <li><a href="{% url 'price' %}" style="font-size: medium;font-family:'B Badr'">ورود / ثبت نام</a>
                     </li>
-                    <li><a class="change_hover" href="{% url 'contact' %}" style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">تماس با ما</a></li>
-                    <li><a class="change_hover" href="{% url 'about' %}" style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">درباره ما</a></li>
-                    <li><a class="change_hover" href="{% url 'services' %}" style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">شکایات و
+                    <li><a href="{% url 'contact' %}" style="font-size: medium;font-family:'B Badr'">تماس با ما</a></li>
+                    <li><a href="{% url 'about' %}" style="font-size: medium;font-family:'B Badr'">درباره ما</a></li>
+                    <li><a href="{% url 'services' %}" style="font-size: medium;font-family:'B Badr'">شکایات و
                         پیشنهادها</a></li>
-                    <li><a class="change_hover" href="{% url 'portfolio' %}" style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">تعرفه ها</a></li>
-                    <li><a class="change_hover" style="font-size: large;font-family:'B Badr';color: white;text-decoration: none;"   href="">پروژه ها</a>
-                    </li>
-                    <li >
-                        <a href="{% url 'Index2' %}" style="font-size: large;font-family:'B Badr';color: #fdfff8;border-bottom: 1px solid white;padding-bottom: 2px;text-decoration: none" >صفحه اصلی</a></li>
+                    <li><a href="{% url 'portfolio' %}" style="font-size: medium;font-family:'B Badr'">تعرفه ها</a></li>
+                    <li ><a style="font-size: medium;font-family:'B Badr'" href="">پروژه ها</a>
+                    {#                                    <ul>#}
+                    {#                                        <li><a href="blog-home.html">Blog Home</a></li>#}
+                    {#                                        <li><a href="blog-single.html">Blog Single</a></li>#}
+                    {#                                    </ul>#}
+                                                    </li>
+                    <li style="background: #ff9520;border-bottom-left-radius: 8px;border-bottom-right-radius: 8px;border: 1px solid sandybrown"><a href="{% url 'Index2' %}" style="font-size: medium;font-family:'B Badr'">صفحه اصلی</a></li>
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
@@ -201,10 +201,10 @@
         </div>
         <div class="row">
             <div class="col-lg-4 col-md-6">
-                <div class="single-services">
+                <div class="single-services move_up">
                     <img src="https://img.icons8.com/bubbles/64/000000/domain.png"/>
 
-                    <a href="#"><h4>SEO</h4></a>
+                    <a  href="#"><h4>SEO</h4></a>
                     <p>
                         “It is not because things are difficult that we do not dare; it is because we do not
                         dare that they are difficult.”
@@ -212,9 +212,9 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
-                <div class="single-services">
+                <div class="single-services move_up">
                     {#                    <span class="lnr lnr-laptop-phone"></span>#}
-                    <img src="{% static 'djangoapp/img/icons8-web-design-64.png' %}">
+                   <img src="{% static 'djangoapp/img/icons8-web-design-64.png' %}">
                     <a href="#"><h4>توسعه وب</h4></a>
                     <p>
                         If you are an entrepreneur, you know that your success cannot depend on the opinions
@@ -223,7 +223,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
-                <div class="single-services">
+                <div class="single-services move_up">
                     <img src="{% static 'djangoapp/img/icons8-switch-host-64.png' %}">
                     <a href="#"><h4>سیستم عامل</h4></a>
                     <p>
@@ -233,8 +233,8 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
-                <div class="single-services">
-                    {#                    <i class="fa fa-3x fa-pencil-square-o" aria-hidden="true"></i>#}
+                <div class="single-services move_up">
+{#                    <i class="fa fa-3x fa-pencil-square-o" aria-hidden="true"></i>#}
                     <img src="{% static 'djangoapp/img/icons8-edit-property-64.png' %}">
                     <a href="#"><h4>تولید محتوا</h4></a>
                     <p>
@@ -244,7 +244,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
-                <div class="single-services">
+                <div class="single-services move_up">
                     <img src="{% static 'djangoapp/img/icons8-android-64.png' %}">
                     <a href="#"><h4>اندروید</h4></a>
                     <p>
@@ -254,7 +254,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
-                <div class="single-services">
+                <div class="single-services move_up">
                     <img src="{% static 'djangoapp/img/icons8-apple-logo-64.png' %}">
                     <a href="#"><h4>ios</h4></a>
                     <p>
@@ -264,7 +264,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
-                <div class="single-services">
+                <div class="single-services move_up">
                     <img src="{% static 'djangoapp/img/icons8-edit-image-64.png' %}">
                     <a href="#"><h4>ویرایش عکس و فیلم</h4></a>
                     <p>
@@ -274,7 +274,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
-                <div class="single-services">
+                <div class="single-services move_up">
 
                     <img src="https://img.icons8.com/nolan/64/google-translate.png"/>
                     <a href="#"><h4>ترجمه و تایپ</h4></a>
@@ -285,7 +285,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
-                <div class="single-services">
+                <div class="single-services move_up">
                     <img src="https://img.icons8.com/nolan/64/find-matching-job.png"/>
                     <a href="#"><h4>سایر کسب کار ها</h4></a>
                     <p>
@@ -299,9 +299,33 @@
 </section>
 <!-- End services Area -->
 
+{#Start javascript code for buttons#}
+
+<script>
+
+    function bigImg(x)
+    {
+      x.style.height = "64px";
+      x.style.width = "64px";
+    }
+
+    function normalImg(x)
+    {
+      x.style.height = "32px";
+      x.style.width = "32px";
+    }
+
+</script>
+
+
+
+
+{#End javascript code for buttons#}
+
+
+
 <!-- Start fact Area -->
-<section style="background: -webkit-linear-gradient(0deg, #ffdf84 0%, #6e4905 100%)" class="facts-area section-gap"
-         id="facts-area">
+<section style="background: -webkit-linear-gradient(0deg, #ffdf84 0%, #6e4905 100%)" class="facts-area section-gap" id="facts-area">
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-6 single-fact">
