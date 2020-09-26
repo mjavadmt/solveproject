@@ -43,12 +43,12 @@
                 <ul class="nav-menu">
 
 
-                    {#                                <li class="menu-has-children"><a href="">Blog</a>#}
+{#                                                    <li class="menu-has-children"><a href="">Blog</a>#}
                     {#                                    <ul>#}
                     {#                                        <li><a href="blog-home.html">Blog Home</a></li>#}
                     {#                                        <li><a href="blog-single.html">Blog Single</a></li>#}
                     {#                                    </ul>#}
-                    {#                                </li>#}
+{#                                                    </li>#}
                     {#                                <li class="menu-has-children"><a href="">Pages</a>#}
                     {#                                    <ul>#}
                     {#                                        <li><a href="{% url 'elements' %}">Elements</a></li>#}
@@ -69,7 +69,13 @@
                     <li><a href="{% url 'services' %}" style="font-size: medium;font-family:'B Badr'">شکایات و
                         پیشنهادها</a></li>
                     <li><a href="{% url 'portfolio' %}" style="font-size: medium;font-family:'B Badr'">تعرفه ها</a></li>
-                    <li><a href="{% url 'Index2' %}" style="font-size: medium;font-family:'B Badr'">صفخه اصلی</a></li>
+                    <li ><a style="font-size: medium;font-family:'B Badr'" href="">پروژه ها</a>
+                    {#                                    <ul>#}
+                    {#                                        <li><a href="blog-home.html">Blog Home</a></li>#}
+                    {#                                        <li><a href="blog-single.html">Blog Single</a></li>#}
+                    {#                                    </ul>#}
+                                                    </li>
+                    <li style="background: #ff9520;border-bottom-left-radius: 8px;border-bottom-right-radius: 8px;border: 1px solid sandybrown"><a href="{% url 'Index2' %}" style="font-size: medium;font-family:'B Badr'">صفحه اصلی</a></li>
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
@@ -180,7 +186,7 @@
         <div class="row">
             <div class="col-lg-4 col-md-6">
                 <div class="single-services">
-                    <i class="fa fa-3x fa-globe" aria-hidden="true"></i>
+                    <img src="https://img.icons8.com/bubbles/64/000000/domain.png"/>
 
                     <a href="#"><h4>SEO</h4></a>
                     <p>
@@ -253,7 +259,8 @@
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="single-services">
-                    <i class="fa fa-3x fa-language" aria-hidden="true"></i>
+
+                    <img src="https://img.icons8.com/nolan/64/google-translate.png"/>
                     <a href="#"><h4>ترجمه و تایپ</h4></a>
                     <p>
                         You’ve heard the expression, “Just believe it and it will come.” Well, technically,
@@ -263,7 +270,7 @@
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="single-services">
-                    <span class="lnr lnr-camera"></span>
+                    <img src="https://img.icons8.com/nolan/64/find-matching-job.png"/>
                     <a href="#"><h4>سایر کسب کار ها</h4></a>
                     <p>
                         Do you want to be even more successful? Learn to love learning and growth. The more
@@ -277,11 +284,11 @@
 <!-- End services Area -->
 
 <!-- Start fact Area -->
-<section class="facts-area section-gap" id="facts-area">
+<section style="background: -webkit-linear-gradient(0deg, #ffdf84 0%, #6e4905 100%)" class="facts-area section-gap" id="facts-area">
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-6 single-fact">
-                <i style="color: green" class="fa fa-4x fa-check" aria-hidden="true"></i>
+                <img src="https://img.icons8.com/nolan/64/task-completed.png"/>
                 <br>
                 <br>
                 <p style="font-size: large">پروژه های موفق</p>
@@ -295,12 +302,16 @@
                 <h1 class="counter">6784</h1>
             </div>
             <div class="col-lg-3 col-md-6 single-fact">
-
+                <img src="https://img.icons8.com/fluent/64/000000/commercial-development-management.png"/>
+                <br>
+                <br>
                 <p style="font-size: large">کارفرمایان</p>
                 <h1 class="counter">2239</h1>
             </div>
             <div class="col-lg-3 col-md-6 single-fact">
-
+                <img src="https://img.icons8.com/nolan/64/to-do.png"/>
+                <br>
+                <br>
                 <p style="font-size: large">پروژه های موجود</p>
                 <h1 class="counter">435</h1>
             </div>
