@@ -32,18 +32,14 @@
     <link rel="stylesheet" href="{% static 'djangoapp/css/main.css' %} ">
 
     <script>
-        document.addEventListener("DOMContentLoaded", () =>
-        {
+        document.addEventListener("DOMContentLoaded", () => {
             let links = document.getElementsByClassName("change_hover");
-            for (let i = 0 ;i<links.length ; i++)
-            {
-                links[i].addEventListener("mouseover" , (event) =>
-                {
+            for (let i = 0; i < links.length; i++) {
+                links[i].addEventListener("mouseover", (event) => {
                     event.target.style.borderBottom = "1px solid #6f4e37";
                     event.target.style.paddingBottom = "2px";
                 })
-                links[i].addEventListener("mouseout",(event) =>
-                {
+                links[i].addEventListener("mouseout", (event) => {
                     event.target.style.removeProperty('border-bottom');
                     event.target.style.removeProperty('padding-bottom');
                 })
@@ -81,17 +77,30 @@
                     {#                                </li>#}
 
 
-                    <li><a class="change_hover" href="{% url 'price' %}" style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">ورود / ثبت نام</a>
+                    <li><a class="change_hover" href="{% url 'price' %}"
+                           style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">ورود / ثبت
+                        نام</a>
                     </li>
-                    <li><a class="change_hover" href="{% url 'contact' %}" style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">تماس با ما</a></li>
-                    <li><a class="change_hover" href="{% url 'about' %}" style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">درباره ما</a></li>
-                    <li><a class="change_hover" href="{% url 'services' %}" style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">شکایات و
+                    <li><a class="change_hover" href="{% url 'contact' %}"
+                           style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">تماس با
+                        ما</a></li>
+                    <li><a class="change_hover" href="{% url 'about' %}"
+                           style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">درباره
+                        ما</a></li>
+                    <li><a class="change_hover" href="{% url 'services' %}"
+                           style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">شکایات و
                         پیشنهادها</a></li>
-                    <li><a href="{% url 'portfolio' %}" style="font-size: large;font-family:'B Badr';color: white;border-bottom: 1px solid white;padding-bottom: 2px;text-decoration: none">تعرفه ها</a></li>
-                    <li><a class="change_hover" style="font-size: large;font-family:'B Badr';color: white;text-decoration: none;"   href="">پروژه ها</a>
+                    <li><a href="{% url 'portfolio' %}"
+                           style="font-size: large;font-family:'B Badr';color: white;border-bottom: 1px solid white;padding-bottom: 2px;text-decoration: none">تعرفه
+                        ها</a></li>
+                    <li><a class="change_hover"
+                           style="font-size: large;font-family:'B Badr';color: white;text-decoration: none;" href="">پروژه
+                        ها</a>
                     </li>
-                    <li >
-                        <a class="change_hover" href="{% url 'Index2' %}" style="font-size: large;font-family:'B Badr';color: #fdfff8;text-decoration: none" >صفحه اصلی</a></li>
+                    <li>
+                        <a class="change_hover" href="{% url 'Index2' %}"
+                           style="font-size: large;font-family:'B Badr';color: #fdfff8;text-decoration: none">صفحه
+                            اصلی</a></li>
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
@@ -99,158 +108,208 @@
 </header><!-- #header -->
 
 <!-- start banner Area -->
-<section class="about-banner">
+
+<section class="banner-area">
+    <div style="margin-top: 8%" class="title text-center">
+
+        <h1 class="mb-10">پروسه مالی کافه</h1>
+        {#                    <p>At about this time of year, some months after New Year’s resolutions have been made#}
+        {#                        and kept, or made and neglected.</p>#}
+    </div>
     <div class="container">
-        <div class="row d-flex align-items-center justify-content-center">
-            <div class="about-content col-lg-12">
-                <h1 class="text-white">
-                    Portfolio
-                </h1>
-                <p class="text-white link-nav"><a href="{% url 'Index2' %}">Home </a> <span
-                        class="lnr lnr-arrow-right"></span> <a href="portfolio.html"> Portfolio</a></p>
+
+        <div class="row fullscreen align-items-center justify-content-between">
+
+            <div class="col-lg-6 col-md-6 banner-right d-flex align-self-end">
+                <img style="margin-bottom: 8%;border-radius: 5px" class="img-fluid"
+                     src={% static 'djangoapp/img/unnamed.jpg' %} alt="">
             </div>
+            <div class="col-lg-6 col-md-6 banner-left">
+
+                <h1 style="text-align: center;font-family: 'B Bardiya'">هدیه ثبت نام</h1>
+                <br>
+                <p style="text-align: right">
+                    بعد از ثبت نام هر کارفرما یا فریلنسر 20 فنجون رایگان براشون سرو میشه
+                </p>
+
+
+            </div>
+        </div>
+        <div class="row fullscreen align-items-center justify-content-between">
+            <div class="col-lg-6 col-md-6 banner-left">
+
+                <h1 style="text-align: center;font-family: 'B Bardiya'">فنجون چیه؟</h1>
+                <br>
+                <p style="text-align: right">
+                    فنجون در واقع ابزار معاملاتی شما تو کافست . اینظوری که:
+                    <br>
+                    هر فریلنسر دادن 3 تا از فنجوناش میتونه یه پیشنهاد قیمت رو یه پروژه بده.
+                    <br>
+                    وهر کارفرما با دادن 3 تا از فنجوناش میتونه یه پروژه تو کافه ثبت کنه.
+                </p>
+
+
+            </div>
+            <div class="col-lg-6 col-md-6 banner-right d-flex align-self-end">
+                <img style="margin-bottom: 8%;border-radius: 5px" class="img-fluid"
+                     src={% static 'djangoapp/img/flat-coffee-cup-icon-800x566.jpg' %} alt="">
+            </div>
+
         </div>
     </div>
 </section>
+{#<section class="about-banner">#}
+{#    <div class="container">#}
+{#        <div class="row d-flex align-items-center justify-content-center">#}
+{#            <div class="about-content col-lg-12">#}
+{#                <h1 class="text-white">#}
+{#                    Portfolio#}
+{#                </h1>#}
+{#                <p class="text-white link-nav"><a href="{% url 'Index2' %}">Home </a> <span#}
+{#                        class="lnr lnr-arrow-right"></span> <a href="portfolio.html"> Portfolio</a></p>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</section>#}
 <!-- End banner Area -->
 <!-- Start portfolio-area Area -->
-<section class="portfolio-area section-gap" id="portfolio">
-    <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="menu-content pb-70 col-lg-8">
-                <div class="title text-center">
-                    <h1 class="mb-10">Our Latest Featured Projects</h1>
-                    <p>Who are in extremely love with eco friendly system.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="filters">
-            <ul>
-                <li class="active" data-filter="*">All</li>
-                <li data-filter=".vector">Vector</li>
-                <li data-filter=".raster">Raster</li>
-                <li data-filter=".ui">UI/UX</li>
-                <li data-filter=".printing">Printing</li>
-            </ul>
-        </div>
-
-        <div class="filters-content">
-            <div class="row grid">
-                <div class="single-portfolio col-sm-4 all vector">
-                    <div class="relative">
-                        <div class="thumb">
-                            <div class="overlay overlay-bg"></div>
-                            <img class="image img-fluid" src="{% static 'djangoapp/img/p1.jpg' %}" alt="">
-                        </div>
-                        <a href="{% static 'djangoapp/img/p1.jpg' %}" class="img-pop-up">
-                            <div class="middle">
-                                <div class="text align-self-center d-flex"><img
-                                        src="{% static 'djangoapp/img/preview.png' %}" alt=""></div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="p-inner">
-                        <h4>2D Vinyl Design</h4>
-                        <div class="cat">vector</div>
-                    </div>
-                </div>
-                <div class="single-portfolio col-sm-4 all raster">
-                    <div class="relative">
-                        <div class="thumb">
-                            <div class="overlay overlay-bg"></div>
-                            <img class="image img-fluid" src="{% static 'djangoapp/img/p2.jpg' %}" alt="">
-                        </div>
-                        <a href="{% static 'djangoapp/img/p2.jpg' %}" class="img-pop-up">
-                            <div class="middle">
-                                <div class="text align-self-center d-flex"><img
-                                        src="{% static 'djangoapp/img/preview.png' %}" alt=""></div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="p-inner">
-                        <h4>2D Vinyl Design</h4>
-                        <div class="cat">vector</div>
-                    </div>
-                </div>
-                <div class="single-portfolio col-sm-4 all ui">
-                    <div class="relative">
-                        <div class="thumb">
-                            <div class="overlay overlay-bg"></div>
-                            <img class="image img-fluid" src="{% static 'djangoapp/img/p3.jpg' %}" alt="">
-                        </div>
-                        <a href="{% static 'djangoapp/img/p3.jpg' %}" class="img-pop-up">
-                            <div class="middle">
-                                <div class="text align-self-center d-flex"><img
-                                        src="{% static 'djangoapp/img/preview.png' %}" alt=""></div>
-                            </div>
-                        </a>
-
-                    </div>
-                    <div class="p-inner">
-                        <h4>Creative Poster Design</h4>
-                        <div class="cat">Agency</div>
-                    </div>
-                </div>
-                <div class="single-portfolio col-sm-4 all printing">
-                    <div class="relative">
-                        <div class="thumb">
-                            <div class="overlay overlay-bg"></div>
-                            <img class="image img-fluid" src="{% static 'djangoapp/img/p4.jpg' %}" alt="">
-                        </div>
-                        <a href="{% static 'djangoapp/img/p4.jpg' %}" class="img-pop-up">
-                            <div class="middle">
-                                <div class="text align-self-center d-flex"><img
-                                        src="{% static 'djangoapp/img/preview.png' %}" alt=""></div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="p-inner">
-                        <h4>Embosed Logo Design</h4>
-                        <div class="cat">Portal</div>
-                    </div>
-                </div>
-                <div class="single-portfolio col-sm-4 all vector">
-                    <div class="relative">
-                        <div class="thumb">
-                            <div class="overlay overlay-bg"></div>
-                            <img class="image img-fluid" src="{% static 'djangoapp/img/p5.jpg' %}" alt="">
-                        </div>
-                        <a href="{% static 'djangoapp/img/p5.jpg' %}" class="img-pop-up">
-                            <div class="middle">
-                                <div class="text align-self-center d-flex"><img
-                                        src="{% static 'djangoapp/img/preview.png' %}" alt=""></div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="p-inner">
-                        <h4>3D Helmet Design</h4>
-                        <div class="cat">vector</div>
-                    </div>
-                </div>
-                <div class="single-portfolio col-sm-4 all raster">
-                    <div class="relative">
-                        <div class="thumb">
-                            <div class="overlay overlay-bg"></div>
-                            <img class="image img-fluid" src="{% static 'djangoapp/img/p6.jpg' %}" alt="">
-                        </div>
-                        <a href="{% static 'djangoapp/img/p6.jpg' %}" class="img-pop-up">
-                            <div class="middle">
-                                <div class="text align-self-center d-flex"><img
-                                        src="{% static 'djangoapp/img/preview.png' %}" alt=""></div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="p-inner">
-                        <h4>2D Vinyl Design</h4>
-                        <div class="cat">raster</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</section>
+{#<section class="portfolio-area section-gap" id="portfolio">#}
+{#    <div class="container">#}
+{#        <div class="row d-flex justify-content-center">#}
+{#            <div class="menu-content pb-70 col-lg-8">#}
+{#                <div class="title text-center">#}
+{#                    <h1 class="mb-10">Our Latest Featured Projects</h1>#}
+{#                    <p>Who are in extremely love with eco friendly system.</p>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <div class="filters">#}
+{#            <ul>#}
+{#                <li class="active" data-filter="*">All</li>#}
+{#                <li data-filter=".vector">Vector</li>#}
+{#                <li data-filter=".raster">Raster</li>#}
+{#                <li data-filter=".ui">UI/UX</li>#}
+{#                <li data-filter=".printing">Printing</li>#}
+{#            </ul>#}
+{#        </div>#}
+{##}
+{#        <div class="filters-content">#}
+{#            <div class="row grid">#}
+{#                <div class="single-portfolio col-sm-4 all vector">#}
+{#                    <div class="relative">#}
+{#                        <div class="thumb">#}
+{#                            <div class="overlay overlay-bg"></div>#}
+{#                            <img class="image img-fluid" src="{% static 'djangoapp/img/p1.jpg' %}" alt="">#}
+{#                        </div>#}
+{#                        <a href="{% static 'djangoapp/img/p1.jpg' %}" class="img-pop-up">#}
+{#                            <div class="middle">#}
+{#                                <div class="text align-self-center d-flex"><img#}
+{#                                        src="{% static 'djangoapp/img/preview.png' %}" alt=""></div>#}
+{#                            </div>#}
+{#                        </a>#}
+{#                    </div>#}
+{#                    <div class="p-inner">#}
+{#                        <h4>2D Vinyl Design</h4>#}
+{#                        <div class="cat">vector</div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="single-portfolio col-sm-4 all raster">#}
+{#                    <div class="relative">#}
+{#                        <div class="thumb">#}
+{#                            <div class="overlay overlay-bg"></div>#}
+{#                            <img class="image img-fluid" src="{% static 'djangoapp/img/p2.jpg' %}" alt="">#}
+{#                        </div>#}
+{#                        <a href="{% static 'djangoapp/img/p2.jpg' %}" class="img-pop-up">#}
+{#                            <div class="middle">#}
+{#                                <div class="text align-self-center d-flex"><img#}
+{#                                        src="{% static 'djangoapp/img/preview.png' %}" alt=""></div>#}
+{#                            </div>#}
+{#                        </a>#}
+{#                    </div>#}
+{#                    <div class="p-inner">#}
+{#                        <h4>2D Vinyl Design</h4>#}
+{#                        <div class="cat">vector</div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="single-portfolio col-sm-4 all ui">#}
+{#                    <div class="relative">#}
+{#                        <div class="thumb">#}
+{#                            <div class="overlay overlay-bg"></div>#}
+{#                            <img class="image img-fluid" src="{% static 'djangoapp/img/p3.jpg' %}" alt="">#}
+{#                        </div>#}
+{#                        <a href="{% static 'djangoapp/img/p3.jpg' %}" class="img-pop-up">#}
+{#                            <div class="middle">#}
+{#                                <div class="text align-self-center d-flex"><img#}
+{#                                        src="{% static 'djangoapp/img/preview.png' %}" alt=""></div>#}
+{#                            </div>#}
+{#                        </a>#}
+{##}
+{#                    </div>#}
+{#                    <div class="p-inner">#}
+{#                        <h4>Creative Poster Design</h4>#}
+{#                        <div class="cat">Agency</div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="single-portfolio col-sm-4 all printing">#}
+{#                    <div class="relative">#}
+{#                        <div class="thumb">#}
+{#                            <div class="overlay overlay-bg"></div>#}
+{#                            <img class="image img-fluid" src="{% static 'djangoapp/img/p4.jpg' %}" alt="">#}
+{#                        </div>#}
+{#                        <a href="{% static 'djangoapp/img/p4.jpg' %}" class="img-pop-up">#}
+{#                            <div class="middle">#}
+{#                                <div class="text align-self-center d-flex"><img#}
+{#                                        src="{% static 'djangoapp/img/preview.png' %}" alt=""></div>#}
+{#                            </div>#}
+{#                        </a>#}
+{#                    </div>#}
+{#                    <div class="p-inner">#}
+{#                        <h4>Embosed Logo Design</h4>#}
+{#                        <div class="cat">Portal</div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="single-portfolio col-sm-4 all vector">#}
+{#                    <div class="relative">#}
+{#                        <div class="thumb">#}
+{#                            <div class="overlay overlay-bg"></div>#}
+{#                            <img class="image img-fluid" src="{% static 'djangoapp/img/p5.jpg' %}" alt="">#}
+{#                        </div>#}
+{#                        <a href="{% static 'djangoapp/img/p5.jpg' %}" class="img-pop-up">#}
+{#                            <div class="middle">#}
+{#                                <div class="text align-self-center d-flex"><img#}
+{#                                        src="{% static 'djangoapp/img/preview.png' %}" alt=""></div>#}
+{#                            </div>#}
+{#                        </a>#}
+{#                    </div>#}
+{#                    <div class="p-inner">#}
+{#                        <h4>3D Helmet Design</h4>#}
+{#                        <div class="cat">vector</div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="single-portfolio col-sm-4 all raster">#}
+{#                    <div class="relative">#}
+{#                        <div class="thumb">#}
+{#                            <div class="overlay overlay-bg"></div>#}
+{#                            <img class="image img-fluid" src="{% static 'djangoapp/img/p6.jpg' %}" alt="">#}
+{#                        </div>#}
+{#                        <a href="{% static 'djangoapp/img/p6.jpg' %}" class="img-pop-up">#}
+{#                            <div class="middle">#}
+{#                                <div class="text align-self-center d-flex"><img#}
+{#                                        src="{% static 'djangoapp/img/preview.png' %}" alt=""></div>#}
+{#                            </div>#}
+{#                        </a>#}
+{#                    </div>#}
+{#                    <div class="p-inner">#}
+{#                        <h4>2D Vinyl Design</h4>#}
+{#                        <div class="cat">raster</div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#    </div>#}
+{#</section>#}
 <!-- End portfolio-area Area -->
 <!-- Start price Area -->
 <section class="price-area section-gap">
@@ -266,7 +325,9 @@
         <div class="row">
             <div class="col-lg-3 col-md-6 single-price">
                 <div class="top-part">
-                    <h1 class="package-no"><img style="margin-top: -20%; margin-left: 10%; " src="{% static 'djangoapp/img/capuchino.png' %}" width="90%" alt="" title=""/></h1>
+                    <h1 class="package-no"><img style="margin-top: -20%; margin-left: 10%; "
+                                                src="{% static 'djangoapp/img/capuchino.png' %}" width="90%" alt=""
+                                                title=""/></h1>
                     <h4>طرح باور نکردنی کاپوچینو</h4>
                     <p class="mt-10">For the individuals</p>
                 </div>
@@ -284,7 +345,9 @@
             </div>
             <div class="col-lg-3 col-md-6 single-price">
                 <div class="top-part">
-                    <h1 class="package-no"><img style=" margin-left: 5%; " src="{% static 'djangoapp/img/espresso.png' %}" width="90%" alt="" title=""/></h1>
+                    <h1 class="package-no"><img style=" margin-left: 5%; "
+                                                src="{% static 'djangoapp/img/espresso.png' %}" width="90%" alt=""
+                                                title=""/></h1>
                     <h4>اسپرسو</h4>
                     <p class="mt-10">For the individuals</p>
                 </div>
@@ -302,7 +365,9 @@
             </div>
             <div class="col-lg-3 col-md-6 single-price">
                 <div class="top-part">
-                    <h1 class="package-no"><img style=" margin-left: 5%; " src="{% static 'djangoapp/img/hot-chocolate.png' %}" width="90%" alt="" title=""/></h1>
+                    <h1 class="package-no"><img style=" margin-left: 5%; "
+                                                src="{% static 'djangoapp/img/hot-chocolate.png' %}" width="90%" alt=""
+                                                title=""/></h1>
                     <h4>hot-chocolate</h4>
                     <p class="mt-10">For the individuals</p>
                 </div>
@@ -320,7 +385,8 @@
             </div>
             <div class="col-lg-3 col-md-6 single-price">
                 <div class="top-part">
-                    <h1 class="package-no"><img style=" margin-left: 5%; " src="{% static 'djangoapp/img/latte.png' %}" width="90%" alt="" title=""/></h1>
+                    <h1 class="package-no"><img style=" margin-left: 5%; " src="{% static 'djangoapp/img/latte.png' %}"
+                                                width="90%" alt="" title=""/></h1>
                     <h4>latte</h4>
                     <p class="mt-10">For the individuals</p>
                 </div>
