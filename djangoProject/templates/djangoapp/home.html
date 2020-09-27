@@ -61,6 +61,38 @@
             top: -10px;
         }
 
+        .hr-text {
+            line-height: 1em;
+            position: relative;
+            outline: 0;
+            border: 0;
+            color: black;
+            text-align: center;
+            height: 1.5em;
+            font-size: larger;
+        {#opacity: 0.5;#}
+        }
+
+        .hr-text:before {
+            content: '';
+            background: linear-gradient(to right, transparent, #818078, transparent);
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 1px;
+        }
+
+        .hr-text:after {
+            content: attr(data-content);
+            position: relative;
+            display: inline-block;
+            color: black;
+            padding: 0 0.5em;
+            line-height: 1.5em;
+            color: #818078;
+            background-color: #fcfcfa;
+        }
     </style>
 
 </head>
@@ -193,22 +225,25 @@
 <!-- Start home-about Area -->
 <section class="home-about-area pt-120">
     <div class="container">
+        <hr class="hr-text" data-content="مسیر فعالیت در کافه">
+        <br>
         <div class="row align-items-center justify-content-between">
-{#            <div class="col-lg-6 col-md-6 home-about-left">#}
-{##}
-{#                <h6>About Me</h6>#}
-{#                <h1 class="text-uppercase">Personal Details</h1>#}
-{#                <p>#}
-{#                    Here, I focus on a range of items and features that we use in life without giving them a#}
-{#                    second thought. such as Coca Cola. Dolor sit amet, consectetur adipisicing elit, sed do#}
-{#                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,#}
-{#                    quis nostrud exercitation ullamco.#}
-{#                </p>#}
-{#                <a href="#" class="primary-btn text-uppercase">View Full Details</a>#}
-{#            </div>#}
-{#            <div class="col-lg-5 col-md-6 home-about-right">#}
-{#                <img class="img-fluid" src={% static 'djangoapp/img/about-img.png' %} alt="">#}
-{#            </div>#}
+            {#            <div class="col-lg-6 col-md-6 home-about-left">#}
+            {##}
+            {#                <h6>About Me</h6>#}
+            {#                <h1 class="text-uppercase">Personal Details</h1>#}
+            {#                <p>#}
+            {#                    Here, I focus on a range of items and features that we use in life without giving them a#}
+            {#                    second thought. such as Coca Cola. Dolor sit amet, consectetur adipisicing elit, sed do#}
+            {#                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,#}
+            {#                    quis nostrud exercitation ullamco.#}
+            {#                </p>#}
+            {#                <a href="#" class="primary-btn text-uppercase">View Full Details</a>#}
+            {#            </div>#}
+            {#            <div class="col-lg-5 col-md-6 home-about-right">#}
+            {#                <img class="img-fluid" src={% static 'djangoapp/img/about-img.png' %} alt="">#}
+            {#            </div>#}
+
             <img src="{% static 'djangoapp\img\ravandekar.png' %}" width="90%" height="50%">
         </div>
     </div>
@@ -218,10 +253,15 @@
 <!-- Start services Area -->
 <section class="services-area section-gap">
     <div class="container">
+        <hr class="hr-text" data-content="دسته بتدی ها">
         <div class="row d-flex justify-content-center">
+
             <div class="menu-content  col-lg-7">
+
+
                 <div class="title text-center">
-                    <h1 class="mb-10">دسته بندی ها</h1>
+
+                    {#                    <h1 class="mb-10">دسته بندی ها</h1>#}
                     {#                    <p>At about this time of year, some months after New Year’s resolutions have been made#}
                     {#                        and kept, or made and neglected.</p>#}
                 </div>
