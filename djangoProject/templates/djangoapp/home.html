@@ -31,18 +31,14 @@
     <link rel="stylesheet" href="{% static 'djangoapp/css/owl.carousel.css' %} ">
     <link rel="stylesheet" href="{% static 'djangoapp/css/main.css' %} ">
     <script>
-        document.addEventListener("DOMContentLoaded", () =>
-        {
+        document.addEventListener("DOMContentLoaded", () => {
             let links = document.getElementsByClassName("change_hover");
-            for (let i = 0 ;i<links.length ; i++)
-            {
-                links[i].addEventListener("mouseover" , (event) =>
-                {
+            for (let i = 0; i < links.length; i++) {
+                links[i].addEventListener("mouseover", (event) => {
                     event.target.style.borderBottom = "1px solid #6f4e37";
                     event.target.style.paddingBottom = "2px";
                 })
-                links[i].addEventListener("mouseout",(event) =>
-                {
+                links[i].addEventListener("mouseout", (event) => {
                     event.target.style.removeProperty('border-bottom');
                     event.target.style.removeProperty('padding-bottom');
                 })
@@ -51,17 +47,17 @@
     </script>
 
 
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
 
     <style>
 
         .move_up {
-          position: relative;
-          top: 0;
-          transition: top ease 0.5s;
+            position: relative;
+            top: 0;
+            transition: top ease 0.5s;
         }
-        .move_up:hover{
+
+        .move_up:hover {
             top: -10px;
         }
 
@@ -99,17 +95,30 @@
                     {#                                </li>#}
 
 
-                    <li><a class="change_hover" href="{% url 'price' %}" style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">ورود / ثبت نام</a>
+                    <li><a class="change_hover" href="{% url 'price' %}"
+                           style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">ورود / ثبت
+                        نام</a>
                     </li>
-                    <li><a class="change_hover" href="{% url 'contact' %}" style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">تماس با ما</a></li>
-                    <li><a class="change_hover" href="{% url 'about' %}" style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">درباره ما</a></li>
-                    <li><a class="change_hover" href="{% url 'services' %}" style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">شکایات و
+                    <li><a class="change_hover" href="{% url 'contact' %}"
+                           style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">تماس با
+                        ما</a></li>
+                    <li><a class="change_hover" href="{% url 'about' %}"
+                           style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">درباره
+                        ما</a></li>
+                    <li><a class="change_hover" href="{% url 'services' %}"
+                           style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">شکایات و
                         پیشنهادها</a></li>
-                    <li><a class="change_hover" href="{% url 'portfolio' %}" style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">تعرفه ها</a></li>
-                    <li><a class="change_hover" style="font-size: large;font-family:'B Badr';color: white;text-decoration: none;"   href="">پروژه ها</a>
+                    <li><a class="change_hover" href="{% url 'portfolio' %}"
+                           style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">تعرفه ها</a>
                     </li>
-                    <li >
-                        <a href="{% url 'Index2' %}" style="font-size: large;font-family:'B Badr';color: #fdfff8;border-bottom: 1px solid white;padding-bottom: 2px;text-decoration: none" >صفحه اصلی</a></li>
+                    <li><a class="change_hover"
+                           style="font-size: large;font-family:'B Badr';color: white;text-decoration: none;" href="">پروژه
+                        ها</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'Index2' %}"
+                           style="font-size: large;font-family:'B Badr';color: #fdfff8;border-bottom: 1px solid white;padding-bottom: 2px;text-decoration: none">صفحه
+                            اصلی</a></li>
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
@@ -222,7 +231,7 @@
                 <div class="single-services move_up">
                     <img src="https://img.icons8.com/bubbles/64/000000/domain.png"/>
 
-                    <a  href="#"><h4>SEO</h4></a>
+                    <a href="#"><h4>SEO</h4></a>
                     <p>
                         “It is not because things are difficult that we do not dare; it is because we do not
                         dare that they are difficult.”
@@ -253,7 +262,7 @@
             <div class="col-lg-4 col-md-6">
 
                 <div class="single-services move_up">
-{#                    <i class="fa fa-3x fa-pencil-square-o" aria-hidden="true"></i>#}
+                    {#                    <i class="fa fa-3x fa-pencil-square-o" aria-hidden="true"></i>#}
                     <img src="{% static 'djangoapp/img/icons8-edit-property-64.png' %}">
                     <a href="#"><h4>تولید محتوا</h4></a>
                     <p>
@@ -322,25 +331,20 @@
 
 <script>
 
-    function bigImg(x)
-    {
-      x.style.height = "64px";
-      x.style.width = "64px";
+    function bigImg(x) {
+        x.style.height = "64px";
+        x.style.width = "64px";
     }
 
-    function normalImg(x)
-    {
-      x.style.height = "32px";
-      x.style.width = "32px";
+    function normalImg(x) {
+        x.style.height = "32px";
+        x.style.width = "32px";
     }
 
 </script>
 
 
-
-
 {#End javascript code for buttons#}
-
 
 
 <!-- Start fact Area -->

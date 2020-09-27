@@ -1,298 +1,570 @@
 {% load static %}
 <!DOCTYPE html>
-	<html lang="zxx" class="no-js">
-	<head>
-		<!-- Mobile Specific Meta -->
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<!-- Favicon-->
-		<link rel="shortcut icon" href="{% static 'djangoapp/img/dog.png'  %}">
-		<!-- Author Meta -->
-		<meta name="author" content="colorlib">
-		<!-- Meta Description -->
-		<meta name="description" content="">
-		<!-- Meta Keyword -->
-		<meta name="keywords" content="">
-		<!-- meta character set -->
-		<meta charset="UTF-8">
-		<!-- Site Title -->
-		<title>Personal</title>
+<html lang="zxx" class="no-js">
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="{% static 'djangoapp/img/dog.png' %}">
+    <!-- Author Meta -->
+    <meta name="author" content="colorlib">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>Personal</title>
 
-		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
-			<!--
-			CSS
-			============================================= -->
-			<link rel="stylesheet" href="{% static 'djangoapp/css/linearicons.css' %}">
-			<link rel="stylesheet" href="{% static 'djangoapp/css/font-awesome.min.css' %}">
-			<link rel="stylesheet" href="{% static 'djangoapp/css/bootstrap.css' %} ">
-			<link rel="stylesheet" href="{% static 'djangoapp/css/magnific-popup.css' %} ">
-			<link rel="stylesheet" href="{% static 'djangoapp/css/jquery-ui.css' %} ">
-			<link rel="stylesheet" href="{% static 'djangoapp/css/nice-select.css' %} ">
-			<link rel="stylesheet" href="{% static 'djangoapp/css/animate.min.css' %} ">
-			<link rel="stylesheet" href="{% static 'djangoapp/css/owl.carousel.css' %} ">
-			<link rel="stylesheet" href="{% static 'djangoapp/css/main.css' %} ">
-		</head>
-		<body>	
-		  <header id="header">
-		    <div class="container main-menu">
-		    	<div class="row align-items-center justify-content-between d-flex">
-			      <div id="logo">
-			        <a href="{% url 'Index2' %}"><img src={% static 'djangoapp/img/logo.png' %} alt="" title="" /></a>
-			      </div>
-			      <nav id="nav-menu-container">
-			        <ul class="nav-menu">
-			          <li><a href="{% url 'Index2' %}">Home</a></li>
-			          <li><a href="{% url 'about' %}">About</a></li>
-			          <li><a href="{% url 'services' %}">Services</a></li>
-			          <li><a href="{% url 'portfolio' %} ">Portfolio</a></li>
-			          <li><a href="{% url 'price' %} ">Pricing</a></li>
-			          <li class="menu-has-children"><a href="">Blog</a>
-			            <ul>
-			              <li><a href="blog-home.html">Blog Home</a></li>
-			              <li><a href="blog-single.html">Blog Single</a></li>
-			            </ul>
-			          </li>
-			          <li class="menu-has-children"><a href="{% url 'Index2' %}">Pages</a>
-			            <ul>
-		            	  <li><a href="{% url 'elements' %}">Elements</a></li>
-				          <li class="menu-has-children"><a href="{% url 'Index2' %}">Level 2 </a>
-				            <ul>
-				              <li><a href="{% url 'Index2' %}">Item One</a></li>
-				              <li><a href="{% url 'Index2' %}">Item Two</a></li>
-				            </ul>
-				          </li>
-			            </ul>
-			          </li>
-			          <li><a href="{% url 'contact' %}">Contact</a></li>
-			        </ul>
-			      </nav><!-- #nav-menu-container -->
-		    	</div>
-		    </div>
-		  </header><!-- #header -->
-		  	  
-			<!-- start banner Area -->
-			<section class="about-banner">
-				<div class="container">				
-					<div class="row d-flex align-items-center justify-content-center">
-						<div class="about-content col-lg-12">
-							<h1 class="text-white">
-								Pricing Plan				
-							</h1>	
-							<p class="text-white link-nav"><a href="{% url 'Index2' %}">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="price.html"> Pricing Plan</a></p>
-						</div>	
-					</div>
-				</div>
-			</section>
-			<!-- End banner Area -->	
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <!--
+    CSS
+    ============================================= -->
+    <link rel="stylesheet" href="{% static 'djangoapp/css/linearicons.css' %}">
+    <link rel="stylesheet" href="{% static 'djangoapp/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'djangoapp/css/bootstrap.css' %} ">
+    <link rel="stylesheet" href="{% static 'djangoapp/css/magnific-popup.css' %} ">
+    <link rel="stylesheet" href="{% static 'djangoapp/css/jquery-ui.css' %} ">
+    <link rel="stylesheet" href="{% static 'djangoapp/css/nice-select.css' %} ">
+    <link rel="stylesheet" href="{% static 'djangoapp/css/animate.min.css' %} ">
+    <link rel="stylesheet" href="{% static 'djangoapp/css/owl.carousel.css' %} ">
+    <link rel="stylesheet" href="{% static 'djangoapp/css/main.css' %} ">
+    {#    header hover#}
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let links = document.getElementsByClassName("change_hover");
+            for (let i = 0; i < links.length; i++) {
+                links[i].addEventListener("mouseover", (event) => {
+                    event.target.style.borderBottom = "1px solid #6f4e37";
+                    event.target.style.paddingBottom = "2px";
+                })
+                links[i].addEventListener("mouseout", (event) => {
+                    event.target.style.removeProperty('border-bottom');
+                    event.target.style.removeProperty('padding-bottom');
+                })
+            }
+        })
+    </script>
+    {#  end  header hover#}
+    {#    css sing in #}
+    <style>
 
-			<!-- Start price Area -->
-			<section class="price-area section-gap">
-				<div class="container">
-					<div class="row d-flex justify-content-center">
-						<div class="menu-content pb-70 col-lg-8">
-							<div class="title text-center">
-								<h1 class="mb-10">Choose Your Plan</h1>
-								<p>When someone does something that they know that they shouldn’t do, did they.</p>
-							</div>
-						</div>
-					</div>					
-					<div class="row">
-						<div class="col-lg-3 col-md-6 single-price">
-							<div class="top-part">
-								<h1 class="package-no">01</h1>
-								<h4>Economy</h4>
-								<p class="mt-10">For the individuals</p>
-							</div>
-							<div class="package-list">
-								<ul>
-									<li>Secure Online Transfer</li>
-									<li>Unlimited Styles for interface</li>
-									<li>Reliable Customer Service</li>
-								</ul>
-							</div>
-							<div class="bottom-part">
-								<h1>£199.00</h1>
-								<a class="price-btn text-uppercase" href="#">Buy Now</a>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-6 single-price">
-							<div class="top-part">
-								<h1 class="package-no">02</h1>
-								<h4>Business</h4>
-								<p class="mt-10">For the individuals</p>
-							</div>
-							<div class="package-list">
-								<ul>
-									<li>Secure Online Transfer</li>
-									<li>Unlimited Styles for interface</li>
-									<li>Reliable Customer Service</li>
-								</ul>
-							</div>
-							<div class="bottom-part">
-								<h1>£299.00</h1>
-								<a class="price-btn text-uppercase" href="#">Buy Now</a>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-6 single-price">
-							<div class="top-part">
-								<h1 class="package-no">03</h1>
-								<h4>Premium</h4>
-								<p class="mt-10">For the individuals</p>
-							</div>
-							<div class="package-list">
-								<ul>
-									<li>Secure Online Transfer</li>
-									<li>Unlimited Styles for interface</li>
-									<li>Reliable Customer Service</li>
-								</ul>
-							</div>
-							<div class="bottom-part">
-								<h1>£399.00</h1>
-								<a class="price-btn text-uppercase" href="#">Buy Now</a>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-6 single-price">
-							<div class="top-part">
-								<h1 class="package-no">04</h1>
-								<h4>Exclusive</h4>
-								<p class="mt-10">For the individuals</p>
-							</div>
-							<div class="package-list">
-								<ul>
-									<li>Secure Online Transfer</li>
-									<li>Unlimited Styles for interface</li>
-									<li>Reliable Customer Service</li>
-								</ul>
-							</div>
-							<div class="bottom-part">
-								<h1>£499.00</h1>
-								<a class="price-btn text-uppercase" href="#">Buy Now</a>
-							</div>
-						</div>																		
-					</div>
-				</div>	
-			</section>
-			<!-- End price Area -->		
 
-			<!-- Start faq Area -->
-			<section class="faq-area pb-120">
-				<div class="container">
-					<div class="row d-flex justify-content-center">
-						<div class="menu-content pb-70 col-lg-8">
-							<div class="title text-center">
-								<h1 class="mb-10">Frequently Asked Questions</h1>
-								<p>When someone does something that they know that they shouldn’t do, did they really have a choice. Maybe what I mean to say is did they really have a chance. You can take two people.</p>
-							</div>
-						</div>
-					</div>						
-					<div class="row justify-content-center">
-						<div class="col-lg-8">
-						<dl class="accordion">
-							<dt>
-								<a href="">Dude You Re Getting A Telescope</a>
-							</dt>
-							<dd>
-							Nunc placerat mi id nisi interdum mollis. Praesent pharetra, justo ut scelerisque mattis, leo quam aliquet diam, congue laoreet elit metus eget diam. Proin ac metus diam.
-							</dd>
-							<dt>
-								<a href="">The Basics Of Buying A Telescope</a>
-							</dt>
-							<dd>
-							Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis. leo quam aliquet diam, congue laoreet elit metus eget diam.
-							</dd>
-							<dt>
-								<a href="">Astronomy Binoculars A Great Alternative</a>
-							</dt>
-							<dd>
-							Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. Proin ac metus diam.
-							</dd>
-							<dt>
-								<a href="">Do Your Self Realizations Quickly Fade</a>
-							</dt>
-							<dd>
-							Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. Proin ac metus diam.
-							</dd>
-							<dt>
-								<a href="">Success Steps For Your Personal Or Business Life</a>
-							</dt>
-							<dd>
-							Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. Proin ac metus diam.
-							</dd>
-						</dl>
-       
-						</div>
-					</div>
-				</div>	
-			</section>
-			<!-- End faq Area -->
-			
-            <!-- start footer Area -->
-            <footer class="footer-area section-gap">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-5 col-md-6 col-sm-6">
-                            <div class="single-footer-widget">
-                                <h4>About Me</h4>
-                                <p>
-                                    We have tested a number of registry fix and clean utilities and present our top 3 list on our site for your convenience.
-                                </p>
-                                <p class="footer-text"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                            </div>
-                        </div>
-                        <div class="col-lg-5 col-md-6 col-sm-6">
-                            <div class="single-footer-widget">
-                                <h4>Newsletter</h4>
-                                <p>Stay updated with our latest trends</p>
-								<div class="" id="mc_embed_signup">
-									 <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get">
-									  <div class="input-group">
-									    <input type="text" class="form-control" name="EMAIL" placeholder="Enter Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email Address '" required="" type="email">
-									    <div class="input-group-btn">
-									      <button class="btn btn-default" type="submit">
-									        <span class="lnr lnr-arrow-right"></span>
-									      </button>    
-									    </div>
-									    	<div class="info"></div>  
-									  </div>
-									</form> 
-								</div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
-                            <div class="single-footer-widget">
-                                <h4>Follow Me</h4>
-                                <p>Let us be social</p>
-                                <div class="footer-social d-flex align-items-center">
-                                    <a href="{% url 'Index2' %}"><i class="fa fa-facebook"></i></a>
-                                    <a href="{% url 'Index2' %}"><i class="fa fa-twitter"></i></a>
-                                    <a href="{% url 'Index2' %}"><i class="fa fa-dribbble"></i></a>
-                                    <a href="{% url 'Index2' %}"><i class="fa fa-behance"></i></a>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+
+
+        h1 {
+            font-weight: bold;
+            margin: 0;
+        }
+
+        p {
+            font-size: 14px;
+            font-weight: 100;
+            line-height: 20px;
+            letter-spacing: 0.5px;
+            margin: 20px 0 30px;
+        }
+
+        span {
+            font-size: 12px;
+        }
+
+        a {
+            color: #333;
+            font-size: 14px;
+            text-decoration: none;
+            margin: 15px 0;
+        }
+
+        button {
+            border-radius: 20px;
+            border: 1px solid #FF4B2B;
+            background-color: #FF4B2B;
+            color: #FFFFFF;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 12px 45px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: transform 80ms ease-in;
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        button.ghost {
+            background-color: transparent;
+            border-color: #FFFFFF;
+        }
+
+        form {
+            background-color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0 50px;
+            height: 100%;
+            text-align: center;
+        }
+
+        input {
+            background-color: #eee;
+            border: none;
+            padding: 12px 15px;
+            margin: 8px 0;
+            width: 100%;
+        }
+
+        .container1 {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+            0 10px 10px rgba(0, 0, 0, 0.22);
+            position: relative;
+            overflow: hidden;
+            width: 900px;
+            max-width: 100%;
+            min-height: 480px;
+            margin: 20%;
+        }
+
+        .form-container1 {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            transition: all 0.6s ease-in-out;
+        }
+
+        .sign-in-container1 {
+            left: 0;
+            width: 50%;
+            z-index: 120;
+        }
+
+        .container1.right-panel-active .sign-in-container1 {
+            transform: translateX(100%);
+        }
+
+        .sign-up-container1 {
+            left: 0;
+            width: 50%;
+            opacity: 0;
+            z-index: 120;
+        }
+
+        .container1.right-panel-active .sign-up-container1 {
+            transform: translateX(100%);
+            opacity: 1;
+            z-index: 120;
+            animation: show 0.6s;
+        }
+
+        @keyframes show {
+            0%, 49.99% {
+                opacity: 0;
+                z-index: 120;
+            }
+
+            50%, 100% {
+                opacity: 1;
+                z-index: 120;
+            }
+        }
+
+        .overlay-container1 {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+            transition: transform 0.6s ease-in-out;
+            z-index: 100;
+        }
+
+        .container1.right-panel-active .overlay-container1 {
+            transform: translateX(-100%);
+        }
+
+        .overlay {
+            background: #FF416C;
+            background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+            background: linear-gradient(to right, #FF4B2B, #FF416C);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 0 0;
+            color: #FFFFFF;
+            position: relative;
+            left: -100%;
+            height: 100%;
+            width: 200%;
+            transform: translateX(0);
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .container1.right-panel-active .overlay {
+            transform: translateX(50%);
+        }
+
+        .overlay-panel {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0 40px;
+            text-align: center;
+            top: 0;
+            height: 100%;
+            width: 50%;
+            transform: translateX(0);
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .overlay-left {
+            transform: translateX(-20%);
+        }
+
+        .container1.right-panel-active .overlay-left {
+            transform: translateX(0);
+        }
+
+        .overlay-right {
+            right: 0;
+            transform: translateX(0);
+        }
+
+        .container1.right-panel-active .overlay-right {
+            transform: translateX(20%);
+        }
+
+        .social-container1 {
+            margin: 20px 0;
+        }
+
+        .social-container1 a {
+            border: 1px solid #DDDDDD;
+            border-radius: 50%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 5px;
+            height: 40px;
+            width: 40px;
+        }
+
+        footer1 {
+            background-color: #222;
+            color: #fff;
+            font-size: 14px;
+            bottom: 0;
+            position: fixed;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 999;
+        }
+
+        footer1 p {
+            margin: 10px 0;
+        }
+
+        footer1 i {
+            color: red;
+        }
+
+        footer1 a {
+            color: #3c97bf;
+            text-decoration: none;
+        }
+    </style>
+    <script>
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('container');
+
+    signUpButton.addEventListener('click', () => {
+        container.classList.add("right-panel-active");
+    });
+
+    signInButton.addEventListener('click', () => {
+        container.classList.remove("right-panel-active");
+    });
+</script>
+
+    {#    end css sing in#}
+</head>
+<body>
+<header id="header" style="background-color: #d1aa57">
+    <div class="container main-menu">
+        <div class="row align-items-center justify-content-between d-flex">
+            <div id="logo">
+                <a href="{% url 'Index2' %}"><img src="{% static 'djangoapp/img/logo5.png' %}" alt="" title=""/></a>
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+
+
+                    {#                                                    <li class="menu-has-children"><a href="">Blog</a>#}
+                    {#                                    <ul>#}
+                    {#                                        <li><a href="blog-home.html">Blog Home</a></li>#}
+                    {#                                        <li><a href="blog-single.html">Blog Single</a></li>#}
+                    {#                                    </ul>#}
+                    {#                                                    </li>#}
+                    {#                                <li class="menu-has-children"><a href="">Pages</a>#}
+                    {#                                    <ul>#}
+                    {#                                        <li><a href="{% url 'elements' %}">Elements</a></li>#}
+                    {#                                        <li class="menu-has-children"><a href="">Level 2 </a>#}
+                    {#                                            <ul>#}
+                    {#                                                <li><a href="#">Item One</a></li>#}
+                    {#                                                <li><a href="#">Item Two</a></li>#}
+                    {#                                            </ul>#}
+                    {#                                        </li>#}
+                    {#                                    </ul>#}
+                    {#                                </li>#}
+
+
+                    <li><a href="{% url 'price' %}"
+                           style="font-size: large;font-family:'B Badr';color: white;border-bottom: 1px solid white;padding-bottom: 2px;text-decoration: none">ورود
+                        / ثبت
+                        نام</a>
+                    </li>
+                    <li><a class="change_hover" href="{% url 'contact' %}"
+                           style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">تماس با
+                        ما</a></li>
+                    <li><a class="change_hover" href="{% url 'about' %}"
+                           style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">درباره
+                        ما</a></li>
+                    <li><a class="change_hover" href="{% url 'services' %}"
+                           style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">شکایات و
+                        پیشنهادها</a></li>
+                    <li><a class="change_hover" href="{% url 'portfolio' %}"
+                           style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">تعرفه ها</a>
+                    </li>
+                    <li><a class="change_hover"
+                           style="font-size: large;font-family:'B Badr';color: white;text-decoration: none;" href="">پروژه
+                        ها</a>
+                    </li>
+                    <li>
+                        <a class="change_hover" href="{% url 'Index2' %}"
+                           style="font-size: large;font-family:'B Badr';color: #fdfff8;text-decoration: none">صفحه
+                            اصلی</a></li>
+                </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </div>
+</header><!-- #header -->
+
+<!-- start banner Area -->
+{#<section class="about-banner">#}
+{#    <div class="container">#}
+{#        <div class="row d-flex align-items-center justify-content-center">#}
+{#            <div class="about-content col-lg-12">#}
+{#                <h1 class="text-white">#}
+{#                    Pricing Plan#}
+{#                </h1>#}
+{#                <p class="text-white link-nav"><a href="{% url 'Index2' %}">Home </a> <span#}
+{#                        class="lnr lnr-arrow-right"></span> <a href="price.html"> Pricing Plan</a></p>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</section>#}
+<!-- End banner Area -->
+
+<!-- sign in Area -->
+
+<div class="container1" id="container1">
+    <div class="form-container1 sign-up-container">
+        <form action="#">
+            <h1>Create Account</h1>
+            <div class="social-container1">
+                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <span>or use your email for registration</span>
+            <input type="text" placeholder="Name"/>
+            <input type="email" placeholder="Email"/>
+            <input type="password" placeholder="Password"/>
+            <button>Sign Up</button>
+        </form>
+    </div>
+    <div class="form-container1 sign-in-container1">
+        <form action="#">
+            <h1>Sign in</h1>
+            <div class="social-container1">
+                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <span>or use your account</span>
+            <input type="email" placeholder="Email"/>
+            <input type="password" placeholder="Password"/>
+            <a href="#">Forgot your password?</a>
+            <button>Sign In</button>
+        </form>
+    </div>
+    <div class="overlay-container1">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1>Welcome Back!</h1>
+                <p>To keep connected with us please login with your personal info</p>
+                <button class="ghost" id="signIn">Sign In</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1>Hello, Friend!</h1>
+                <p>Enter your personal details and start journey with us</p>
+                <button class="ghost" id="signUp">Sign Up</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end sign in Area -->
+<!-- Start faq Area -->
+{#<section class="faq-area pb-120">#}
+{#    <div class="container">#}
+{#        <div class="row d-flex justify-content-center">#}
+{#            <div class="menu-content pb-70 col-lg-8">#}
+{#                <div class="title text-center">#}
+{#                    <h1 class="mb-10">Frequently Asked Questions</h1>#}
+{#                    <p>When someone does something that they know that they shouldn’t do, did they really have a choice.#}
+{#                        Maybe what I mean to say is did they really have a chance. You can take two people.</p>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="row justify-content-center">#}
+{#            <div class="col-lg-8">#}
+{#                <dl class="accordion">#}
+{#                    <dt>#}
+{#                        <a href="">Dude You Re Getting A Telescope</a>#}
+{#                    </dt>#}
+{#                    <dd>#}
+{#                        Nunc placerat mi id nisi interdum mollis. Praesent pharetra, justo ut scelerisque mattis, leo#}
+{#                        quam aliquet diam, congue laoreet elit metus eget diam. Proin ac metus diam.#}
+{#                    </dd>#}
+{#                    <dt>#}
+{#                        <a href="">The Basics Of Buying A Telescope</a>#}
+{#                    </dt>#}
+{#                    <dd>#}
+{#                        Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean#}
+{#                        dignissim pellentesque felis. leo quam aliquet diam, congue laoreet elit metus eget diam.#}
+{#                    </dd>#}
+{#                    <dt>#}
+{#                        <a href="">Astronomy Binoculars A Great Alternative</a>#}
+{#                    </dt>#}
+{#                    <dd>#}
+{#                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque#}
+{#                        aliquet nibh nec urna. Proin ac metus diam.#}
+{#                    </dd>#}
+{#                    <dt>#}
+{#                        <a href="">Do Your Self Realizations Quickly Fade</a>#}
+{#                    </dt>#}
+{#                    <dd>#}
+{#                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque#}
+{#                        aliquet nibh nec urna. Proin ac metus diam.#}
+{#                    </dd>#}
+{#                    <dt>#}
+{#                        <a href="">Success Steps For Your Personal Or Business Life</a>#}
+{#                    </dt>#}
+{#                    <dd>#}
+{#                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque#}
+{#                        aliquet nibh nec urna. Proin ac metus diam.#}
+{#                    </dd>#}
+{#                </dl>#}
+{##}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</section>#}
+<!-- End faq Area -->
+
+<!-- start footer Area -->
+<footer class="footer-area section-gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                    <h4>About Me</h4>
+                    <p>
+                        We have tested a number of registry fix and clean utilities and present our top 3 list on our
+                        site for your convenience.
+                    </p>
+                    <p class="footer-text">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                        All rights reserved | This template is made with <i class="fa fa-heart-o"
+                                                                            aria-hidden="true"></i> by <a
+                            href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                    <h4>Newsletter</h4>
+                    <p>Stay updated with our latest trends</p>
+                    <div class="" id="mc_embed_signup">
+                        <form target="_blank"
+                              action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                              method="get">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="EMAIL" placeholder="Enter Email Address"
+                                       onfocus="this.placeholder = ''"
+                                       onblur="this.placeholder = 'Enter Email Address '" required="" type="email">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" type="submit">
+                                        <span class="lnr lnr-arrow-right"></span>
+                                    </button>
                                 </div>
+                                <div class="info"></div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
-            </footer>
-            <!-- End footer Area -->		
+            </div>
+            <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
+                <div class="single-footer-widget">
+                    <h4>Follow Me</h4>
+                    <p>Let us be social</p>
+                    <div class="footer-social d-flex align-items-center">
+                        <a href="{% url 'Index2' %}"><i class="fa fa-facebook"></i></a>
+                        <a href="{% url 'Index2' %}"><i class="fa fa-twitter"></i></a>
+                        <a href="{% url 'Index2' %}"><i class="fa fa-dribbble"></i></a>
+                        <a href="{% url 'Index2' %}"><i class="fa fa-behance"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End footer Area -->
 
-			<script src={% static 'djangoapp/js/vendor/jquery-2.2.4.min.js' %}></script>
-			<script src={% static 'djangoapp/js/popper.min.js' %}></script>
-			<script src={% static 'djangoapp/js/vendor/bootstrap.min.js' %}></script>
-			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-  			<script src={% static 'djangoapp/js/easing.min.js' %}></script>
-			<script src={% static 'djangoapp/js/hoverIntent.js' %}></script>
-			<script src={% static 'djangoapp/js/superfish.min.js' %}></script>
-			<script src={% static 'djangoapp/js/jquery.ajaxchimp.min.js' %}></script>
-			<script src={% static 'djangoapp/js/jquery.magnific-popup.min.js' %}></script>
-    		<script src={% static 'djangoapp/js/jquery.tabs.min.js' %}></script>
-			<script src={% static 'djangoapp/js/jquery.nice-select.min.js' %}></script>
-            <script src={% static 'djangoapp/js/isotope.pkgd.min.js' %}></script>
-			<script src={% static 'djangoapp/js/waypoints.min.js' %}></script>
-			<script src={% static 'djangoapp/js/jquery.counterup.min.js' %}></script>
-			<script src={% static 'djangoapp/js/simple-skillbar.js' %}></script>
-			<script src={% static 'djangoapp/js/owl.carousel.min.js' %}></script>
-			<script src={% static 'djangoapp/js/mail-script.js' %}></script>
-			<script src={% static 'djangoapp/js/main.js' %}></script>
-		</body>
-	</html>
+<script src={% static 'djangoapp/js/vendor/jquery-2.2.4.min.js' %}></script>
+<script src={% static 'djangoapp/js/popper.min.js' %}></script>
+<script src={% static 'djangoapp/js/vendor/bootstrap.min.js' %}></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+<script src={% static 'djangoapp/js/easing.min.js' %}></script>
+<script src={% static 'djangoapp/js/hoverIntent.js' %}></script>
+<script src={% static 'djangoapp/js/superfish.min.js' %}></script>
+<script src={% static 'djangoapp/js/jquery.ajaxchimp.min.js' %}></script>
+<script src={% static 'djangoapp/js/jquery.magnific-popup.min.js' %}></script>
+<script src={% static 'djangoapp/js/jquery.tabs.min.js' %}></script>
+<script src={% static 'djangoapp/js/jquery.nice-select.min.js' %}></script>
+<script src={% static 'djangoapp/js/isotope.pkgd.min.js' %}></script>
+<script src={% static 'djangoapp/js/waypoints.min.js' %}></script>
+<script src={% static 'djangoapp/js/jquery.counterup.min.js' %}></script>
+<script src={% static 'djangoapp/js/simple-skillbar.js' %}></script>
+<script src={% static 'djangoapp/js/owl.carousel.min.js' %}></script>
+<script src={% static 'djangoapp/js/mail-script.js' %}></script>
+<script src={% static 'djangoapp/js/main.js' %}></script>
+
+</body>
+</html>
