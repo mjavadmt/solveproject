@@ -54,7 +54,6 @@
         @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 
-
         h1 {
             font-weight: bold;
             margin: 0;
@@ -287,19 +286,7 @@
             text-decoration: none;
         }
     </style>
-    <script>
-    const signUpButton = document.getElementById('signUp');
-    const signInButton = document.getElementById('signIn');
-    const container = document.getElementById('container');
 
-    signUpButton.addEventListener('click', () => {
-        container.classList.add("right-panel-active");
-    });
-
-    signInButton.addEventListener('click', () => {
-        container.classList.remove("right-panel-active");
-    });
-</script>
 
     {#    end css sing in#}
 </head>
@@ -546,7 +533,22 @@
     </div>
 </footer>
 <!-- End footer Area -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const signUpButton = document.getElementById('signUp');
+        const signInButton = document.getElementById('signIn');
+        const container = document.getElementById('container1');
 
+        signUpButton.addEventListener('click', () => {
+            container.classList.add("right-panel-active");
+        });
+
+        signInButton.addEventListener('click', () => {
+            container.classList.remove("right-panel-active");
+        });
+    })
+
+</script>
 <script src={% static 'djangoapp/js/vendor/jquery-2.2.4.min.js' %}></script>
 <script src={% static 'djangoapp/js/popper.min.js' %}></script>
 <script src={% static 'djangoapp/js/vendor/bootstrap.min.js' %}></script>
