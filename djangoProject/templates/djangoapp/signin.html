@@ -360,7 +360,7 @@
 {#                    Pricing Plan#}
 {#                </h1>#}
 {#                <p class="text-white link-nav"><a href="{% url 'Index2' %}">Home </a> <span#}
-{#                        class="lnr lnr-arrow-right"></span> <a href="price.html"> Pricing Plan</a></p>#}
+{#                        class="lnr lnr-arrow-right"></span> <a href="signin.html"> Pricing Plan</a></p>#}
 {#            </div>#}
 {#        </div>#}
 {#    </div>#}
@@ -370,34 +370,36 @@
 <!-- sign in Area -->
 
 <div class="container1" id="container1">
-    <div class="form-container1 sign-up-container">
+    <div class="form-container1 sign-up-container1">
         <form action="#">
+
             <h1>Create Account</h1>
             <div class="social-container1">
-                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="social"><i class="fa fa-google-plus"></i></a>
+                <a href="#" class="social"><i class="fa fa-linkedin"></i></a>
             </div>
             <span>or use your email for registration</span>
-            <input type="text" placeholder="Name"/>
-            <input type="email" placeholder="Email"/>
-            <input type="password" placeholder="Password"/>
-            <button>Sign Up</button>
+            <input type="text" name="username" placeholder="username"/>
+            <input type="email" name="email" placeholder="Email"/>
+            <input type="password" name="password" placeholder="Password"/>
+            <button type="submit">Sign Up</button>
         </form>
     </div>
     <div class="form-container1 sign-in-container1">
         <form action="#">
+
             <h1>Sign in</h1>
             <div class="social-container1">
-                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="social"><i class="fa fa-google-plus"></i></a>
+                <a href="#" class="social"><i class="fa fa-linkedin"></i></a>
             </div>
             <span>or use your account</span>
-            <input type="email" placeholder="Email"/>
-            <input type="password" placeholder="Password"/>
+            <input type="text" name="username" placeholder="username"/>
+            <input type="password" name="password" placeholder="Password"/>
             <a href="#">Forgot your password?</a>
-            <button>Sign In</button>
+            <button type="submit">Sign In</button>
         </form>
     </div>
     <div class="overlay-container1">
@@ -415,6 +417,8 @@
         </div>
     </div>
 </div>
+
+
 <!-- end sign in Area -->
 <!-- Start faq Area -->
 {#<section class="faq-area pb-120">#}

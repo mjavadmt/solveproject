@@ -23,7 +23,7 @@ def portfolio(request):
 
 
 def price(request):
-    return render(request, "djangoapp/price.html")
+    return render(request, "djangoapp/signin.html")
 
 
 def services(request):
@@ -41,6 +41,8 @@ def show_chat(request):
 
 def Projectpage(request):
     return render(request, "djangoapp/projectpage.html")
+
+
 def save_text(request):
     if request.method == "POST":
         temp = Temp(message=request.POST["msg_ajax"])
