@@ -51,16 +51,13 @@
     <style>
 
 
-             @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
 
         * {
             box-sizing: border-box;
 
         }
-
-
-
 
 
         h1 {
@@ -229,7 +226,7 @@
 
         .overlay {
             background: #FF416C;
-            background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+            background: -webkit-linear-gradient(to right, #ff4b2b, #FF416C);
             background: linear-gradient(to right, #FF4B2B, #FF416C);
             background-repeat: no-repeat;
             background-size: cover;
@@ -301,11 +298,12 @@
             height: 40px;
             width: 40px;
         }
-
-
-
-
-
+        @media all  and (min-width:700px) {
+            .container2
+            {
+                margin-left: 25%;
+            }
+        }
 
     </style>
 
@@ -323,23 +321,23 @@
                 <ul class="nav-menu">
 
 
-                                                                        <li class="menu-has-children"><a href="">Blog</a>
-                                                        <ul>
-                                                            <li><a href="blog-home.html">Blog Home</a></li>
-                                                            <li><a href="projectpage.html">Blog Single</a></li>
-                                                        </ul>
-                                                                        </li>
-                                                    <li class="menu-has-children"><a href="">Pages</a>
-                                                        <ul>
-                                                            <li><a href="{% url 'elements' %}">Elements</a></li>
-                                                            <li class="menu-has-children"><a href="">Level 2 </a>
-                                                                <ul>
-                                                                    <li><a href="#">Item One</a></li>
-                                                                    <li><a href="#">Item Two</a></li>
-                                                                </ul>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
+{#                    <li class="menu-has-children"><a href="">Blog</a>#}
+{#                        <ul>#}
+{#                            <li><a href="blog-home.html">Blog Home</a></li>#}
+{#                            <li><a href="projectpage.html">Blog Single</a></li>#}
+{#                        </ul>#}
+{#                    </li>#}
+{#                    <li class="menu-has-children"><a href="">Pages</a>#}
+{#                        <ul>#}
+{#                            <li><a href="{% url 'elements' %}">Elements</a></li>#}
+{#                            <li class="menu-has-children"><a href="">Level 2 </a>#}
+{#                                <ul>#}
+{#                                    <li><a href="#">Item One</a></li>#}
+{#                                    <li><a href="#">Item Two</a></li>#}
+{#                                </ul>#}
+{#                            </li>#}
+{#                        </ul>#}
+{#                    </li>#}
 
 
                     <li><a href="{% url 'price' %}"
@@ -390,16 +388,16 @@
 <!-- End banner Area -->
 
 <!-- sign in Area -->
-
-<div class="container2" id="container2">
+{#<div style="width: 90%">#}
+<div class="container2" id="container2" style="margin-top: 200px;margin-bottom: 100px;">
     <div class="form-container sign-up-container">
         <form action="#">
 
             <h1>Create Account</h1>
             <div class="social-container">
-                <a href="#" class="social"><i class="fa fa-facebook"></i></a>
-                <a href="#" class="social"><i class="fa fa-google-plus"></i></a>
-                <a href="#" class="social"><i class="fa fa-linkedin"></i></a>
+{#                <a href="#" class="social"><i class="fa fa-facebook"></i></a>#}
+                <a href="#" class="social"><i style="color: red" class="fa fa-google-plus"></i></a>
+{#                <a href="#" class="social"><i class="fa fa-linkedin"></i></a>#}
             </div>
             <span>or use your email for registration</span>
             <input type="text" name="username" placeholder="username"/>
@@ -413,9 +411,9 @@
 
             <h1>Sign in</h1>
             <div class="social-container">
-                <a href="#" class="social"><i class="fa fa-facebook"></i></a>
-                <a href="#" class="social"><i class="fa fa-google-plus"></i></a>
-                <a href="#" class="social"><i class="fa fa-linkedin"></i></a>
+{#                <a href="#" class="social"><i class="fa fa-facebook"></i></a>#}
+                <a href="#" class="social"><i style="color: red" class="fa fa-google-plus"></i></a>
+{#                <a href="#" class="social"><i class="fa fa-linkedin"></i></a>#}
             </div>
             <span>or use your account</span>
             <input type="text" name="username" placeholder="username"/>
@@ -439,7 +437,7 @@
         </div>
     </div>
 </div>
-
+{#</div>#}
 
 <!-- end sign in Area -->
 <!-- Start faq Area -->
