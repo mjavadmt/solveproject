@@ -39,7 +39,8 @@ def show_chat(request):
         "all_chats": Temp.objects.all()
     })
 
-
+def Projectpage(request):
+    return render(request, "djangoapp/projectpage.html")
 def save_text(request):
     if request.method == "POST":
         temp = Temp(message=request.POST["msg_ajax"])

@@ -1,0 +1,409 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="{% static 'djangoapp/img/dog.png' %}">
+    <!-- Author Meta -->
+    <meta name="author" content="colorlib">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>Personal</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <!--
+    CSS
+    ============================================= -->
+    <link rel="stylesheet" href="{% static 'djangoapp/css/linearicons.css' %}">
+    <link rel="stylesheet" href="{% static 'djangoapp/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'djangoapp/css/bootstrap.css' %} ">
+    <link rel="stylesheet" href="{% static 'djangoapp/css/magnific-popup.css' %} ">
+    <link rel="stylesheet" href="{% static 'djangoapp/css/jquery-ui.css' %} ">
+    <link rel="stylesheet" href="{% static 'djangoapp/css/nice-select.css' %} ">
+    <link rel="stylesheet" href="{% static 'djangoapp/css/animate.min.css' %} ">
+    <link rel="stylesheet" href="{% static 'djangoapp/css/owl.carousel.css' %} ">
+    <link rel="stylesheet" href="{% static 'djangoapp/css/main.css' %} ">
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let links = document.getElementsByClassName("change_hover");
+            for (let i = 0; i < links.length; i++) {
+                links[i].addEventListener("mouseover", (event) => {
+                    event.target.style.borderBottom = "1px solid #6f4e37";
+                    event.target.style.paddingBottom = "2px";
+                })
+                links[i].addEventListener("mouseout", (event) => {
+                    event.target.style.removeProperty('border-bottom');
+                    event.target.style.removeProperty('padding-bottom');
+                })
+            }
+        })
+    </script>
+    <style>
+
+        .ul1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .li1 {
+            list-style: none;
+        }
+
+        .ullia {
+            display: block;
+            position: relative;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            font-size: 40px;
+            text-align: center;
+            text-decoration: none;
+            color: #404040;
+            margin: 0 30px;
+            transition: .5s;
+        }
+
+        ul li a span {
+            position: absolute;
+            transition: transform .5s;
+        }
+
+        ul li a span:nth-child(1),
+        ul li a span:nth-child(3) {
+            width: 100%;
+            height: 3px;
+            background: #404040;
+        }
+
+        ul li a span:nth-child(1) {
+            top: 0;
+            left: 0;
+            transform-origin: right;
+        }
+
+        ul li a:hover span:nth-child(1) {
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .5s;
+        }
+
+        ul li a span:nth-child(3) {
+            bottom: 0;
+            left: 0;
+            transform-origin: left;
+        }
+
+        ul li a:hover span:nth-child(3) {
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform .5s;
+        }
+
+        ul li a span:nth-child(2),
+        ul li a span:nth-child(4) {
+            width: 3px;
+            height: 100%;
+            background: #404040;
+        }
+
+        ul li a span:nth-child(2) {
+            top: 0;
+            left: 0;
+            transform: scale(0);
+            transform-origin: bottom;
+        }
+
+        ul li a:hover span:nth-child(2) {
+            transform: scale(1);
+            transform-origin: top;
+            transition: transform .5s;
+        }
+
+        ul li a span:nth-child(4) {
+            top: 0;
+            right: 0;
+            transform: scale(0);
+            transform-origin: top;
+        }
+
+        ul li a:hover span:nth-child(4) {
+            transform: scale(1);
+            transform-origin: bottom;
+            transition: transform .5s;
+        }
+
+        .facebook:hover {
+            color: #3b5998;
+        }
+
+        .facebook:hover span {
+            background: #3b5998;
+        }
+
+        .twitter:hover {
+            color: #1da1f2;
+        }
+
+        .twitter:hover span {
+            background: #1da1f2;
+        }
+
+        .instagram:hover {
+            color: #c32aa3;
+        }
+
+        .instagram:hover span {
+            background: #c32aa3;
+        }
+
+        .google:hover {
+            color: #dd4b39;
+        }
+
+        .google:hover span {
+            background: #dd4b39;
+        }
+
+        ul li a .twitter {
+            color: #1da1f2;
+        }
+
+        ul li a:hover:nth-child(3) {
+            color: #c32aa3;
+        }
+
+        ul li a:hover:nth-child(4) {
+            color: #dd4b39;
+        }
+    </style>
+</head>
+<body>
+<header id="header" style="background-color: #d1aa57">
+    <div class="container main-menu">
+        <div class="row align-items-center justify-content-between d-flex">
+            <div id="logo">
+                <a href="{% url 'Index2' %}"><img src="{% static 'djangoapp/img/logo5.png' %}" alt="" title=""/></a>
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+
+
+                    {#                                                    <li class="menu-has-children"><a href="">Blog</a>#}
+                    {#                                    <ul>#}
+                    {#                                        <li><a href="blog-home.html">Blog Home</a></li>#}
+                    {#                                        <li><a href="projectpage.html">Blog Single</a></li>#}
+                    {#                                    </ul>#}
+                    {#                                                    </li>#}
+                    {#                                <li class="menu-has-children"><a href="">Pages</a>#}
+                    {#                                    <ul>#}
+                    {#                                        <li><a href="{% url 'elements' %}">Elements</a></li>#}
+                    {#                                        <li class="menu-has-children"><a href="">Level 2 </a>#}
+                    {#                                            <ul>#}
+                    {#                                                <li><a href="#">Item One</a></li>#}
+                    {#                                                <li><a href="#">Item Two</a></li>#}
+                    {#                                            </ul>#}
+                    {#                                        </li>#}
+                    {#                                    </ul>#}
+                    {#                                </li>#}
+
+
+                    <li><a class="change_hover" href="{% url 'price' %}"
+                           style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">ورود / ثبت
+                        نام</a>
+                    </li>
+                    <li><a class="change_hover" href="{% url 'contact' %}"
+                           style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">تماس با
+                        ما</a></li>
+                    <li><a class="change_hover" href="{% url 'about' %}"
+                           style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">درباره
+                        ما</a></li>
+                    <li><a class="change_hover" href="{% url 'services' %}"
+                           style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">شکایات و
+                        پیشنهادها</a></li>
+                    <li><a href="{% url 'portfolio' %}"
+                           style="font-size: large;font-family:'B Badr';color: white;border-bottom: 1px solid white;padding-bottom: 2px;text-decoration: none">تعرفه
+                        ها</a></li>
+                    <li><a class="change_hover"
+                           style="font-size: large;font-family:'B Badr';color: white;text-decoration: none;" href="">پروژه
+                        ها</a>
+                    </li>
+                    <li>
+                        <a class="change_hover" href="{% url 'Index2' %}"
+                           style="font-size: large;font-family:'B Badr';color: #fdfff8;text-decoration: none">صفحه
+                            اصلی</a></li>
+                </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </div>
+</header><!-- #header -->
+<!-- #category  -->
+<div style="margin-bottom: 10%">
+    <ul class="ul1">
+        <li class="li1">
+            <a class=" ullia facebook" href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+        </li>
+        <li class="li1">
+            <a class=" ullia twitter" href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+        </li>
+        <li class="li1">
+            <a class="ullia instagram" href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+        </li>
+        <li class="li1">
+            <a class=" ullia google" href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <i class="fa fa-google-plus" aria-hidden="true"></i>
+            </a>
+        </li>
+        <li class="li1">
+            <a class=" ullia google" href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <i class="fa fa-google-plus" aria-hidden="true"></i>
+            </a>
+        </li>
+        <li class="li1">
+            <a class=" ullia google" href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <i class="fa fa-google-plus" aria-hidden="true"></i>
+            </a>
+        </li>
+        <li class="li1">
+            <a class=" ullia google" href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <i class="fa fa-google-plus" aria-hidden="true"></i>
+            </a>
+        </li>
+        <li class="li1">
+            <a class=" ullia google" href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <i class="fa fa-google-plus" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+<!-- end category -->
+<!-- start footer Area -->
+{#<footer class="footer-area section-gap">#}
+{#    <div class="container">#}
+{#        <div class="row">#}
+{#            <div class="col-lg-5 col-md-6 col-sm-6">#}
+{#                <div class="single-footer-widget">#}
+{#                    <h4>About Me</h4>#}
+{#                    <p>#}
+{#                        We have tested a number of registry fix and clean utilities and present our top 3 list on our#}
+{#                        site for your convenience.#}
+{#                    </p>#}
+{#                    <p class="footer-text">#}
+{#                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->#}
+{#                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>#}
+{#                        All rights reserved | This template is made with <i class="fa fa-heart-o"#}
+{#                                                                            aria-hidden="true"></i> by <a#}
+{#                            href="https://colorlib.com" target="_blank">Colorlib</a>#}
+{#                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="col-lg-5 col-md-6 col-sm-6">#}
+{#                <div class="single-footer-widget">#}
+{#                    <h4>Newsletter</h4>#}
+{#                    <p>Stay updated with our latest trends</p>#}
+{#                    <div class="" id="mc_embed_signup">#}
+{#                        <form target="_blank"#}
+{#                              action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"#}
+{#                              method="get">#}
+{#                            <div class="input-group">#}
+{#                                <input type="text" class="form-control" name="EMAIL" placeholder="Enter Email Address"#}
+{#                                       onfocus="this.placeholder = ''"#}
+{#                                       onblur="this.placeholder = 'Enter Email Address '" required="" type="email">#}
+{#                                <div class="input-group-btn">#}
+{#                                    <button class="btn btn-default" type="submit">#}
+{#                                        <span class="lnr lnr-arrow-right"></span>#}
+{#                                    </button>#}
+{#                                </div>#}
+{#                                <div class="info"></div>#}
+{#                            </div>#}
+{#                        </form>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="col-lg-2 col-md-6 col-sm-6 social-widget">#}
+{#                <div class="single-footer-widget">#}
+{#                    <h4>Follow Me</h4>#}
+{#                    <p>Let us be social</p>#}
+{#                    <div class="footer-social d-flex align-items-center">#}
+{#                        <a href="{% url 'Index2' %}"><i class="fa fa-facebook"></i></a>#}
+{#                        <a href="{% url 'Index2' %}"><i class="fa fa-twitter"></i></a>#}
+{#                        <a href="{% url 'Index2' %}"><i class="fa fa-dribbble"></i></a>#}
+{#                        <a href="{% url 'Index2' %}"><i class="fa fa-behance"></i></a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</footer>#}
+<!-- End footer Area -->
+
+<script src={% static 'djangoapp/js/vendor/jquery-2.2.4.min.js' %}></script>
+<script src={% static 'djangoapp/js/popper.min.js' %}></script>
+<script src={% static 'djangoapp/js/vendor/bootstrap.min.js' %}></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+<script src={% static 'djangoapp/js/easing.min.js' %}></script>
+<script src={% static 'djangoapp/js/hoverIntent.js' %}></script>
+<script src={% static 'djangoapp/js/superfish.min.js' %}></script>
+<script src={% static 'djangoapp/js/jquery.ajaxchimp.min.js' %}></script>
+<script src={% static 'djangoapp/js/jquery.magnific-popup.min.js' %}></script>
+<script src={% static 'djangoapp/js/jquery.tabs.min.js' %}></script>
+<script src={% static 'djangoapp/js/jquery.nice-select.min.js' %}></script>
+<script src={% static 'djangoapp/js/isotope.pkgd.min.js' %}></script>
+<script src={% static 'djangoapp/js/waypoints.min.js' %}></script>
+<script src={% static 'djangoapp/js/jquery.counterup.min.js' %}></script>
+<script src={% static 'djangoapp/js/simple-skillbar.js' %}></script>
+<script src={% static 'djangoapp/js/owl.carousel.min.js' %}></script>
+<script src={% static 'djangoapp/js/mail-script.js' %}></script>
+<script src={% static 'djangoapp/js/main.js' %}></script>
+</body>
+</html>
