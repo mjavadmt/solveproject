@@ -298,9 +298,9 @@
             height: 40px;
             width: 40px;
         }
-        @media all  and (min-width:700px) {
-            .container2
-            {
+
+        @media all  and (min-width: 700px) {
+            .container2 {
                 margin-left: 25%;
             }
         }
@@ -310,7 +310,7 @@
 
     {#    end css sing in#}
 </head>
-<body>
+<body style="font-family: Mj_Ghalam-1 ">
 <header id="header" style="background-color: #d1aa57">
     <div class="container main-menu">
         <div class="row align-items-center justify-content-between d-flex">
@@ -321,26 +321,26 @@
                 <ul class="nav-menu">
 
 
-{#                    <li class="menu-has-children"><a href="">Blog</a>#}
-{#                        <ul>#}
-{#                            <li><a href="blog-home.html">Blog Home</a></li>#}
-{#                            <li><a href="projectpage.html">Blog Single</a></li>#}
-{#                        </ul>#}
-{#                    </li>#}
-{#                    <li class="menu-has-children"><a href="">Pages</a>#}
-{#                        <ul>#}
-{#                            <li><a href="{% url 'elements' %}">Elements</a></li>#}
-{#                            <li class="menu-has-children"><a href="">Level 2 </a>#}
-{#                                <ul>#}
-{#                                    <li><a href="#">Item One</a></li>#}
-{#                                    <li><a href="#">Item Two</a></li>#}
-{#                                </ul>#}
-{#                            </li>#}
-{#                        </ul>#}
-{#                    </li>#}
+                    {#                    <li class="menu-has-children"><a href="">Blog</a>#}
+                    {#                        <ul>#}
+                    {#                            <li><a href="blog-home.html">Blog Home</a></li>#}
+                    {#                            <li><a href="projectpage.html">Blog Single</a></li>#}
+                    {#                        </ul>#}
+                    {#                    </li>#}
+                    {#                    <li class="menu-has-children"><a href="">Pages</a>#}
+                    {#                        <ul>#}
+                    {#                            <li><a href="{% url 'elements' %}">Elements</a></li>#}
+                    {#                            <li class="menu-has-children"><a href="">Level 2 </a>#}
+                    {#                                <ul>#}
+                    {#                                    <li><a href="#">Item One</a></li>#}
+                    {#                                    <li><a href="#">Item Two</a></li>#}
+                    {#                                </ul>#}
+                    {#                            </li>#}
+                    {#                        </ul>#}
+                    {#                    </li>#}
 
 
-                    <li><a href="{% url 'price' %}"
+                    <li><a href="{% url 'formsign' %}"
                            style="font-size: large;font-family:'B Badr';color: white;border-bottom: 1px solid white;padding-bottom: 2px;text-decoration: none">ورود
                         / ثبت
                         نام</a>
@@ -380,7 +380,7 @@
 {#                    Pricing Plan#}
 {#                </h1>#}
 {#                <p class="text-white link-nav"><a href="{% url 'Index2' %}">Home </a> <span#}
-{#                        class="lnr lnr-arrow-right"></span> <a href="signin.html"> Pricing Plan</a></p>#}
+{#                        class="lnr lnr-arrow-right"></span> <a href="formsign.html"> Pricing Plan</a></p>#}
 {#            </div>#}
 {#        </div>#}
 {#    </div>#}
@@ -389,31 +389,40 @@
 
 <!-- sign in Area -->
 {#<div style="width: 90%">#}
+
 <div class="container2" id="container2" style="margin-top: 200px;margin-bottom: 100px;">
     <div class="form-container sign-up-container">
-        <form action="#">
-
-            <h1>Create Account</h1>
+        <form action="{% url 'signup' %}" method="POST">
+            {% csrf_token %}
+            <h3>Create Account</h3>
             <div class="social-container">
-{#                <a href="#" class="social"><i class="fa fa-facebook"></i></a>#}
+                {#                <a href="#" class="social"><i class="fa fa-facebook"></i></a>#}
                 <a href="#" class="social"><i style="color: red" class="fa fa-google-plus"></i></a>
-{#                <a href="#" class="social"><i class="fa fa-linkedin"></i></a>#}
+                {#                <a href="#" class="social"><i class="fa fa-linkedin"></i></a>#}
             </div>
             <span>or use your email for registration</span>
             <input type="text" name="username" placeholder="username"/>
             <input type="email" name="email" placeholder="Email"/>
             <input type="password" name="password" placeholder="Password"/>
-            <button type="submit">Sign Up</button>
+
+            <div style="width: 80%">
+            <input style="width: 10%;display: inline" id="id1" value="freelancer" type="radio" name="person">
+            <label style="width: 20%;display: inline;font-size: x-large" for="id1">کارفرما</label>
+             <input style="margin-left: 10%;width: 10%;display: inline" id="id2" value="employer" type="radio" name="person">
+            <label style="width: 20%;display: inline;font-size: x-large" for="id2">فریلنسر</label>
+            </div>
+
+            <button style="margin-top: 5%" type="submit">Sign Up</button>
         </form>
     </div>
     <div class="form-container sign-in-container">
-        <form action="#">
-
+        <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
             <h1>Sign in</h1>
             <div class="social-container">
-{#                <a href="#" class="social"><i class="fa fa-facebook"></i></a>#}
+                {#                <a href="#" class="social"><i class="fa fa-facebook"></i></a>#}
                 <a href="#" class="social"><i style="color: red" class="fa fa-google-plus"></i></a>
-{#                <a href="#" class="social"><i class="fa fa-linkedin"></i></a>#}
+                {#                <a href="#" class="social"><i class="fa fa-linkedin"></i></a>#}
             </div>
             <span>or use your account</span>
             <input type="text" name="username" placeholder="username"/>

@@ -31,7 +31,7 @@
 			<link rel="stylesheet" href="{% static 'djangoapp/css/owl.carousel.css' %} ">
 			<link rel="stylesheet" href="{% static 'djangoapp/css/main.css' %} ">
 		</head>
-		<body>
+		<body style="font-family: Mj_Ghalam-1">
 		  <header id="header">
 		    <div class="container main-menu">
 		    	<div class="row align-items-center justify-content-between d-flex">
@@ -42,7 +42,7 @@
 			        <ul class="nav-menu">
 			          <li><a href="{% url 'Index2' %}">Home</a></li>
 			          <li><a href="{% url 'about' %}">About</a></li>
-			          <li><a href="{% url 'services' %}">Services</a></li>
+			          <li><a href="{% url 'services' %}">{{ request.user.username|safe }}</a></li>
 			          <li><a href="{% url 'portfolio' %} ">Portfolio</a></li>
 			          <li><a href="{% url 'formsign' %} ">Pricing</a></li>
 			          <li class="menu-has-children"><a href="">Blog</a>
@@ -62,7 +62,7 @@
 				          </li>
 			            </ul>
 			          </li>
-			          <li><a href="{% url 'contact' %}">Contact</a></li>
+			          <li><a href="{% url 'logout' %}">logout bkhoresh :)</a></li>
 			        </ul>
 			      </nav><!-- #nav-menu-container -->
 		    	</div>

@@ -9,8 +9,12 @@ urlpatterns = [
     path("elements", views.elements, name="elements"),
     path("about", views.about, name="about"),
     path("portfolio", views.portfolio, name="portfolio"),
-    path("price", views.price, name="price"),
+    path("formsign", views.enterance, name="formsign"),
     path("services", views.services, name="services"),
     path("about", views.about, name="about"),
-    path("projectpage", views.Projectpage, name="projectpage")
+    path("projectpage", views.Projectpage, name="projectpage"),
+    path("enterance", views.enterance, name="enterance"),
+    path("signup", views.sign_up, name="signup"),
+    path("login", views.loginuser, name="login"),
+    path("logout", views.logoutuser, name="logout")
 ]
