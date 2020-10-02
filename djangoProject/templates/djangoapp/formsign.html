@@ -394,13 +394,13 @@
     <div class="form-container sign-up-container">
         <form action="{% url 'signup' %}" method="POST">
             {% csrf_token %}
-            <h3>Create Account</h3>
+            <h3>ثبت نام</h3>
             <div class="social-container">
                 {#                <a href="#" class="social"><i class="fa fa-facebook"></i></a>#}
                 <a href="#" class="social"><i style="color: red" class="fa fa-google-plus"></i></a>
                 {#                <a href="#" class="social"><i class="fa fa-linkedin"></i></a>#}
             </div>
-            <span>or use your email for registration</span>
+            <span style="font-size: x-large">ثبت نام با گوگل</span>
             <input type="text" name="username" placeholder="username"/>
             <input type="email" name="email" placeholder="Email"/>
             <input type="password" name="password" placeholder="Password"/>
@@ -412,36 +412,36 @@
             <label style="width: 20%;display: inline;font-size: x-large" for="id2">فریلنسر</label>
             </div>
 
-            <button style="margin-top: 5%" type="submit">Sign Up</button>
+            <button style="margin-top: 5%;font-size: x-large" type="submit">ثبت کن</button>
         </form>
     </div>
     <div class="form-container sign-in-container">
         <form action="{% url 'login' %}" method="POST">
             {% csrf_token %}
-            <h1>Sign in</h1>
+            <h1>ورود</h1>
             <div class="social-container">
                 {#                <a href="#" class="social"><i class="fa fa-facebook"></i></a>#}
                 <a href="#" class="social"><i style="color: red" class="fa fa-google-plus"></i></a>
                 {#                <a href="#" class="social"><i class="fa fa-linkedin"></i></a>#}
             </div>
-            <span>or use your account</span>
+            <span style="font-size: x-large">ورود از طریق گوگل</span>
             <input type="text" name="username" placeholder="username"/>
             <input type="password" name="password" placeholder="Password"/>
-            <a href="#">Forgot your password?</a>
-            <button type="submit">Sign In</button>
+            <a href="#" style="font-size: large"">فراموشی رمز؟</a>
+            <button type="submit" style="font-size: x-large">ورود</button>
         </form>
     </div>
     <div class="overlay-container">
         <div class="overlay">
             <div class="overlay-panel overlay-left">
-                <h1>Welcome Back!</h1>
-                <p>To keep connected with us please login with your personal info</p>
-                <button class="ghost" id="signIn">Sign In</button>
+                <h1 style=" font-family: Mj_Ghalam-1">خوش آمدید</h1>
+                <p style="font-size: x-large">برای ادامه لطفا وارد حساب کاربریتان شوید</p>
+                <button class="ghost" id="signIn" style="font-size: x-large">ورود</button>
             </div>
             <div class="overlay-panel overlay-right">
-                <h1>Hello, Friend!</h1>
-                <p>Enter your personal details and start journey with us</p>
-                <button class="ghost" id="signUp">Sign Up</button>
+                <h1 style=" font-family: Mj_Ghalam-1">سلام،خوش آمدید</h1>
+                <p style="font-size: x-large">همین الان ثبت نام کنید و مشغول کار شوید</p>
+                <button class="ghost" id="signUp" style="font-size: x-large">ثبت نام</button>
             </div>
         </div>
     </div>
