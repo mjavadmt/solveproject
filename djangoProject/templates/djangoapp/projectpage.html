@@ -200,24 +200,24 @@
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
 
-
-                    {#                                                    <li class="menu-has-children"><a href="">Blog</a>#}
-                    {#                                    <ul>#}
-                    {#                                        <li><a href="blog-home.html">Blog Home</a></li>#}
-                    {#                                        <li><a href="projectpage.html">Blog Single</a></li>#}
-                    {#                                    </ul>#}
+                    {##}
+                    {#                                                                        <li class="menu-has-children"><a href="">Blog</a>#}
+                    {#                                                        <ul>#}
+                    {#                                                            <li><a href="blog-home.html">Blog Home</a></li>#}
+                    {#                                                            <li><a href="projectpage.html">Blog Single</a></li>#}
+                    {#                                                        </ul>#}
+                    {#                                                                        </li>#}
+                    {#                                                    <li class="menu-has-children"><a href="">Pages</a>#}
+                    {#                                                        <ul>#}
+                    {#                                                            <li><a href="{% url 'elements' %}">Elements</a></li>#}
+                    {#                                                            <li class="menu-has-children"><a href="">Level 2 </a>#}
+                    {#                                                                <ul>#}
+                    {#                                                                    <li><a href="#">Item One</a></li>#}
+                    {#                                                                    <li><a href="#">Item Two</a></li>#}
+                    {#                                                                </ul>#}
+                    {#                                                            </li>#}
+                    {#                                                        </ul>#}
                     {#                                                    </li>#}
-                    {#                                <li class="menu-has-children"><a href="">Pages</a>#}
-                    {#                                    <ul>#}
-                    {#                                        <li><a href="{% url 'elements' %}">Elements</a></li>#}
-                    {#                                        <li class="menu-has-children"><a href="">Level 2 </a>#}
-                    {#                                            <ul>#}
-                    {#                                                <li><a href="#">Item One</a></li>#}
-                    {#                                                <li><a href="#">Item Two</a></li>#}
-                    {#                                            </ul>#}
-                    {#                                        </li>#}
-                    {#                                    </ul>#}
-                    {#                                </li>#}
 
 
                     <li><a class="change_hover" href="{% url 'formsign' %}"
@@ -250,82 +250,94 @@
     </div>
 </header><!-- #header -->
 <!-- #category  -->
-<div style="margin-bottom: 10%">
-    <ul class="ul1">
-        <li class="li1">
-            <a class=" ullia facebook" href="#">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <i class="fa fa-facebook" aria-hidden="true"></i>
-            </a>
-        </li>
-        <li class="li1">
-            <a class=" ullia twitter" href="#">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-            </a>
-        </li>
-        <li class="li1">
-            <a class="ullia instagram" href="#">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <i class="fa fa-instagram" aria-hidden="true"></i>
-            </a>
-        </li>
-        <li class="li1">
-            <a class=" ullia google" href="#">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <i class="fa fa-google-plus" aria-hidden="true"></i>
-            </a>
-        </li>
-        <li class="li1">
-            <a class=" ullia google" href="#">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <i class="fa fa-google-plus" aria-hidden="true"></i>
-            </a>
-        </li>
-        <li class="li1">
-            <a class=" ullia google" href="#">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <i class="fa fa-google-plus" aria-hidden="true"></i>
-            </a>
-        </li>
-        <li class="li1">
-            <a class=" ullia google" href="#">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <i class="fa fa-google-plus" aria-hidden="true"></i>
-            </a>
-        </li>
-        <li class="li1">
-            <a class=" ullia google" href="#">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <i class="fa fa-google-plus" aria-hidden="true"></i>
-            </a>
-        </li>
-    </ul>
+<div class="container section-gap">
+<ul class="ul1">
+    <div class="row">
+        <div class="col-lg-4 col-md-6">
+            <li class="li1">
+                <a class=" ullia facebook" href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <li class="li1">
+                <a class=" ullia twitter" href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <li class="li1">
+                <a class="ullia instagram" href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+            </li>
+        </div>
+{#        <div class="col-lg-4 col-md-6">#}
+{#            <li class="li1">#}
+{#                <a class=" ullia google" href="#">#}
+{#                    <span></span>#}
+{#                    <span></span>#}
+{#                    <span></span>#}
+{#                    <span></span>#}
+{#                    <i class="fa fa-google-plus" aria-hidden="true"></i>#}
+{#                </a>#}
+{#            </li>#}
+{#        </div>#}
+        {#        <li class="li1">#}
+        {#            <a class=" ullia google" href="#">#}
+        {#                <span></span>#}
+        {#                <span></span>#}
+        {#                <span></span>#}
+        {#                <span></span>#}
+        {#                <i class="fa fa-google-plus" aria-hidden="true"></i>#}
+        {#            </a>#}
+        {#        </li>#}
+        {#        <li class="li1">#}
+        {#            <a class=" ullia google" href="#">#}
+        {#                <span></span>#}
+        {#                <span></span>#}
+        {#                <span></span>#}
+        {#                <span></span>#}
+        {#                <i class="fa fa-google-plus" aria-hidden="true"></i>#}
+        {#            </a>#}
+        {#        </li>#}
+        {#        <li class="li1">#}
+        {#            <a class=" ullia google" href="#">#}
+        {#                <span></span>#}
+        {#                <span></span>#}
+        {#                <span></span>#}
+        {#                <span></span>#}
+        {#                <i class="fa fa-google-plus" aria-hidden="true"></i>#}
+        {#            </a>#}
+        {#        </li>#}
+        {#        <li class="li1">#}
+        {#            <a class=" ullia google" href="#">#}
+        {#                <span></span>#}
+        {#                <span></span>#}
+        {#                <span></span>#}
+        {#                <span></span>#}
+        {#                <i class="fa fa-google-plus" aria-hidden="true"></i>#}
+        {#            </a>#}
+        {#        </li>#}
+    </div>
+</ul>
 </div>
+
+
 <!-- end category -->
 <!-- start footer Area -->
 {#<footer class="footer-area section-gap">#}
