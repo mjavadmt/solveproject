@@ -52,7 +52,7 @@
         .ul1 {
             position: absolute;
             top: 50%;
-            left: 50%;
+            left: 40%;
             transform: translate(-50%, -50%);
             margin: 0;
             padding: 0;
@@ -192,18 +192,100 @@
             color: #dd4b39;
         }
 
+        .divider {
+            height: .5px;
+            background: #000;
+            background: -webkit-linear-gradient(left, rgb(255, 255, 255) 0%, rgb(50, 50, 50) 50%, rgb(255, 255, 255) 100%);
+        }
+
+        .divider.light {
+            background: #fff;
+            background: -webkit-linear-gradient(left, rgb(90, 90, 90) 0%, rgb(255, 255, 255) 50%, rgb(90, 90, 90) 100%);
+        }
+
+
+        /* Presentation only */
+        .width80 {
+            width: 80%;
+            margin: 0px auto;
+            padding-top: 50px;
+        }
+
+        .light-background {
+            background: #fff;
+            margin-top: 50px;
+            width: 100%;
+            height: 100px;
+        }
+
+        .vl {
+            margin-top: -100px;
+            margin-left: 80%;
+            border-left: 1px solid #933f09;
+            height: 800px;
+            position: absolute;
+        }
+
+        .checkbox_input {
+            {#float: right;#}
+            margin-left: 60%;
+            margin-right: 2%;
+            margin-top: 1%;
+        }
+
+        .label_checkbox {
+            {#float: right;#}
+            margin-right: 2%;
+            font-size: large;
+        }
+
         @media all and (max-width: 1800px) {
+
             .respo {
                 margin-top: 200px;
             }
 
             .li1 {
-                margin-left: 7%;
+                margin-left: 8%;
                 margin-top: 50px;
+            }
+
+            .width80 {
+                margin-top: 100px;
+            }
+
+
+        }
+
+        @media all and (max-width: 1500px) {
+
+            .respo {
+                margin-top: 200px;
+            }
+
+            .li1 {
+                margin-left: 8%;
+                margin-top: 50px;
+            }
+
+            .width80 {
+                margin-top: 100px;
+            }
+
+            #image_filter {
+                display: none;
+            }
+
+            .vl {
+                display: none;
             }
         }
 
         @media all and (max-width: 1000px) {
+            .vl {
+                display: none;
+            }
+
             .respo {
                 margin-top: 350px;
             }
@@ -212,12 +294,28 @@
                 width: 30%;
                 margin-top: 50px;
             }
+
+            #image_filter {
+                display: none;
+            }
+
+            .width80 {
+                margin-top: 240px;
+            }
         }
 
         @media all and (max-width: 700px) {
+            .vl {
+                display: none;
+            }
+
             .respo {
             {#position: relative;#} margin-top: 400px;
 
+            }
+
+            #image_filter {
+                display: none;
             }
 
             .ul1 {
@@ -227,6 +325,10 @@
             .li1 {
                 width: 30%;
                 margin-top: 50px;
+            }
+
+            .width80 {
+                margin-top: 200px;
             }
         }
     </style>
@@ -292,13 +394,30 @@
     </div>
 </header><!-- #header -->
 
+<div class="vl"></div>
 
+<div style="float: right;margin-top: -95px;width: 20%">
+    <img id="image_filter"
+         src="https://www.smashstack.com/articles/wp-content/uploads/2016/09/Screen-Test-How-Web-Filtering-Works-676x676.jpg"
+         width="100%" height="246px">
+    <h1 style="text-align: center;font-family: Mj_Ghalam-1;margin-top: 2%"> فیلتر ها</h1>
+    <form id="form_filter" style="margin-top: 1%">
+        <input class="checkbox_input" type="checkbox" id="first">
+        <label class="label_checkbox" for="first">برنامه نویسی</label>
+
+        <br>
+        <input class="checkbox_input" type="checkbox" id="second">
+        <label class="label_checkbox" for="second">برنامه خودت</label>
+
+
+    </form>
+</div>
 <!-- #category  -->
 <div class="respo">
     <ul class="ul1">
         <div class="row">
             <li class="li1 col-xs-4 col-sm-4 col-lg-1">
-                <a class=" ullia facebook" href="#">
+                <a class=" ullia facebook" href="#" onclick="filtering()">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -388,6 +507,11 @@
 
 </div>
 
+<div class="width80" style="position: absolute">
+    <div class="divider light"
+         style="position: absolute;width: 100%;background-color: #933f09 "></div>
+</div>
+
 
 <!-- end category -->
 
@@ -451,6 +575,17 @@
 {#    </div>#}
 {#</footer>#}
 <!-- End footer Area -->
+<script>
+    mobiles_checklist = ['اندورید', 'ios', 'بازی موبایل', 'اپ موبایل']
+    designs_checklist = ['طراحی فیلم و طراحی عکس', 'ویرایش فیلم و عکس', 'فوتوشاپ']
+    website_checklist = ['هوش مصنوعی', 'شبکه', 'برنامه های مختلف', 'طراحی وبسایت']
+
+    function filtering() {
+        let get_form = document.getElementById("form_filter");
+
+    }
+
+</script>
 
 <script src={% static 'djangoapp/js/vendor/jquery-2.2.4.min.js' %}></script>
 <script src={% static 'djangoapp/js/popper.min.js' %}></script>

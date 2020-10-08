@@ -1,4 +1,5 @@
 {% load static %}
+{% load socialaccount %}
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 <head>
@@ -397,7 +398,7 @@
             <h3>ثبت نام</h3>
             <div class="social-container">
                 {#                <a href="#" class="social"><i class="fa fa-facebook"></i></a>#}
-                <a href="#" class="social"><i style="color: red" class="fa fa-google-plus"></i></a>
+                <a href="{% provider_login_url 'google' %}" class="social"><i style="color: red" class="fa fa-google-plus"></i></a>
                 {#                <a href="#" class="social"><i class="fa fa-linkedin"></i></a>#}
             </div>
             <span style="font-size: x-large">ثبت نام با گوگل</span>
@@ -421,7 +422,7 @@
             <h1>ورود</h1>
             <div class="social-container">
                 {#                <a href="#" class="social"><i class="fa fa-facebook"></i></a>#}
-                <a href="#" class="social"><i style="color: red" class="fa fa-google-plus"></i></a>
+                <a href="{% provider_login_url 'google' %}" class="social"><i style="color: red" class="fa fa-google-plus"></i></a>
                 {#                <a href="#" class="social"><i class="fa fa-linkedin"></i></a>#}
             </div>
             <span style="font-size: x-large">ورود از طریق گوگل</span>
