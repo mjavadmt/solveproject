@@ -14,6 +14,10 @@ def Index(request):
 def enterance(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse("login"))
+    u=User.objects.get(id=request.user.id)
+    if(not(u.is_staff)):
+        # u.is_staff=True
+        return render(request, "djangoapp/#.html")
 
     return render(request, "djangoapp/enterance.html")
 

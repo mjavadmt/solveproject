@@ -398,6 +398,7 @@
             <h3>ثبت نام</h3>
             <div class="social-container">
                 {#                <a href="#" class="social"><i class="fa fa-facebook"></i></a>#}
+
                 <a href="{% provider_login_url 'google' %}" class="social"><i style="color: red" class="fa fa-google-plus"></i></a>
                 {#                <a href="#" class="social"><i class="fa fa-linkedin"></i></a>#}
             </div>
@@ -428,7 +429,7 @@
             <span style="font-size: x-large">ورود از طریق گوگل</span>
             <input type="text" name="username" placeholder="username"/>
             <input type="password" name="password" placeholder="Password"/>
-            <a href="#" style="font-size: large"">فراموشی رمز؟</a>
+            <a href="#" style="font-size: large">فراموشی رمز؟</a>
             <button type="submit" style="font-size: x-large">ورود</button>
         </form>
     </div>

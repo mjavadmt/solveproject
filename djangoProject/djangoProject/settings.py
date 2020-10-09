@@ -130,7 +130,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SITE_ID = 1
-LOGIN_REDIRECT_URL = '/djnagoapp'
+LOGIN_REDIRECT_URL = '/djangoapp/enterance'
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {

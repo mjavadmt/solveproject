@@ -26,7 +26,6 @@ class Freelancer(models.Model):
     def __str__(self):
         return f"{self.pk} {self.user.username}"
 
-
 class Project(models.Model):
     producer = models.ForeignKey(Employer, related_name="projects_produced", on_delete=models.CASCADE, blank=True)
     solver = models.ForeignKey(Freelancer, related_name="projects_solved", on_delete=models.CASCADE, blank=True)
