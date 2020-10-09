@@ -11,22 +11,40 @@ from django.contrib.auth.models import User
 def Index(request):
     return render(request, "djangoapp/home.html")
 
+
 def enterance(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse("login"))
-    u=User.objects.get(id=request.user.id)
-    if(not(u.is_staff)):
-        # u.is_staff=True
-        return render(request, "djangoapp/#.html")
+    u = User.objects.get(id=request.user.id)
+    if not u.is_staff:
+        return render(request, "djangoapp/choosefremp.html")
 
     return render(request, "djangoapp/enterance.html")
+
+
+def choosefremp(request):
+    if request.method == "POST":
+        get_type = request.POST['user_type']
+        u = User.objects.get(id=request.user.id)
+        u.is_staff = True
+        u.save()
+        if get_type == "freelancer":
+            created_freelancer = Freelancer(user=u)
+            created_freelancer.save()
+        elif get_type == "employer":
+            created_employer = Employer(user=u)
+            created_employer.save()
+        return HttpResponseRedirect(reverse('enterance'))
+
+    return render(request, "djangoapp/choosefremp.html")
+
 
 def sign_up(request):
     if request.method == "POST":
         username = request.POST["username"]
         email = request.POST["email"]
         password = request.POST["password"]
-        user_type = request.POST["person"]
+        # user_type = request.POST["person"]
         get_list_username = list(User.objects.values_list("username"))
         get_list_password = list(User.objects.values_list("password"))
         for i in range(len(get_list_username)):
@@ -36,15 +54,17 @@ def sign_up(request):
         if username in get_list_username or password in get_list_password:
             return render(request, "djangoapp/formsign.html", {"message": "PICK ANOTHER USERNAME AND PASSWORD"})
         created_user = User.objects.create_user(username=username, password=password, email=email)
-        if user_type == "freelancer":
-            created_freelancer = Freelancer(user=created_user)
-            created_freelancer.save()
-        else:
-            created_employer = Employer(user=created_user)
-            created_employer.save()
+
+        # if user_type == "freelancer":
+        #     created_freelancer = Freelancer(user=created_user)
+        #     created_freelancer.save()
+        # else:
+        #     created_employer = Employer(user=created_user)
+        #     created_employer.save()
         # user = authenticate(request, username=username, password=password)
         login(request, created_user)
         return HttpResponseRedirect(reverse("enterance"))
+
 
 def loginuser(request):
     if request.method == "POST":
@@ -57,6 +77,7 @@ def loginuser(request):
         else:
             return render(request, "djangoapp/formsign.html", {"message": "Invalid credinatial"})
     return render(request, "djangoapp/formsign.html")
+
 
 def logoutuser(request):
     logout(request)
@@ -92,11 +113,12 @@ def show_chat(request):
         "all_chats": Temp.objects.all()
     })
 
+
 def Projectpage(request):
     return render(request, "djangoapp/projectpage.html")
 
-def choosefremp(request):
-    return render(request, "djangoapp/choosefremp.html")
+
+
 
 
 def save_text(request):

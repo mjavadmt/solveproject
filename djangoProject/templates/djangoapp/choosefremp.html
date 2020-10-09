@@ -408,7 +408,7 @@
 
 <div class="container2" id="container2" style="margin-top: 200px;margin-bottom: 100px;">
     <div class="form-container sign-up-container">
-        <form action="{% url 'signup' %}" method="POST">
+        <form action="{% url 'choosefremp' %}" method="POST">
             {% csrf_token %}
 {#            <h3>ثبت نام</h3>#}
 {#            <div class="social-container">#}
@@ -429,11 +429,11 @@
 {#            <label style="width: 20%;display: inline;font-size: x-large" for="id2">فریلنسر</label>#}
 {#            </div>#}
 
-            <button style="margin-top: 5%;font-size: x-large" type="submit">کارفرما</button>
+            <button value="employer" name="user_type" style="margin-top: 5%;font-size: x-large" type="submit">کارفرما</button>
         </form>
     </div>
     <div class="form-container sign-in-container">
-        <form action="{% url 'login' %}" method="POST">
+        <form action="{% url 'choosefremp' %}" method="POST">
             {% csrf_token %}
 {#            <h1>ورود</h1>#}
 {#            <div class="social-container">#}
@@ -445,7 +445,7 @@
 {#            <input type="text" name="username" placeholder="username"/>#}
 {#            <input type="password" name="password" placeholder="Password"/>#}
 {#            <a href="#" style="font-size: large">فراموشی رمز؟</a>#}
-            <button type="submit" style="font-size: x-large">فریلنسر</button>
+            <button value="freelancer" name="user_type" type="submit" style="font-size: x-large">فریلنسر</button>
         </form>
     </div>
     <div class="overlay-container">
