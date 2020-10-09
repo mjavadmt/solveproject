@@ -54,7 +54,6 @@ def sign_up(request):
         if username in get_list_username or password in get_list_password:
             return render(request, "djangoapp/formsign.html", {"message": "PICK ANOTHER USERNAME AND PASSWORD"})
         created_user = User.objects.create_user(username=username, password=password, email=email)
-
         # if user_type == "freelancer":
         #     created_freelancer = Freelancer(user=created_user)
         #     created_freelancer.save()
@@ -62,7 +61,8 @@ def sign_up(request):
         #     created_employer = Employer(user=created_user)
         #     created_employer.save()
         # user = authenticate(request, username=username, password=password)
-        login(request, created_user)
+        # login(request, created_user)
+        login(request, created_user, backend='django.contrib.auth.backends.ModelBackend')
         return HttpResponseRedirect(reverse("enterance"))
 
 
@@ -116,9 +116,6 @@ def show_chat(request):
 
 def Projectpage(request):
     return render(request, "djangoapp/projectpage.html")
-
-
-
 
 
 def save_text(request):
