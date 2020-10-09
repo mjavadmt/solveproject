@@ -95,6 +95,9 @@ def show_chat(request):
 def Projectpage(request):
     return render(request, "djangoapp/projectpage.html")
 
+def choosefremp(request):
+    return render(request, "djangoapp/choosefremp.html")
+
 
 def save_text(request):
     if request.method == "POST":

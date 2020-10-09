@@ -16,5 +16,6 @@ urlpatterns = [
     path("enterance", views.enterance, name="enterance"),
     path("signup", views.sign_up, name="signup"),
     path("login", views.loginuser, name="login"),
-    path("logout", views.logoutuser, name="logout")
+    path("logout", views.logoutuser, name="logout"),
+    path("choosefremp", views.choosefremp, name="choosefremp")
 ]
