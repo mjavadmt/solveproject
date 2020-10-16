@@ -227,17 +227,123 @@
         }
 
         .checkbox_input {
-            {#float: right;#}
-            margin-left: 60%;
+        {#float: right;#} margin-left: 40%;
             margin-right: 2%;
-            margin-top: 1%;
+            margin-top: 2%;
         }
 
         .label_checkbox {
-            {#float: right;#}
-            margin-right: 2%;
+        {#float: right;#} margin-right: 2%;
             font-size: large;
+        {#display: block;#}
         }
+
+        .content2 {
+            {#width: 100%;#}
+            {#height: 100vh;#}
+            {#background-color: #171f30;#}
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content2 .loading {
+            width: 80px;
+            height: 50px;
+            position: relative;
+        }
+
+        .content2 .loading p {
+            top: 0;
+            padding: 0;
+            margin: 0;
+            color: #72624e;
+            font-family: "Oxygen", sans-serif;
+            animation: text 5s ease both;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        @keyframes text {
+            0% {
+                letter-spacing: 1px;
+                transform: translateX(0px);
+                opacity: 1;
+            }
+            40% {
+                letter-spacing: 2px;
+                transform: translateX(26px);
+                opacity: 0.8;
+            }
+            80% {
+                letter-spacing: 1px;
+                transform: translateX(32px);
+                opacity: 0.5;
+            }
+            90% {
+                letter-spacing: 2px;
+                transform: translateX(0px);
+                opacity: 0.2;
+
+            }
+            100% {
+                letter-spacing: 1px;
+                transform: translateX(0px);
+                opacity: 0;
+            }
+        }
+
+        .content2 .loading span {
+            background-color: #642b05;
+            border-radius: 50px;
+            display: block;
+            height: 16px;
+            width: 50px;
+            bottom: 0;
+            position: absolute;
+            transform: translateX(64px);
+            animation: loading 5s ease both;
+
+        }
+
+        .content2 .loading span:before {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-color: #a73204;
+            border-radius: inherit;
+            animation: loading2 5s ease both;
+        }
+
+        @keyframes loading {
+            0% {
+                width: 16px;
+                transform: translateX(0px);
+                opacity: 1;
+            }
+            40% {
+                width: 100%;
+                transform: translateX(0px);
+                opacity: 0.8;
+            }
+            80% {
+                width: 16px;
+                transform: translateX(64px);
+                opacity: 0.5;
+            }
+            90% {
+                width: 100%;
+                transform: translateX(0px);
+                opacity: 0.3;
+            }
+            100% {
+                width: 16px;
+                transform: translateX(0px);
+                opacity: 0;
+            }
+        }
+
 
         @media all and (max-width: 1800px) {
 
@@ -256,6 +362,7 @@
 
 
         }
+
 
         @media all and (max-width: 1500px) {
 
@@ -402,12 +509,12 @@
          width="100%" height="246px">
     <h1 style="text-align: center;font-family: Mj_Ghalam-1;margin-top: 2%"> فیلتر ها</h1>
     <form id="form_filter" style="margin-top: 1%">
-        <input class="checkbox_input" type="checkbox" id="first">
-        <label class="label_checkbox" for="first">برنامه نویسی</label>
+        {#        <input class="checkbox_input" type="checkbox" id="first">#}
+        {#        <label class="label_checkbox" for="first">برنامه نویسی</label>#}
 
         <br>
-        <input class="checkbox_input" type="checkbox" id="second">
-        <label class="label_checkbox" for="second">برنامه خودت</label>
+        {#        <input class="checkbox_input" type="checkbox" id="second">#}
+        {#        <label class="label_checkbox" for="second">برنامه خودت</label>#}
 
 
     </form>
@@ -417,7 +524,7 @@
     <ul class="ul1">
         <div class="row">
             <li class="li1 col-xs-4 col-sm-4 col-lg-1">
-                <a class=" ullia facebook" href="#" onclick="filtering()">
+                <a id="mobile" class=" ullia facebook" href="#" onclick="filtering(this)">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -428,7 +535,7 @@
             </li>
 
             <li class="li1 col-xs-4 col-sm-4 col-lg-1">
-                <a class=" ullia twitter" href="#">
+                <a id="design" onclick="filtering(this)" class=" ullia twitter" href="#">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -439,7 +546,7 @@
             </li>
 
             <li class="li1 col-xs-4 col-sm-4 col-lg-1">
-                <a class="ullia instagram" href="#">
+                <a id="website" onclick="filtering(this)" class="ullia instagram" href="#">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -512,6 +619,13 @@
          style="position: absolute;width: 100%;background-color: #933f09 "></div>
 </div>
 
+<div class="content2" style="position: absolute;margin-top: 200px;margin-left: 40% ">
+    <div class="loading">
+        <p style="font-size: large">loading</p>
+        <span style="width: 400px"></span>
+    </div>
+</div>
+
 
 <!-- end category -->
 
@@ -576,13 +690,32 @@
 {#</footer>#}
 <!-- End footer Area -->
 <script>
-    mobiles_checklist = ['اندورید', 'ios', 'بازی موبایل', 'اپ موبایل']
-    designs_checklist = ['طراحی فیلم و طراحی عکس', 'ویرایش فیلم و عکس', 'فوتوشاپ']
-    website_checklist = ['هوش مصنوعی', 'شبکه', 'برنامه های مختلف', 'طراحی وبسایت']
 
-    function filtering() {
+    dictionary_categories = {
+        mobile: ['اندورید', 'ios', 'بازی موبایل', 'اپ موبایل'],
+        design: ['طراحی فیلم و طراحی عکس', 'ویرایش فیلم و عکس', 'فوتوشاپ'],
+        website: ['هوش مصنوعی', 'شبکه', 'برنامه های مختلف', 'طراحی وبسایت']
+    }
+
+    function filtering(tag_a) {
         let get_form = document.getElementById("form_filter");
+        get_form.innerHTML = "";
+        {#<input class="checkbox_input" type="checkbox" id="second">#}
+        {#        <label class="label_checkbox" for="second">برنامه خودت</label>#}
 
+        let list_options = dictionary_categories[tag_a.id];
+        for (let i = 0; i < list_options.length; i++) {
+            let make_input = document.createElement('input');
+            make_input.type = 'checkbox';
+            make_input.className = 'checkbox_input';
+            make_input.id = `${i}`;
+            let make_label = document.createElement('label');
+            make_label.setAttribute('for', `${i}`);
+            make_label.className = "label_checkbox";
+            make_label.innerHTML = list_options[i];
+            get_form.append(make_input);
+            get_form.append(make_label);
+        }
     }
 
 </script>
