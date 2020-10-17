@@ -29,7 +29,8 @@ class UserAdmin(BaseUserAdmin):
     inlines = (employerInline,freelancerrInline)
 
 
-
+admin.site.register(Category)
+admin.site.register(Related_subject)
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
 admin.site.register(Project)

@@ -115,7 +115,10 @@ def show_chat(request):
 
 
 def Projectpage(request):
-    return render(request, "djangoapp/projectpage.html")
+    return render(request, "djangoapp/projectpage.html",
+                  {
+
+                  })
 
 
 def save_text(request):
