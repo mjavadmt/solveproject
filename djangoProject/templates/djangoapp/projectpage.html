@@ -569,18 +569,18 @@
     <ul class="ul1">
         <div class="row">
             <li class="li1 col-xs-4 col-sm-4 col-lg-1">
-                <a id="mobile" class=" ullia facebook" href="#" onclick="filtering(this)">
+                <a id="موبایل و نرم افزار" class=" ullia facebook" href="#" onclick="filtering(this)">
                     <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
                     <img src="https://img.icons8.com/color/48/000000/two-smartphones.png"/>
-                    <h6 style="padding-top: 5px;font-family: Zeytoon"> موبایل </h6>
+                    <h6 style="padding-top: 5px;font-family: Zeytoon"> موبایل  و نرم‌افزار</h6>
                 </a>
             </li>
 
             <li class="li1 col-xs-4 col-sm-4 col-lg-1">
-                <a id="design" onclick="filtering(this)" class=" ullia twitter" href="#">
+                <a id="طراحی" onclick="filtering(this)" class=" ullia twitter" href="#">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -591,18 +591,18 @@
             </li>
 
             <li class="li1 col-xs-4 col-sm-4 col-lg-1">
-                <a id="website" onclick="filtering(this)" class="ullia instagram" href="#">
+                <a id="وبسایت" onclick="filtering(this)" class="ullia instagram" href="#">
                     <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
 
                     <img src="{% static 'djangoapp/img/programming.png' %}"/>
-                    <h6 style="padding-top: 5px;font-family: Zeytoon">وبسایت و نرم‌افزار</h6>
+                    <h6 style="padding-top: 5px;font-family: Zeytoon">وبسایت</h6>
                 </a>
             </li>
             <li class="li1 col-xs-4 col-sm-4 col-lg-1">
-                <a class=" ullia google" href="#">
+                <a id="محتوا و ترجمه" class=" ullia google" onclick="filtering(this)" href="#">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -612,7 +612,7 @@
                 </a>
             </li>
             <li class="li1 col-xs-4 col-sm-4 col-lg-1">
-                <a class=" ullia google" href="#">
+                <a id="علوم مهندسی" onclick="filtering(this)" class=" ullia google" href="#">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -622,14 +622,14 @@
                 </a>
             </li>
             <li class="li1 col-xs-4 col-sm-4 col-lg-1">
-                <a class=" ullia google" href="#">
+                <a id="علوم تجربی و انسانی" onclick="filtering(this)" class=" ullia google" href="#">
                     <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
 
                     <img src="https://img.icons8.com/cute-clipart/64/000000/test-tube.png"/>
-                    <h6 style="padding-top: 5px;font-family: Zeytoon"> علوم تجربی </h6>
+                    <h6 style="padding-top: 5px;font-family: Zeytoon"> علوم تجربی و انسانی</h6>
                 </a>
             </li>
 
@@ -777,13 +777,9 @@
 {#</footer>#}
 <!-- End footer Area -->
 <script>
-
-    dictionary_categories = {
-        mobile: ['اندورید', 'ios', 'بازی موبایل', 'اپ موبایل'],
-        design: ['طراحی فیلم و طراحی عکس', 'ویرایش فیلم و عکس', 'فوتوشاپ'],
-        website: ['هوش مصنوعی', 'شبکه', 'برنامه های مختلف', 'طراحی وبسایت']
-    }
-
+    console.log({{ dict_items|safe }});
+    dictionary_categories = {{ dict_items|safe }};
+    console.log({{ projects|safe }});
     function filtering(tag_a) {
         let get_form = document.getElementById("form_filter");
         get_form.innerHTML = "";
