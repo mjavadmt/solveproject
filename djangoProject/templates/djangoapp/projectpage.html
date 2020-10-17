@@ -200,7 +200,7 @@
 
         .divider.light {
             background: #fff;
-            {#background: -webkit-linear-gradient(left, rgb(90, 90, 90) 0%, rgb(255, 255, 255) 50%, rgb(90, 90, 90) 100%);#}
+        {#background: -webkit-linear-gradient(left, rgb(90, 90, 90) 0%, rgb(255, 255, 255) 50%, rgb(90, 90, 90) 100%);#}
         }
 
 
@@ -227,14 +227,14 @@
         }
 
         .checkbox_input {
-         margin-left: 40%;
+            margin-left: 40%;
             margin-right: 2%;
             margin-top: 2%;
             border-radius: 1px;
         }
 
         .label_checkbox {
-         margin-right: 2%;
+            margin-right: 2%;
             font-size: large;
         }
 
@@ -386,6 +386,222 @@
             100% {
                 stroke-dashoffset: 27;
                 opacity: 0;
+            }
+        }
+
+        * {
+	 box-sizing: border-box;
+ }
+
+        {#project cards#}
+        .blog-card {
+            display: flex;
+            flex-direction: column;
+            margin: 1rem auto;
+            box-shadow: 0 13px 17px -1px rgba(0, 0, 0, 0.8);
+            margin-bottom: 1.6%;
+            background: #fff;
+            line-height: 1.4;
+            font-family: sans-serif;
+            border-radius: 5px;
+            overflow: hidden;
+            z-index: -10;
+        }
+
+        .blog-card a {
+            color: inherit;
+        }
+
+        .blog-card a:hover {
+            color: #5ad67d;
+        }
+
+        .blog-card:hover .photo {
+            transform: scale(1.3) rotate(3deg);
+        }
+
+        .blog-card .meta {
+            position: relative;
+            z-index: 0;
+            height: 200px;
+        }
+
+        .blog-card .photo {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.2s;
+        }
+
+        .blog-card .details, .blog-card .details ul {
+            margin: auto;
+            padding: 0;
+            list-style: none;
+        }
+
+        .blog-card .details {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: -100%;
+            margin: auto;
+            transition: left 0.2s;
+            background: rgba(253, 6, 6, 0.6);
+            color: #fff;
+            padding: 10px;
+            width: 100%;
+            font-size: 0.9rem;
+        }
+
+        .blog-card .details a {
+            text-decoration: dotted underline;
+        }
+
+        .blog-card .details ul li {
+            display: inline-block;
+        }
+
+        .blog-card .details .author:before {
+            font-family: FontAwesome;
+            margin-right: 10px;
+            content: "\f007";
+        }
+
+        .blog-card .details .date:before {
+            font-family: FontAwesome;
+            margin-right: 10px;
+            content: "\f133";
+        }
+
+        .blog-card .details .tags ul:before {
+            font-family: FontAwesome;
+            content: "\f02b";
+            margin-right: 10px;
+        }
+
+        .blog-card .details .tags li {
+            margin-right: 2px;
+        }
+
+        .blog-card .details .tags li:first-child {
+            margin-left: -4px;
+        }
+
+        .blog-card .description {
+            padding: 1rem;
+            background: #ffffff;
+            position: relative;
+            z-index: 1;
+        }
+
+        .blog-card .description h1, .blog-card .description h2 {
+            font-family: Poppins, sans-serif;
+        }
+
+        .blog-card .description h1 {
+            line-height: 1;
+            margin: 0;
+            font-size: 1.7rem;
+        }
+
+        .blog-card .description h2 {
+            font-size: 1rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            color: #db0202;
+            margin-top: 5px;
+        }
+
+        .blog-card .description .read-more {
+            text-align: right;
+        }
+
+        .blog-card .description .read-more a {
+            color: #5ad67d;
+            display: inline-block;
+            position: relative;
+        }
+
+        .blog-card .description .read-more a:after {
+            content: "\f061";
+            font-family: FontAwesome;
+            margin-left: -10px;
+            opacity: 0;
+            vertical-align: middle;
+            transition: margin 0.3s, opacity 0.3s;
+        }
+
+        .blog-card .description .read-more a:hover:after {
+            margin-left: 5px;
+            opacity: 1;
+        }
+
+        .blog-card p {
+            position: relative;
+            margin: 1rem 0 0;
+        }
+
+        .blog-card p:first-of-type {
+            margin-top: 1.25rem;
+        }
+
+        .blog-card p:first-of-type:before {
+            content: "";
+            position: absolute;
+            height: 5px;
+            background: #5ad67d;
+            width: 35px;
+            top: -0.75rem;
+            border-radius: 3px;
+        }
+
+        .blog-card:hover .details {
+            left: 0%;
+        }
+
+        @media (min-width: 640px) {
+            .blog-card {
+                flex-direction: row;
+                max-width: 700px;
+            }
+
+            .blog-card .meta {
+                flex-basis: 40%;
+                height: auto;
+            }
+
+            .blog-card .description {
+                flex-basis: 60%;
+            }
+
+            .blog-card .description:before {
+                transform: skewX(-3deg);
+                content: "";
+                background: #fff;
+                width: 30px;
+                position: absolute;
+                left: -10px;
+                top: 0;
+                bottom: 0;
+                z-index: -1;
+            }
+
+            .blog-card.alt {
+                flex-direction: row-reverse;
+            }
+
+            .blog-card.alt .description:before {
+                left: inherit;
+                right: -10px;
+                transform: skew(3deg);
+            }
+
+            .blog-card.alt .details {
+                padding-left: 25px;
             }
         }
 
@@ -546,122 +762,149 @@
     </div>
 </header><!-- #header -->
 <div id="changeopacity">
-<div class="vl"></div>
+    <div class="vl"></div>
 
-<div style="float: right;margin-top: -95px;width: 20%">
-    <img id="image_filter"
-         src="https://www.smashstack.com/articles/wp-content/uploads/2016/09/Screen-Test-How-Web-Filtering-Works-676x676.jpg"
-         width="100%" height="246px">
-    <h1 style="text-align: center;font-family: Mj_Ghalam-1;margin-top: 2%"> فیلتر ها</h1>
-    <form id="form_filter" style="margin-top: 1%">
-        {#        <input class="checkbox_input" type="checkbox" id="first">#}
-        {#        <label class="label_checkbox" for="first">برنامه نویسی</label>#}
+    <div style="float: right;margin-top: -95px;width: 20%">
+        <img id="image_filter"
+             src="https://www.smashstack.com/articles/wp-content/uploads/2016/09/Screen-Test-How-Web-Filtering-Works-676x676.jpg"
+             width="100%" height="246px">
+        <h1 style="text-align: center;font-family: Mj_Ghalam-1;margin-top: 2%"> فیلتر ها</h1>
+        <form id="form_filter" style="margin-top: 1%">
+            {#        <input class="checkbox_input" type="checkbox" id="first">#}
+            {#        <label class="label_checkbox" for="first">برنامه نویسی</label>#}
 
-        <br>
-        {#        <input class="checkbox_input" type="checkbox" id="second">#}
-        {#        <label class="label_checkbox" for="second">برنامه خودت</label>#}
+            <br>
+            {#        <input class="checkbox_input" type="checkbox" id="second">#}
+            {#        <label class="label_checkbox" for="second">برنامه خودت</label>#}
 
 
-    </form>
-</div>
-<!-- #category  -->
-<div class="respo">
-    <ul class="ul1">
-        <div class="row">
-            <li class="li1 col-xs-4 col-sm-4 col-lg-1">
-                <a id="موبایل و نرم افزار" class=" ullia facebook" href="#" onclick="filtering(this)">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <img src="https://img.icons8.com/color/48/000000/two-smartphones.png"/>
-                    <h6 style="padding-top: 5px;font-family: Zeytoon"> موبایل  و نرم‌افزار</h6>
-                </a>
+        </form>
+    </div>
+    <!-- #category  -->
+    <div class="respo">
+        <ul class="ul1">
+            <div class="row">
+                <li class="li1 col-xs-4 col-sm-4 col-lg-1">
+                    <a id="موبایل و نرم افزار" class=" ullia facebook" href="#" onclick="filtering(this)">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <img src="https://img.icons8.com/color/48/000000/two-smartphones.png"/>
+                        <h6 style="padding-top: 5px;font-family: Zeytoon"> موبایل و نرم‌افزار</h6>
+                    </a>
+                </li>
+
+                <li class="li1 col-xs-4 col-sm-4 col-lg-1">
+                    <a id="طراحی" onclick="filtering(this)" class=" ullia twitter" href="#">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <img src="https://img.icons8.com/nolan/64/web-design.png"/>
+                        <h6 style="padding-top: 5px;font-family: Zeytoon"> طراحی </h6>
+                    </a>
+                </li>
+
+                <li class="li1 col-xs-4 col-sm-4 col-lg-1">
+                    <a id="وبسایت" onclick="filtering(this)" class="ullia instagram" href="#">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                        <img src="{% static 'djangoapp/img/programming.png' %}"/>
+                        <h6 style="padding-top: 5px;font-family: Zeytoon">وبسایت</h6>
+                    </a>
+                </li>
+                <li class="li1 col-xs-4 col-sm-4 col-lg-1">
+                    <a id="محتوا و ترجمه" class=" ullia google" onclick="filtering(this)" href="#">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <img src="{% static 'djangoapp/img/icons8-edit-property-64.png' %}">
+                        <h6 style="padding-top: 5px;font-family: Zeytoon"> محتوا و ترجمه</h6>
+                    </a>
+                </li>
+                <li class="li1 col-xs-4 col-sm-4 col-lg-1">
+                    <a id="علوم مهندسی" onclick="filtering(this)" class=" ullia google" href="#">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <img src="https://img.icons8.com/color/64/000000/engineer.png"/>
+                        <h6 style="padding-top: 5px;font-family: Zeytoon"> علوم مهندسی </h6>
+                    </a>
+                </li>
+                <li class="li1 col-xs-4 col-sm-4 col-lg-1">
+                    <a id="علوم تجربی و انسانی" onclick="filtering(this)" class=" ullia google" href="#">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                        <img src="https://img.icons8.com/cute-clipart/64/000000/test-tube.png"/>
+                        <h6 style="padding-top: 5px;font-family: Zeytoon"> علوم تجربی و انسانی</h6>
+                    </a>
+                </li>
+
+                {#        <li class="li1">#}
+                {#            <a class=" ullia google" href="#">#}
+                {#                <span></span>#}
+                {#                <span></span>#}
+                {#                <span></span>#}
+                {#                <span></span>#}
+                {#                <i class="fa fa-google-plus" aria-hidden="true"></i>#}
+                {#            </a>#}
+                {#        </li>#}
+                {#        <li class="li1">#}
+                {#            <a class=" ullia google" href="#">#}
+                {#                <span></span>#}
+                {#                <span></span>#}
+                {#                <span></span>#}
+                {#                <span></span>#}
+                {#                <i class="fa fa-google-plus" aria-hidden="true"></i>#}
+                {#            </a>#}
+                {#        </li>#}
+
+            </div>
+
+
+        </ul>
+
+    </div>
+
+    <div class="width80" style="position: absolute">
+        <div class="divider light"
+             style="position: absolute;width: 100%;background-color: #933f09 "></div>
+    </div>
+    <div class="blog-card" style="position: absolute;margin-top: 200px;margin-left: 5%;background-color: #ffe575">
+    <div class="meta" style="background-color: #ffe575">
+        <div class="photo"
+             style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
+        <ul class="details">
+            <li class="author"><a href="#">John Doe</a></li>
+            <li class="date">Aug. 24, 2015</li>
+            <li class="tags">
+                <ul>
+                    <li><a href="#">Learn</a></li>
+                    <li><a href="#">Code</a></li>
+                    <li><a href="#">HTML</a></li>
+                    <li><a href="#">CSS</a></li>
+                </ul>
             </li>
-
-            <li class="li1 col-xs-4 col-sm-4 col-lg-1">
-                <a id="طراحی" onclick="filtering(this)" class=" ullia twitter" href="#">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <img src="https://img.icons8.com/nolan/64/web-design.png"/>
-                    <h6 style="padding-top: 5px;font-family: Zeytoon"> طراحی </h6>
-                </a>
-            </li>
-
-            <li class="li1 col-xs-4 col-sm-4 col-lg-1">
-                <a id="وبسایت" onclick="filtering(this)" class="ullia instagram" href="#">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-
-                    <img src="{% static 'djangoapp/img/programming.png' %}"/>
-                    <h6 style="padding-top: 5px;font-family: Zeytoon">وبسایت</h6>
-                </a>
-            </li>
-            <li class="li1 col-xs-4 col-sm-4 col-lg-1">
-                <a id="محتوا و ترجمه" class=" ullia google" onclick="filtering(this)" href="#">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <img src="{% static 'djangoapp/img/icons8-edit-property-64.png' %}">
-                    <h6 style="padding-top: 5px;font-family: Zeytoon"> محتوا و ترجمه</h6>
-                </a>
-            </li>
-            <li class="li1 col-xs-4 col-sm-4 col-lg-1">
-                <a id="علوم مهندسی" onclick="filtering(this)" class=" ullia google" href="#">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <img src="https://img.icons8.com/color/64/000000/engineer.png"/>
-                    <h6 style="padding-top: 5px;font-family: Zeytoon"> علوم مهندسی </h6>
-                </a>
-            </li>
-            <li class="li1 col-xs-4 col-sm-4 col-lg-1">
-                <a id="علوم تجربی و انسانی" onclick="filtering(this)" class=" ullia google" href="#">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-
-                    <img src="https://img.icons8.com/cute-clipart/64/000000/test-tube.png"/>
-                    <h6 style="padding-top: 5px;font-family: Zeytoon"> علوم تجربی و انسانی</h6>
-                </a>
-            </li>
-
-            {#        <li class="li1">#}
-            {#            <a class=" ullia google" href="#">#}
-            {#                <span></span>#}
-            {#                <span></span>#}
-            {#                <span></span>#}
-            {#                <span></span>#}
-            {#                <i class="fa fa-google-plus" aria-hidden="true"></i>#}
-            {#            </a>#}
-            {#        </li>#}
-            {#        <li class="li1">#}
-            {#            <a class=" ullia google" href="#">#}
-            {#                <span></span>#}
-            {#                <span></span>#}
-            {#                <span></span>#}
-            {#                <span></span>#}
-            {#                <i class="fa fa-google-plus" aria-hidden="true"></i>#}
-            {#            </a>#}
-            {#        </li>#}
-
-        </div>
-
-
-    </ul>
-
-</div>
-
-<div class="width80" style="position: absolute">
-    <div class="divider light"
-         style="position: absolute;width: 100%;background-color: #933f09 "></div>
+        </ul>
+    </div>
+    <div class="description" >
+        <h1>Learning to Code</h1>
+        <h2>Opening a door to the future</h2>
+        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta
+            praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
+        <p class="read-more">
+            <a href="#">Read More</a>
+        </p>
+    </div>
 </div>
 </div>
 {#loading page #}
@@ -711,6 +954,34 @@
             stroke-linejoin="round"
     ></path>
 </svg>
+
+
+{#<div class="blog-card alt" >#}
+{#    <div class="meta">#}
+{#        <div class="photo"#}
+{#             style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-2.jpg)"></div>#}
+{#        <ul class="details">#}
+{#            <li class="author"><a href="#">Jane Doe</a></li>#}
+{#            <li class="date">July. 15, 2015</li>#}
+{#            <li class="tags">#}
+{#                <ul>#}
+{#                    <li><a href="#">Learn</a></li>#}
+{#                    <li><a href="#">Code</a></li>#}
+{#                    <li><a href="#">JavaScript</a></li>#}
+{#                </ul>#}
+{#            </li>#}
+{#        </ul>#}
+{#    </div>#}
+{#    <div class="description">#}
+{#        <h1>Mastering the Language</h1>#}
+{#        <h2>Java is not the same as JavaScript</h2>#}
+{#        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta#}
+{#            praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>#}
+{#        <p class="read-more">#}
+{#            <a href="#">Read More</a>#}
+{#        </p>#}
+{#    </div>#}
+{#</div>#}
 
 
 
@@ -780,6 +1051,7 @@
     console.log({{ dict_items|safe }});
     dictionary_categories = {{ dict_items|safe }};
     console.log({{ projects|safe }});
+
     function filtering(tag_a) {
         let get_form = document.getElementById("form_filter");
         get_form.innerHTML = "";
@@ -788,23 +1060,23 @@
         let get_div = document.getElementById('changeopacity');
         get_div.style.opacity = "0.1";
         setTimeout(
-           function () {
+            function () {
                 let list_options = dictionary_categories[tag_a.id];
-        for (let i = 0; i < list_options.length; i++) {
-            let make_input = document.createElement('input');
-            make_input.type = 'checkbox';
-            make_input.className = 'checkbox_input';
-            make_input.id = `${i}`;
-            let make_label = document.createElement('label');
-            make_label.setAttribute('for', `${i}`);
-            make_label.className = "label_checkbox";
-            make_label.innerHTML = list_options[i];
-            get_form.append(make_input);
-            get_form.append(make_label);
-        }
-        get_div.style.opacity = "1";
-        get_svg.style.display = "none";
-            },2000
+                for (let i = 0; i < list_options.length; i++) {
+                    let make_input = document.createElement('input');
+                    make_input.type = 'checkbox';
+                    make_input.className = 'checkbox_input';
+                    make_input.id = `${i}`;
+                    let make_label = document.createElement('label');
+                    make_label.setAttribute('for', `${i}`);
+                    make_label.className = "label_checkbox";
+                    make_label.innerHTML = list_options[i];
+                    get_form.append(make_input);
+                    get_form.append(make_label);
+                }
+                get_div.style.opacity = "1";
+                get_svg.style.display = "none";
+            }, 2000
         );
 
     }

@@ -26,7 +26,7 @@ class Freelancer(models.Model):
     description = models.TextField(max_length=1000, blank=True)
 
     def natural_key(self):
-        return (self.user.username)
+        return self.user.username
 
     def __str__(self):
         return f"{self.pk} {self.user.username}"
@@ -34,6 +34,9 @@ class Freelancer(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=100, blank=True)
+
+    def natural_key(self):
+        return self.name
 
     def __str__(self):
         return f"{self.id} {self.name}"
@@ -47,9 +50,6 @@ class Related_subject(models.Model):
         return f"{self.id} {self.category.name} : {self.subject}"
 
 
-# class projectmanage(models.Manager):
-#     def get_by_natural_key(self,producer,price_employer,category):
-#         return self.get(producer=producer, price_employer=price_employer,category=category)
 class Project(models.Model):
     producer = models.ForeignKey(Employer, related_name="projects_produced", on_delete=models.CASCADE, blank=True)
     solver = models.ForeignKey(Freelancer, related_name="projects_solved", on_delete=models.CASCADE, blank=True)
@@ -57,8 +57,6 @@ class Project(models.Model):
     price_employer = models.IntegerField(default=0)
     category = models.ForeignKey(Category, related_name="projects_of_category", on_delete=models.CASCADE, blank=True,
                                  default=None)
-
-    # objects = projectmanage()
 
     def __str__(self):
         return f"{self.pk} producer= {self.producer} -solver= {self.solver}"
@@ -69,8 +67,4 @@ class Price_Suggested_By_Freelancer(models.Model):
     freelancer = models.ForeignKey(Freelancer, on_delete=models.CASCADE, blank=True, related_name="freelancer_prices")
     price = models.IntegerField(default=0)
 
-# class Client(models.Model):
-#     user = models.OneToOneField(User, on_delete=models.CASCADE)
-#     mobile_number = models.IntegerField(blank=True)
-#     # interested_projects = models.ForeignKey(Project, related_name="interested_freelancer")
-#     # projects = models.ForeignKey(Project , on_delete=models.CASCADE)
+
