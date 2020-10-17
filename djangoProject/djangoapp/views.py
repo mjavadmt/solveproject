@@ -120,7 +120,7 @@ def show_chat(request):
 
 def Projectpage(request):
     projects = list(Project.objects.all())
-    json_projects = serializers.serialize('json', projects)
+    json_projects = serializers.serialize('json', projects,use_natural_foreign_keys=True)
     categories = Category.objects.all()
     dict_related_subjects_with_category = {}
     for category in categories:
