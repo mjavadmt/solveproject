@@ -406,6 +406,7 @@
             border-radius: 5px;
             overflow: hidden;
             z-index: -10;
+            {#width: 100%;#}
         }
 
         .blog-card a {
@@ -604,6 +605,12 @@
                 padding-left: 25px;
             }
         }
+        @media (min-width: 1000px) {
+            .blog-card {
+
+                max-width: 900px;
+            }
+        }
 
 
         @media all and (max-width: 1800px) {
@@ -676,7 +683,10 @@
             .vl {
                 display: none;
             }
-
+            .blog-card
+            {
+                margin-top: 1000px;
+            }
             .respo {
             {#position: relative;#} margin-top: 400px;
 
@@ -879,7 +889,7 @@
         <div class="divider light"
              style="position: absolute;width: 100%;background-color: #933f09 "></div>
     </div>
-    <div class="blog-card" style="position: absolute;margin-top: 200px;margin-left: 5%;background-color: #ffe575">
+    <div class="blog-card" style="position: absolute;margin-left: 10%;background-color: #ffe575;">
     <div class="meta" style="background-color: #ffe575">
         <div class="photo"
              style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
