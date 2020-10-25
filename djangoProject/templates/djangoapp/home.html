@@ -775,24 +775,37 @@
 <!-- end recent-blog Area -->
 
 <!-- Start brands Area -->
-<section class="brands-area">
+<section class="brands-area" style="background: -webkit-linear-gradient(0deg, #eef7a3 0%, #ad6d31 100%);">
     <div class="container">
         <div class="brand-wrap">
             <div class="row align-items-center active-brand-carusel justify-content-start no-gutters">
-                <div class="col single-brand">
-                    <a href="#"><img class="mx-auto" src={% static 'djangoapp/img/l1.png' %} alt=""></a>
+                <div class="col single-brand move_up">
+                    <a href="{% url 'Index2' %}" style="font-family: Mj_Ghalam-1;font-size: x-large"><img
+                            class="mx-auto"
+                            src={% static 'djangoapp/img/icons8-edit-image-64.png' %} alt="">ویرایش عکس و فیلم</a>
                 </div>
-                <div class="col single-brand">
-                    <a href="#"><img class="mx-auto" src={% static 'djangoapp/img/l2.png' %} alt=""></a>
+                <div class="col single-brand move_up">
+                    <a href="{% url 'Index2' %}"><img class="mx-auto"
+                                                      src={% static 'djangoapp/img/icons8-apple-logo-64.png' %} alt="">IOS</a>
                 </div>
-                <div class="col single-brand">
-                    <a href="#"><img class="mx-auto" src={% static 'djangoapp/img/l3.png' %} alt=""></a>
+                <div class="col single-brand move_up" style="font-family: Mj_Ghalam-1;font-size: x-large">
+                    <a href="{% url 'Index2' %}"><img class="mx-auto"
+                                                      src={% static 'djangoapp/img/icons8-android-64.png' %} alt="">اندروید</a>
                 </div>
-                <div class="col single-brand">
-                    <a href="#"><img class="mx-auto" src={% static 'djangoapp/img/l4.png' %} alt=""></a>
+                <div class="col single-brand move_up" style="font-family: Mj_Ghalam-1;font-size: x-large">
+                    <a href="{% url 'Index2' %}"><img class="mx-auto"
+                                                      src={% static 'djangoapp/img/icons8-edit-property-64.png' %} alt="">تولید
+                        محتوا</a>
                 </div>
-                <div class="col single-brand">
-                    <a href="#"><img class="mx-auto" src={% static 'djangoapp/img/l5.png' %} alt=""></a>
+                <div class="col single-brand move_up" style="font-family: Mj_Ghalam-1;font-size: x-large">
+                    <a href="{% url 'Index2' %}"><img class="mx-auto"
+                                                      src={% static 'djangoapp/img/icons8-web-design-64.png' %} alt="">توسعه
+                        وب</a>
+                </div>
+                <div class="col single-brand move_up" style="font-family: Mj_Ghalam-1;font-size: x-large">
+                    <a href="{% url 'Index2' %}"><img class="mx-auto"
+                                                      src={% static 'djangoapp/img/icons8-switch-host-64.png' %} alt="">سیستم
+                        عامل</a>
                 </div>
             </div>
         </div>
@@ -801,60 +814,107 @@
 <!-- End brands Area -->
 
 <!-- start footer Area -->
-<footer class="footer-area section-gap">
+<footer class="footer-area section-gap" style="background: #000000">
     <div class="container">
         <div class="row">
-            <div class="col-lg-5 col-md-6 col-sm-6">
-                <div class="single-footer-widget">
-                    <h4>About Me</h4>
-                    <p>
-                        We have tested a number of registry fix and clean utilities and present our top 3
-                        list on our site for your convenience.
-                    </p>
-                    <p class="footer-text">
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-                        All rights reserved | This template is made with <i class="fa fa-heart-o"
-                                                                            aria-hidden="true"></i> by <a
-                            href="https://colorlib.com" target="_blank">Colorlib</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    </p>
+            <div class="col-lg-4 col-md-12 col-sm-12">
+                <div class="single-footer-widget text-right" style="font-family: Mj_Ghalam-1">
+                    <h4 style="font-family: Mj_Ghalam-1;font-size: xx-large">درباره</h4>
+                    <ul style="font-size: x-large">
+                        <li>
+                            <a href="{% url 'about' %}">
+                                درباره ما
+                            </a>
+                        </li>
+                        <li>
+                            تماس با ما:09149998124
+                        </li>
+                    </ul>
+                    {#                    <p class="footer-text">#}
+                    {#                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->#}
+                    {#                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>#}
+                    {#                        All rights reserved | This template is made with <i class="fa fa-heart-o"#}
+                    {#                                                                            aria-hidden="true"></i> by <a#}
+                    {#                            href="https://colorlib.com" target="_blank">Colorlib</a>#}
+                    {#                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>#}
                 </div>
             </div>
-            <div class="col-lg-5 col-md-6 col-sm-6">
-                <div class="single-footer-widget">
-                    <h4>Newsletter</h4>
-                    <p>Stay updated with our latest trends</p>
-                    <div class="" id="mc_embed_signup">
-                        <form target="_blank"
-                              action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                              method="get">
-                            <div class="input-group">
-                                <input type="text" class="form-control" name="EMAIL"
-                                       placeholder="Enter Email Address" onfocus="this.placeholder = ''"
-                                       onblur="this.placeholder = 'Enter Email Address '" required=""
-                                       type="email">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-default" type="submit">
-                                        <span class="lnr lnr-arrow-right"></span>
-                                    </button>
-                                </div>
-                                <div class="info"></div>
-                            </div>
-                        </form>
-                    </div>
+            <div class="col-lg-4 col-md-12 col-sm-12">
+                <div class="single-footer-widget text-right" style="font-family: Mj_Ghalam-1">
+                    <h4 style="font-family: Mj_Ghalam-1;font-size: xx-large">فریلنسر</h4>
+                    <ul style="font-size: x-large">
+                        <li>
+                            <a href="{% url 'formsign' %}">
+                                ورود/ثبت نام
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                دسته‌بندی ها
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'projectpage' %}">
+                                پروژه ها
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                چگونه کار می کند؟
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                پرسش و پاسخ
+                            </a>
+                        </li>
+                    </ul>
+                    {#                    <p>Stay updated with our latest trends</p>#}
+                    {#                    <div class="" id="mc_embed_signup">#}
+                    {#                        <form target="_blank"#}
+                    {#                              action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"#}
+                    {#                              method="get">#}
+                    {#                            <div class="input-group">#}
+                    {#                                <input type="text" class="form-control" name="EMAIL" placeholder="Enter Email Address"#}
+                    {#                                       onfocus="this.placeholder = ''"#}
+                    {#                                       onblur="this.placeholder = 'Enter Email Address '" required="" type="email">#}
+                    {#                                <div class="input-group-btn">#}
+                    {#                                    <button class="btn btn-default" type="submit">#}
+                    {#                                        <span class="lnr lnr-arrow-right"></span>#}
+                    {#                                    </button>#}
+                    {#                                </div>#}
+                    {#                                <div class="info"></div>#}
+                    {#                            </div>#}
+                    {#                        </form>#}
+                    {#                    </div>#}
                 </div>
             </div>
-            <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
-                <div class="single-footer-widget">
-                    <h4>Follow Me</h4>
-                    <p>Let us be social</p>
-                    <div class="footer-social d-flex align-items-center">
-                        <a href="{% url 'Index2' %}"><i class="fa fa-facebook"></i></a>
-                        <a href="{% url 'Index2' %}"><i class="fa fa-twitter"></i></a>
-                        <a href="{% url 'Index2' %}"><i class="fa fa-dribbble"></i></a>
-                        <a href="{% url 'Index2' %}"><i class="fa fa-behance"></i></a>
-                    </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 social-widget">
+                <div class="single-footer-widget text-right" style="font-family: Mj_Ghalam-1">
+                    <h4 style="font-family: Mj_Ghalam-1;font-size: xx-large">ما را دنبال کنید</h4>
+                    <ul style="font-size: x-large">
+                        <li>
+                            <a href="{% url 'Index2' %}"><i class="fa fa-facebook"></i></a>
+                            <a href="{% url 'Index2' %}"><i class="fa fa-twitter"></i></a>
+                            <a href="{% url 'Index2' %}"><i class="fa fa-dribbble"></i></a>
+                            <a href="{% url 'Index2' %}"><i class="fa fa-behance"></i></a>
+                        </li>
+
+                        <li>
+                            cafeproject8@gmail.com
+                        </li>
+                    </ul>
+                    {#                        <li >#}
+                    {#                            <a href="{% url 'Index2' %}"><i class="fa fa-twitter"></i></a>#}
+                    {#                        </li>#}
+                    {#                    <p>Let us be social</p>#}
+                    {#                    <div class="footer-social d-flex align-items-center ">#}
+                    {#                        <a href="{% url 'Index2' %}"><i class="fa fa-facebook"></i></a>#}
+                    {#                        <a href="{% url 'Index2' %}"><i class="fa fa-twitter"></i></a>#}
+                    {#                        <a href="{% url 'Index2' %}"><i class="fa fa-dribbble"></i></a>#}
+                    {#                        <a href="{% url 'Index2' %}"><i class="fa fa-behance"></i></a>#}
+                    {#                        <img>#}
+                    {#                    </div>#}
                 </div>
             </div>
         </div>
