@@ -390,8 +390,8 @@
         }
 
         * {
-	 box-sizing: border-box;
- }
+            box-sizing: border-box;
+        }
 
         {#project cards#}
         .blog-card {
@@ -406,7 +406,7 @@
             border-radius: 5px;
             overflow: hidden;
             z-index: -10;
-            {#width: 100%;#}
+        {#width: 100%;#}
         }
 
         .blog-card a {
@@ -605,6 +605,7 @@
                 padding-left: 25px;
             }
         }
+
         @media (min-width: 1000px) {
             .blog-card {
 
@@ -626,6 +627,10 @@
 
             .width80 {
                 margin-top: 100px;
+            }
+
+            .blog-card {
+                {#margin-top: 200px;#}
             }
 
 
@@ -683,10 +688,12 @@
             .vl {
                 display: none;
             }
-            .blog-card
-            {
-                margin-top: 1000px;
+
+            .blog-card {
+                {#margin-top: 300px;#}
+                margin-right: 10%;
             }
+
             .respo {
             {#position: relative;#} margin-top: 400px;
 
@@ -706,7 +713,7 @@
             }
 
             .width80 {
-                margin-top: 200px;
+            {#margin-top: 200px;#} display: none;
             }
         }
     </style>
@@ -889,33 +896,39 @@
         <div class="divider light"
              style="position: absolute;width: 100%;background-color: #933f09 "></div>
     </div>
+    {% for project in projects_not_json %}
     <div class="blog-card" style="position: absolute;margin-left: 10%;background-color: #ffe575;">
-    <div class="meta" style="background-color: #ffe575">
-        <div class="photo"
-             style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
-        <ul class="details">
-            <li class="author"><a href="#">John Doe</a></li>
-            <li class="date">Aug. 24, 2015</li>
-            <li class="tags">
-                <ul>
-                    <li><a href="#">Learn</a></li>
-                    <li><a href="#">Code</a></li>
-                    <li><a href="#">HTML</a></li>
-                    <li><a href="#">CSS</a></li>
-                </ul>
-            </li>
-        </ul>
+        <div class="meta" style="background-color: #ffe575">
+            <div class="photo"
+                 style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
+            <ul class="details">
+                <li class="author"><a href="#">{{ project.producer }}</a></li>
+                <li class="date">Aug. 24, 2015</li>
+                <li class="tags">
+                    <ul>
+                        <li><a href="#">Learn</a></li>
+                        <li><a href="#">Code</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#">CSS</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="description">
+            <h1>{{ project.project_name }}</h1>
+            <h2>Opening a door to the future</h2>
+            <p> {{ project.description }}</p>
+            <p class="read-more">
+                <a href="#">Read More</a>
+            </p>
+        </div>
     </div>
-    <div class="description" >
-        <h1>Learning to Code</h1>
-        <h2>Opening a door to the future</h2>
-        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta
-            praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
-        <p class="read-more">
-            <a href="#">Read More</a>
-        </p>
-    </div>
-</div>
+{#    <div><br></div>#}
+{#    <div><br></div>#}
+{#        <div><br></div>#}
+{#        <div><br></div>#}
+{#        <div><br></div>#}
+    {% endfor %}
 </div>
 {#loading page #}
 {#loading page #}
@@ -994,7 +1007,6 @@
 {#</div>#}
 
 
-
 <!-- end category -->
 
 
@@ -1057,7 +1069,13 @@
 {#    </div>#}
 {#</footer>#}
 <!-- End footer Area -->
+
 <script>
+    let cards = document.getElementsByClassName("blog-card");
+    for (let i = 0 ; i<cards.length ; i++)
+    {
+        cards[i].style.marginTop = (i+1)*200;
+    }
     console.log({{ dict_items|safe }});
     dictionary_categories = {{ dict_items|safe }};
     console.log({{ projects|safe }});

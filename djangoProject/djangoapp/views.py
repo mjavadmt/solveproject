@@ -11,7 +11,6 @@ import json
 from django.core import serializers
 
 
-
 def Index(request):
     return render(request, "djangoapp/home.html")
 
@@ -120,15 +119,18 @@ def show_chat(request):
 
 def Projectpage(request):
     projects = list(Project.objects.all())
-    json_projects = serializers.serialize('json', projects,use_natural_foreign_keys=True)
+    json_projects = serializers.serialize('json', projects, use_natural_foreign_keys=True)
     categories = Category.objects.all()
     dict_related_subjects_with_category = {}
     for category in categories:
-        dict_related_subjects_with_category[category.name] = [i[0] for i in list(category.related_subjects.values_list("subject"))]
+        dict_related_subjects_with_category[category.name] = [i[0] for i in
+                                                              list(category.related_subjects.values_list("subject"))]
     return render(request, "djangoapp/projectpage.html",
                   {
-                    "dict_items": dict_related_subjects_with_category,
-                    "projects": json_projects
+                      "dict_items": dict_related_subjects_with_category,
+                      "projects": json_projects,
+                      "projects_not_json": projects,
+                      "list_for_margin": [i for i in range(len(projects))]
                   })
 
 
