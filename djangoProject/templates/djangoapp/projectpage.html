@@ -396,7 +396,7 @@
         {#project cards#}
         .blog-card {
             display: flex;
-            flex-direction: column;
+            {#flex-direction: column;#}
             margin: 1rem auto;
             box-shadow: 0 13px 17px -1px rgba(0, 0, 0, 0.8);
             margin-bottom: 1.6%;
@@ -502,11 +502,23 @@
         .blog-card .description h1, .blog-card .description h2 {
             font-family: Poppins, sans-serif;
         }
+        .project_description
+        {
+            height: 60px;
+            overflow: hidden;
+            white-space: normal;
+            text-overflow: ellipsis;
+            {#width: 400px;#}
+            text-align: right;
+        }
 
         .blog-card .description h1 {
             line-height: 1;
             margin: 0;
             font-size: 1.7rem;
+            overflow: hidden;
+
+
         }
 
         .blog-card .description h2 {
@@ -515,16 +527,22 @@
             text-transform: uppercase;
             color: #db0202;
             margin-top: 5px;
+            overflow: hidden;
+
         }
 
         .blog-card .description .read-more {
             text-align: right;
+            {#margin-right: 8%;#}
+            margin-top: 100px;
+            position: absolute;
+            margin-left: 320px;
         }
 
         .blog-card .description .read-more a {
             color: #5ad67d;
             display: inline-block;
-            position: relative;
+            {#position: relative;#}
         }
 
         .blog-card .description .read-more a:after {
@@ -630,7 +648,8 @@
             }
 
             .blog-card {
-                {#margin-top: 200px;#}
+                width: 800px;
+                height: 200px;
             }
 
 
@@ -659,6 +678,10 @@
             .vl {
                 display: none;
             }
+            .blog-card {
+                width: 600px;
+                height: 250px;
+            }
         }
 
         @media all and (max-width: 1000px) {
@@ -682,6 +705,10 @@
             .width80 {
                 margin-top: 240px;
             }
+            .blog-card {
+                width: 400px;
+                height: 250px;
+            }
         }
 
         @media all and (max-width: 700px) {
@@ -692,6 +719,8 @@
             .blog-card {
                 {#margin-top: 300px;#}
                 margin-right: 10%;
+                width: 350px;
+                height: 300px;
             }
 
             .respo {
@@ -917,7 +946,7 @@
         <div class="description">
             <h1>{{ project.project_name }}</h1>
             <h2>Opening a door to the future</h2>
-            <p> {{ project.description }}</p>
+            <p class="project_description"> {{ project.description }}</p>
             <p class="read-more">
                 <a href="#">Read More</a>
             </p>
@@ -1072,9 +1101,10 @@
 
 <script>
     let cards = document.getElementsByClassName("blog-card");
+    {#console.log(cards);#}
     for (let i = 0 ; i<cards.length ; i++)
     {
-        cards[i].style.marginTop = (i+1)*200;
+        cards[i].style.marginTop = `${(i+1)*270}px`;
     }
     console.log({{ dict_items|safe }});
     dictionary_categories = {{ dict_items|safe }};
