@@ -1,4 +1,4 @@
-{% load static %}
+﻿{% load static %}
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 <head>
@@ -396,8 +396,7 @@
         {#project cards#}
         .blog-card {
             display: flex;
-            {#flex-direction: column;#}
-            margin: 1rem auto;
+        {#flex-direction: column;#} margin: 1rem auto;
             box-shadow: 0 13px 17px -1px rgba(0, 0, 0, 0.8);
             margin-bottom: 1.6%;
             background: #fff;
@@ -502,14 +501,13 @@
         .blog-card .description h1, .blog-card .description h2 {
             font-family: Poppins, sans-serif;
         }
-        .project_description
-        {
+
+        .project_description {
             height: 60px;
             overflow: hidden;
             white-space: normal;
             text-overflow: ellipsis;
-            {#width: 400px;#}
-            text-align: right;
+        {#width: 400px;#} text-align: right;
         }
 
         .blog-card .description h1 {
@@ -533,8 +531,7 @@
 
         .blog-card .description .read-more {
             text-align: right;
-            {#margin-right: 8%;#}
-            margin-top: 100px;
+        {#margin-right: 8%;#} margin-top: 20px;
             position: absolute;
             margin-left: 320px;
         }
@@ -542,7 +539,7 @@
         .blog-card .description .read-more a {
             color: #5ad67d;
             display: inline-block;
-            {#position: relative;#}
+        {#position: relative;#}
         }
 
         .blog-card .description .read-more a:after {
@@ -581,6 +578,154 @@
         .blog-card:hover .details {
             left: 0%;
         }
+
+        {#pagination #}
+        {#pagination #}
+        {#pagination #}
+        .butpag {
+            -webkit-appearance: none;
+            background: transparent;
+            border: 0;
+            outline: 0;
+        }
+
+        .paginate {
+            position: relative;
+            margin: 10px;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transform: translate3d(0, 0, 0);
+            position: absolute;
+            top: 50%;
+            margin-top: -20px;
+            -webkit-filter: drop-shadow(0 2px 0px rgba(0, 0, 0, 0.2));
+        }
+
+        .paginate i {
+            position: absolute;
+            top: 40%;
+            left: 0;
+            width: 50px;
+            height: 5px;
+            border-radius: 2.5px;
+            background: #fff;
+            transition: all 0.15s ease;
+        }
+
+        .paginate.left {
+            right: 58%;
+        }
+
+        .paginate.left i {
+            transform-origin: 0% 50%;
+        }
+
+        .paginate.left i:first-child {
+            transform: translate(0, -1px) rotate(40deg);
+        }
+
+        .paginate.left i:last-child {
+            transform: translate(0, 1px) rotate(-40deg);
+        }
+
+        .paginate.left:hover i:first-child {
+            transform: translate(0, -1px) rotate(30deg);
+        }
+
+        .paginate.left:hover i:last-child {
+            transform: translate(0, 1px) rotate(-30deg);
+        }
+
+        .paginate.left:active i:first-child {
+            transform: translate(1px, -1px) rotate(25deg);
+        }
+
+        .paginate.left:active i:last-child {
+            transform: translate(1px, 1px) rotate(-25deg);
+        }
+
+        .paginate.left[data-state=disabled] i:first-child {
+            transform: translate(-5px, 0) rotate(0deg);
+        }
+
+        .paginate.left[data-state=disabled] i:last-child {
+            transform: translate(-5px, 0) rotate(0deg);
+        }
+
+        .paginate.left[data-state=disabled]:hover i:first-child {
+            transform: translate(-5px, 0) rotate(0deg);
+        }
+
+        .paginate.left[data-state=disabled]:hover i:last-child {
+            transform: translate(-5px, 0) rotate(0deg);
+        }
+
+        .paginate.right {
+            left: 58%;
+        }
+
+        .paginate.right i {
+            transform-origin: 100% 50%;
+        }
+
+        .paginate.right i:first-child {
+            transform: translate(0, 1px) rotate(40deg);
+        }
+
+        .paginate.right i:last-child {
+            transform: translate(0, -1px) rotate(-40deg);
+        }
+
+        .paginate.right:hover i:first-child {
+            transform: translate(0, 1px) rotate(30deg);
+        }
+
+        .paginate.right:hover i:last-child {
+            transform: translate(0, -1px) rotate(-30deg);
+        }
+
+        .paginate.right:active i:first-child {
+            transform: translate(1px, 1px) rotate(25deg);
+        }
+
+        .paginate.right:active i:last-child {
+            transform: translate(1px, -1px) rotate(-25deg);
+        }
+
+        .paginate.right[data-state=disabled] i:first-child {
+            transform: translate(5px, 0) rotate(0deg);
+        }
+
+        .paginate.right[data-state=disabled] i:last-child {
+            transform: translate(5px, 0) rotate(0deg);
+        }
+
+        .paginate.right[data-state=disabled]:hover i:first-child {
+            transform: translate(5px, 0) rotate(0deg);
+        }
+
+        .paginate.right[data-state=disabled]:hover i:last-child {
+            transform: translate(5px, 0) rotate(0deg);
+        }
+
+        .paginate[data-state=disabled] {
+            opacity: 0.3;
+            cursor: default;
+        }
+
+        .counter {
+            text-align: center;
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            margin-top: -15px;
+            font-size: 30px;
+            font-family: Helvetica, sans-serif;
+            text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.2);
+            color: #000;
+        }
+
 
         @media (min-width: 640px) {
             .blog-card {
@@ -678,6 +823,7 @@
             .vl {
                 display: none;
             }
+
             .blog-card {
                 width: 600px;
                 height: 250px;
@@ -705,6 +851,7 @@
             .width80 {
                 margin-top: 240px;
             }
+
             .blog-card {
                 width: 400px;
                 height: 250px;
@@ -717,8 +864,7 @@
             }
 
             .blog-card {
-                {#margin-top: 300px;#}
-                margin-right: 10%;
+            {#margin-top: 300px;#} margin-right: 10%;
                 width: 350px;
                 height: 300px;
             }
@@ -915,8 +1061,6 @@
                 {#        </li>#}
 
             </div>
-
-
         </ul>
 
     </div>
@@ -925,39 +1069,35 @@
         <div class="divider light"
              style="position: absolute;width: 100%;background-color: #933f09 "></div>
     </div>
-    {% for project in projects_not_json %}
-    <div class="blog-card" style="position: absolute;margin-left: 10%;background-color: #ffe575;">
-        <div class="meta" style="background-color: #ffe575">
-            <div class="photo"
-                 style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
-            <ul class="details">
-                <li class="author"><a href="#">{{ project.producer }}</a></li>
-                <li class="date">Aug. 24, 2015</li>
-                <li class="tags">
-                    <ul>
-                        <li><a href="#">Learn</a></li>
-                        <li><a href="#">Code</a></li>
-                        <li><a href="#">HTML</a></li>
-                        <li><a href="#">CSS</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <div class="description">
-            <h1>{{ project.project_name }}</h1>
-            <h2>Opening a door to the future</h2>
-            <p class="project_description"> {{ project.description }}</p>
-            <p class="read-more">
-                <a href="#">Read More</a>
-            </p>
-        </div>
-    </div>
-{#    <div><br></div>#}
-{#    <div><br></div>#}
-{#        <div><br></div>#}
-{#        <div><br></div>#}
-{#        <div><br></div>#}
-    {% endfor %}
+    {#    {% for project in projects_not_json %}#}
+    {#        <div class="blog-card" style="position: absolute;margin-left: 10%;background-color: #ffe575;">#}
+    {#            <div class="meta" style="background-color: #ffe575">#}
+    {#                <div class="photo"#}
+    {#                     style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>#}
+    {#                <ul class="details">#}
+    {#                    <li class="author"><a href="#">{{ project.producer.user.username }}</a></li>#}
+    {#                    <li class="date">Aug. 24, 2015</li>#}
+    {#                    <li class="tags">#}
+    {#                        <ul>#}
+    {#                            <li><a href="#">Learn</a></li>#}
+    {#                            <li><a href="#">Code</a></li>#}
+    {#                            <li><a href="#">HTML</a></li>#}
+    {#                            <li><a href="#">CSS</a></li>#}
+    {#                        </ul>#}
+    {#                    </li>#}
+    {#                </ul>#}
+    {#            </div>#}
+    {#            <div class="description">#}
+    {#                <h1>{{ project.project_name }}</h1>#}
+    {#                <h2>Opening a door to the future</h2>#}
+    {#                <p class="project_description"> {{ project.description }}</p>#}
+    {#                <p class="read-more">#}
+    {#                    <a href="#">Read More</a>#}
+    {#                </p>#}
+    {#            </div>#}
+    {#        </div>#}
+    {##}
+    {#    {% endfor %}#}
 </div>
 {#loading page #}
 {#loading page #}
@@ -1006,6 +1146,13 @@
             stroke-linejoin="round"
     ></path>
 </svg>
+
+<div class="counter"></div>
+
+<button class="butpag paginate left"><i></i><i></i></button>
+<button class="butpag paginate right"><i></i><i></i></button>
+
+<p id="getindex"></p>
 
 
 {#<div class="blog-card alt" >#}
@@ -1100,15 +1247,47 @@
 <!-- End footer Area -->
 
 <script>
+    dictionary_categories = {{ dict_items|safe }};
+    {#all projects this the okay one#}
+    let all_projects = {{ projects|safe }};
+    {#all projects this the okay one#}
+    let mother = document.getElementById("changeopacity");
+    for (let i = 0; i < 6; i++) {
+        let div_card = document.createElement("div");
+        div_card.style.position = "absolute";
+        div_card.style.marginLeft = "10%";
+        div_card.className = "blog-card";
+        div_card.innerHTML = `<div class="meta" style="background-color: #ffe575">
+                <div class="photo"
+                     style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
+                <ul class="details">
+                    <li class="author"><a href="#"> ${all_projects[i].fields.producer}</a></li>
+                    <li class="date">Aug. 24, 2015</li>
+                    <li class="tags">
+                        <ul>
+                            <li><a href="#">Learn</a></li>
+                            <li><a href="#">Code</a></li>
+                            <li><a href="#">HTML</a></li>
+                            <li><a href="#">CSS</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="description">
+                <h1>${all_projects[i].fields.project_name}</h1>
+                <h2>Opening a door to the future</h2>
+                <p class="project_description">${all_projects[i].fields.description}</p>
+                <p class="read-more">
+                    <a href="#">Read More</a>
+                </p>
+            </div>`;
+        mother.append(div_card);
+    }
     let cards = document.getElementsByClassName("blog-card");
     {#console.log(cards);#}
-    for (let i = 0 ; i<cards.length ; i++)
-    {
-        cards[i].style.marginTop = `${(i+1)*270}px`;
+    for (let i = 0; i < cards.length; i++) {
+        cards[i].style.marginTop = `${(i + 1) * 270}px`;
     }
-    console.log({{ dict_items|safe }});
-    dictionary_categories = {{ dict_items|safe }};
-    console.log({{ projects|safe }});
 
     function filtering(tag_a) {
         let get_form = document.getElementById("form_filter");
@@ -1140,6 +1319,31 @@
     }
 
 </script>
+<script>
+    // basic paging logic to demo the buttons
+    var pr = document.querySelector('.paginate.left');
+    var pl = document.querySelector('.paginate.right');
+
+    pr.onclick = slide.bind(this, -1);
+    pl.onclick = slide.bind(this, 1);
+
+    var index = 0, total = 10;
+
+    function slide(offset) {
+        index = Math.min(Math.max(index + offset, 0), total - 1);
+        document.querySelector("#getindex").innerHTML = `${index + 1}`;
+
+        document.querySelector('.counter').innerHTML = (index + 1) + ' / ' + total;
+
+        pr.setAttribute('data-state', index === 0 ? 'disabled' : '');
+        pl.setAttribute('data-state', index === total - 1 ? 'disabled' : '');
+    }
+
+    slide(0);
+
+
+</script>
+
 
 <script src={% static 'djangoapp/js/vendor/jquery-2.2.4.min.js' %}></script>
 <script src={% static 'djangoapp/js/popper.min.js' %}></script>

@@ -11,6 +11,14 @@ import json
 from django.core import serializers
 
 
+# class ProjectForm(forms.ModelForm):
+#     class Meta:
+#         model = Project
+#         widgets = {
+#             'delivery_date': forms.DateInput(attrs={'id': 'datepicker'}),
+#         }
+
+
 def Index(request):
     return render(request, "djangoapp/home.html")
 
@@ -118,7 +126,7 @@ def show_chat(request):
 
 
 def Projectpage(request):
-    projects = list(Project.objects.all())
+    projects = list(Project.objects.all().order_by("published_date"))
     json_projects = serializers.serialize('json', projects, use_natural_foreign_keys=True)
     categories = Category.objects.all()
     dict_related_subjects_with_category = {}

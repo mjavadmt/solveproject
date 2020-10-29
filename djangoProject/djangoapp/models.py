@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import datetime
+from django_jalali.db import models as jmodels
 
 
 # Create your models here.
@@ -13,7 +15,7 @@ class Temp(models.Model):
 class Employer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     description = models.TextField(max_length=1000, blank=True)
-    image = models.ImageField(upload_to="images_profile",blank=True)
+    image = models.ImageField(upload_to="images_profile", blank=True)
     cup = models.IntegerField(default=0)
 
     def natural_key(self):
@@ -28,9 +30,10 @@ class Freelancer(models.Model):
     description = models.TextField(max_length=1000, blank=True)
     rate = models.FloatField(default=0)
     cup = models.IntegerField(default=0)
-    education = models.CharField(max_length=50,blank=True)
-    image = models.ImageField(upload_to="images_profile",blank=True)
-    cv = models.CharField(max_length=50,blank=True)
+    education = models.CharField(max_length=50, blank=True)
+    image = models.ImageField(upload_to="images_profile", blank=True)
+    cv = models.CharField(max_length=50, blank=True)
+
     # cv means sabeqe
 
     def natural_key(self):
@@ -61,15 +64,21 @@ class Related_subject(models.Model):
 
 class Project(models.Model):
     producer = models.ForeignKey(Employer, related_name="projects_produced", on_delete=models.CASCADE, blank=True)
-    solver = models.ForeignKey(Freelancer, related_name="projects_solved", on_delete=models.CASCADE, blank=True, null=True)
+    solver = models.ForeignKey(Freelancer, related_name="projects_solved", on_delete=models.CASCADE, blank=True,
+                               null=True)
     interested_freelancers = models.ManyToManyField(Freelancer, related_name="interested_projects", blank=True)
     price_employer = models.IntegerField(default=0)
     category = models.ForeignKey(Category, related_name="projects_of_category", on_delete=models.CASCADE, blank=True,
                                  default=None)
     description = models.TextField(max_length=1000, blank=True)
     project_name = models.CharField(max_length=100, blank=True)
-    files = models.FileField(upload_to="files_project",blank=True)
+    files = models.FileField(upload_to="files_project", blank=True)
     is_solved = models.BooleanField(default=False)
+    project_duration = models.IntegerField(default=0)
+    project_month_delivery = models.IntegerField(default=0)
+    project_day_delivery = models.IntegerField(default=0)
+    project_year_delivery = models.IntegerField(default=0)
+    published_date = models.DateTimeField(default=datetime.now())
 
     def __str__(self):
         return f"{self.pk} producer = {self.producer} solver = {self.solver}"
