@@ -1,0 +1,501 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="{% static 'djangoapp/img/dog.png' %}">
+    <!-- Author Meta -->
+    <meta name="author" content="colorlib">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>Personal</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <!--
+    CSS
+    ============================================= -->
+    <link rel="stylesheet" href="{% static 'djangoapp/css/linearicons.css' %}">
+    <link rel="stylesheet" href="{% static 'djangoapp/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'djangoapp/css/bootstrap.css' %} ">
+    <link rel="stylesheet" href="{% static 'djangoapp/css/magnific-popup.css' %} ">
+    <link rel="stylesheet" href="{% static 'djangoapp/css/jquery-ui.css' %} ">
+    <link rel="stylesheet" href="{% static 'djangoapp/css/nice-select.css' %} ">
+    <link rel="stylesheet" href="{% static 'djangoapp/css/animate.min.css' %} ">
+    <link rel="stylesheet" href="{% static 'djangoapp/css/owl.carousel.css' %} ">
+    <link rel="stylesheet" href="{% static 'djangoapp/css/main.css' %} ">
+    {#    new sth#}
+    {#    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+    {#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+    {#    <title>Edmin</title>#}
+    <link rel="stylesheet" href="{% static 'djangoapp/profile/bootstrap/css/bootstrap.min.css' %} ">
+    <link rel="stylesheet" href="{% static 'djangoapp/profile/bootstrap/css/bootstrap-responsive.min.css' %} ">
+    <link rel="stylesheet" href="{% static 'djangoapp/profile/css/theme.css' %} ">
+    <link rel="stylesheet" href="{% static 'djangoapp/profile/images/icons/css/font-awesome.css' %} ">
+    {#    <link type="text/css" href="profile/bootstrap/css/bootstrap.min.css" rel="stylesheet">#}
+    {#    <link type="text/css" href="profile/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">#}
+    {#    <link type="text/css" href="profile/css/theme.css" rel="stylesheet">#}
+    {#    <link type="text/css" href="profile/images/icons/css/font-awesome.css" rel="stylesheet">#}
+    <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
+          rel='stylesheet'>
+    {#    end new sth#}
+    <style>
+        {#start tabs css#}
+        button:focus,
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+        }
+
+        .tabs {
+            background: #191828;
+            color: #efedef;
+            font-family: "Roboto", Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            font-weight: 300;
+            letter-spacing: 0.01em;
+            line-height: 1.6em;
+            margin: 0;
+            padding: 100px;
+            display: block;
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: flex;
+            -webkit-flex-wrap: wrap;
+            -moz-flex-wrap: wrap;
+            flex-wrap: wrap;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .tabs [class^="tab"] label,
+        .tabs [class*=" tab"] label {
+            color: #efedef;
+            cursor: pointer;
+            display: block;
+            font-size: 1.1em;
+            font-weight: 300;
+            line-height: 1em;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .tabs [class^="tab"] [type="radio"],
+        .tabs [class*=" tab"] [type="radio"] {
+            border-bottom: 1px solid rgba(239, 237, 239, 0.5);
+            cursor: pointer;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            display: block;
+            width: 100%;
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .tabs [class^="tab"] [type="radio"]:hover, .tabs [class^="tab"] [type="radio"]:focus,
+        .tabs [class*=" tab"] [type="radio"]:hover,
+        .tabs [class*=" tab"] [type="radio"]:focus {
+            border-bottom: 1px solid #fd264f;
+        }
+
+        .tabs [class^="tab"] [type="radio"]:checked,
+        .tabs [class*=" tab"] [type="radio"]:checked {
+            border-bottom: 2px solid #fd264f;
+        }
+
+        .tabs [class^="tab"] [type="radio"]:checked + div,
+        .tabs [class*=" tab"] [type="radio"]:checked + div {
+            opacity: 1;
+        }
+
+        .tabs [class^="tab"] [type="radio"] + div,
+        .tabs [class*=" tab"] [type="radio"] + div {
+            display: block;
+            opacity: 0;
+            padding: 2rem 0;
+            width: 90%;
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .tabs .tab-2 {
+            width: 50%;
+        }
+
+        .tabs .tab-2 [type="radio"] + div {
+            width: 200%;
+            margin-left: 200%;
+        }
+
+        .tabs .tab-2 [type="radio"]:checked + div {
+            margin-left: 0;
+        }
+
+        .tabs .tab-2:last-child [type="radio"] + div {
+            margin-left: 100%;
+        }
+
+        .tabs .tab-2:last-child [type="radio"]:checked + div {
+            margin-left: -100%;
+        }
+
+        {#    end tabs css#}
+        {#        start freelancer cards css#}
+        .card-container {
+
+            background-color: #231E39;
+            border-radius: 5px;
+            box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
+            color: #B3B8CD;
+            padding-top: 30px;
+            position: relative;
+            width: 350px;
+            max-width: 100%;
+            text-align: center;
+        }
+
+        .card-container .pro {
+            color: #231E39;
+            background-color: #FEBB0B;
+            border-radius: 3px;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 3px 7px;
+            position: absolute;
+            top: 30px;
+            left: 30px;
+        }
+
+        .card-container .round {
+            border: 1px solid #03BFCB;
+            border-radius: 50%;
+            padding: 7px;
+        }
+
+        button.primary {
+            background-color: #03BFCB;
+            border: 1px solid #03BFCB;
+            border-radius: 3px;
+            color: #231E39;
+            font-family: Montserrat, sans-serif;
+            font-weight: 500;
+            padding: 10px 25px;
+        }
+
+        button.primary.ghost {
+            background-color: transparent;
+            color: #02899C;
+        }
+
+        .skills {
+            background-color: #1F1A36;
+            text-align: left;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+        .skills ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .skills ul li {
+            border: 1px solid #2D2747;
+            border-radius: 2px;
+            display: inline-block;
+            font-size: 12px;
+            margin: 0 7px 7px 0;
+            padding: 7px;
+        }
+
+        {#end freelacer cards css#}
+    </style>
+</head>
+<body style="font-family: Mj_Ghalam-1">
+<header id="header" style="background-color: #d1aa57">
+    <div class="container main-menu">
+        <div class="row align-items-center justify-content-between d-flex">
+            <div id="logo">
+                <a href="{% url 'Index2' %}"><img src="{% static 'djangoapp/img/logo5.png' %}" alt="" title=""/></a>
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+
+                    {##}
+                    {#                                                                        <li class="menu-has-children"><a href="">Blog</a>#}
+                    {#                                                        <ul>#}
+                    {#                                                            <li><a href="blog-home.html">Blog Home</a></li>#}
+                    {#                                                            <li><a href="projectpage.html">Blog Single</a></li>#}
+                    {#                                                        </ul>#}
+                    {#                                                                        </li>#}
+                    {#                                                    <li class="menu-has-children"><a href="">Pages</a>#}
+                    {#                                                        <ul>#}
+                    {#                                                            <li><a href="{% url 'elements' %}">Elements</a></li>#}
+                    {#                                                            <li class="menu-has-children"><a href="">Level 2 </a>#}
+                    {#                                                                <ul>#}
+                    {#                                                                    <li><a href="#">Item One</a></li>#}
+                    {#                                                                    <li><a href="#">Item Two</a></li>#}
+                    {#                                                                </ul>#}
+                    {#                                                            </li>#}
+                    {#                                                        </ul>#}
+                    {#                                                    </li>#}
+
+
+                    <li><a class="change_hover" href="{% url 'enterance' %}"
+                           style="font-size: x-large;font-family:'Mj_Ghalam-1';color: white;text-decoration: none">ورود
+                        / ثبت
+                        نام</a>
+                    </li>
+                    <li><a class="change_hover" href="{% url 'contact' %}"
+                           style="font-size: x-large;font-family:'Mj_Ghalam-1';color: white;text-decoration: none">تماس
+                        با
+                        ما</a></li>
+                    <li><a class="change_hover" href="{% url 'about' %}"
+                           style="font-size: x-large;font-family:'Mj_Ghalam-1';color: white;text-decoration: none">درباره
+                        ما</a></li>
+                    <li><a class="change_hover" href="{% url 'services' %}"
+                           style="font-size: x-large;font-family:'Mj_Ghalam-1';color: white;text-decoration: none">شکایات
+                        و
+                        پیشنهادها</a></li>
+                    <li><a class="change_hover" href="{% url 'portfolio' %}"
+                           style="font-size: x-large;font-family:'Mj_Ghalam-1';color: white;text-decoration: none">تعرفه
+                        ها</a>
+                    </li>
+                    <li><a class="change_hover"
+                           style="font-size: x-large;font-family:'Mj_Ghalam-1';color: white;text-decoration: none;"
+                           href="{% url 'projectpage' %}">پروژه
+                        ها</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'Index2' %}"
+                           style="font-size: x-large;font-family:'Mj_Ghalam-1';color: #fdfff8;border-bottom: 1px solid white;padding-bottom: 2px;text-decoration: none">صفحه
+                            اصلی</a></li>
+                    <li class="nav-user dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="{% static 'djangoapp/img/elements/user1.png' %}" class="nav-avatar"/>
+                        <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Your Profile</a></li>
+                            <li><a href="#">Edit Profile</a></li>
+                            <li><a href="#">Account Settings</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </div>
+</header><!-- #header -->
+<!-- start banner Area -->
+<div class="wrapper" style="margin-top: 7%">
+    <div class="container" style="display: inline">
+        <div class="row">
+            {#           start tabs #}
+            <div class="tabs">
+                <div class="tab-2">
+                    <label for="tab2-1">One</label>
+                    <input id="tab2-1" name="tabs-two" type="radio" checked="checked">
+                    <div>
+                        <h4>Tab One</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consequat id velit quis
+                            vestibulum. Nam id orci eu urna mollis porttitor. Nunc nisi ante, gravida at velit eu,
+                            aliquet sodales dui. Sed laoreet condimentum nisi a egestas.</p>
+                        <p>Donec interdum ante ut enim consequat, quis varius nulla dapibus. Vivamus mollis fermentum
+                            augue a varius. Vestibulum in sapien at lectus gravida lobortis vulputate sed metus. Duis
+                            scelerisque justo et maximus efficitur. Donec eu eleifend quam. Curabitur aliquet commodo
+                            sapien eget vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+                            posuere cubilia Curae; Vestibulum vel aliquet nunc, finibus posuere lorem. Suspendisse
+                            consectetur volutpat est ut ornare.</p>
+                    </div>
+                </div>
+                <div class="tab-2">
+                    <label for="tab2-2">Two</label>
+                    <input id="tab2-2" name="tabs-two" type="radio">
+                    <div>
+                        <h4>Tab Two</h4>
+                        {#                        <p>Quisque sit amet turpis leo. Maecenas sed dolor mi. Pellentesque varius elit in neque ornare#}
+                        {#                            commodo ac non tellus. Mauris id iaculis quam. Donec eu felis quam. Morbi tristique lorem#}
+                        {#                            eget iaculis consectetur. Class aptent taciti sociosqu ad litora torquent per conubia#}
+                        {#                            nostra, per inceptos himenaeos. Aenean at tellus eget risus tempus ultrices. Nam condimentum#}
+                        {#                            nisi enim, scelerisque faucibus lectus sodales at.</p>#}
+                        <div class="card-container" style="">
+                            <span class="pro">PRO</span>
+                            <img class="round" src="https://randomuser.me/api/portraits/women/79.jpg" alt="user"/>
+                            <h3 style="margin: 10px 0">Ricky Park</h3>
+                            <h6 style="margin: 5px 0; text-transform: uppercase;">New York</h6>
+                            <p style="font-size: 14px;
+	line-height: 21px;">User interface designer and <br/> front-end developer</p>
+                            <div class="buttons">
+                                <button class="primary">
+                                    Message
+                                </button>
+                                <button class="primary ghost">
+                                    Following
+                                </button>
+                            </div>
+                            <div class="skills">
+                                <h6>Skills</h6>
+                                <ul>
+                                    <li>UI / UX</li>
+                                    <li>Front End Development</li>
+                                    <li>HTML</li>
+                                    <li>CSS</li>
+                                    <li>JavaScript</li>
+                                    <li>React</li>
+                                    <li>Node</li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            {#            end tabs#}
+            <div class="span3">
+                <div class="sidebar">
+                    <!-- side bar -->
+                    <ul class="widget widget-menu unstyled">
+                        <li class="active"><a href="index.html"><i class="menu-icon icon-dashboard"></i>Dashboard
+                        </a></li>
+                        <li><a href="{% url 'Ali_esm_bezar' %}"><i class="menu-icon icon-bullhorn"></i>News Feed </a>
+                        </li>
+                        <li><a href="message.html"><i class="menu-icon icon-inbox"></i>recomended <b
+                                class="label green pull-right">
+                            11</b> </a></li>
+                        <li><a href="task.html"><i class="menu-icon icon-tasks"></i>chats <b
+                                class="label orange pull-right">
+                            19</b> </a></li>
+                    </ul>
+                    <!--/.widget-nav-->
+
+
+                    <!-- <ul class="widget widget-menu unstyled">
+                        <li><a href="ui-button-icon.html"><i class="menu-icon icon-bold"></i> Buttons </a></li>
+                        <li><a href="ui-typography.html"><i class="menu-icon icon-book"></i>Typography </a></li>
+                        <li><a href="form.html"><i class="menu-icon icon-paste"></i>Forms </a></li>
+                        <li><a href="table.html"><i class="menu-icon icon-table"></i>Tables </a></li>
+                        <li><a href="charts.html"><i class="menu-icon icon-bar-chart"></i>Charts </a></li>
+                    </ul> -->
+                    <!--/.widget-nav-->
+                    <!-- getting all users -->
+                    <ul class="widget widget-menu unstyled">
+                        <!-- <li><a class="collapsed" data-toggle="collapse" href="#togglePages"><i
+                                    class="menu-icon icon-cog">
+                                </i><i class="icon-chevron-down pull-right"></i><i
+                                    class="icon-chevron-up pull-right">
+
+
+                                </i>More Pages </a>
+                            <ul id="togglePages" class="collapse unstyled">
+                                <li><a href="other-login.html"><i class="icon-inbox"></i>Login </a></li>
+                                <li><a href="other-user-profile.html"><i class="icon-inbox"></i>Profile </a></li>
+                                <li><a href="other-user-listing.html"><i class="icon-inbox"></i>All Users </a></li>
+                            </ul>
+                        </li> -->
+                        <li><a href="#"><i class="menu-icon icon-signout"></i>Logout </a></li>
+                    </ul>
+                </div>
+                <!--/.sidebar-->
+            </div>
+            <!--/.span3-->
+
+        </div>
+    </div>
+    <!--/.container-->
+</div>
+<!--/.wrapper-->
+
+<!-- start footer Area -->
+<footer class="footer-area section-gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                    <h4>About Me</h4>
+                    <p>
+                        We have tested a number of registry fix and clean utilities and present our top 3 list on our
+                        site for your convenience.
+                    </p>
+                    <p class="footer-text">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                        All rights reserved | This template is made with <i class="fa fa-heart-o"
+                                                                            aria-hidden="true"></i> by <a
+                            href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                    <h4>Newsletter</h4>
+                    <p>Stay updated with our latest trends</p>
+                    <div class="" id="mc_embed_signup">
+                        <form target="_blank"
+                              action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                              method="get">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="EMAIL" placeholder="Enter Email Address"
+                                       onfocus="this.placeholder = ''"
+                                       onblur="this.placeholder = 'Enter Email Address '" required="" type="email">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" type="submit">
+                                        <span class="lnr lnr-arrow-right"></span>
+                                    </button>
+                                </div>
+                                <div class="info"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
+                <div class="single-footer-widget">
+                    <h4>Follow Me</h4>
+                    <p>Let us be social</p>
+                    <div class="footer-social d-flex align-items-center">
+                        <a href="{% url 'Index2' %}"><i class="fa fa-facebook"></i></a>
+                        <a href="{% url 'Index2' %}"><i class="fa fa-twitter"></i></a>
+                        <a href="{% url 'Index2' %}"><i class="fa fa-dribbble"></i></a>
+                        <a href="{% url 'Index2' %}"><i class="fa fa-behance"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End footer Area -->
+
+<script src={% static 'djangoapp/js/vendor/jquery-2.2.4.min.js' %}></script>
+<script src={% static 'djangoapp/js/popper.min.js' %}></script>
+<script src={% static 'djangoapp/js/vendor/bootstrap.min.js' %}></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+<script src={% static 'djangoapp/js/easing.min.js' %}></script>
+<script src={% static 'djangoapp/js/hoverIntent.js' %}></script>
+<script src={% static 'djangoapp/js/superfish.min.js' %}></script>
+<script src={% static 'djangoapp/js/jquery.ajaxchimp.min.js' %}></script>
+<script src={% static 'djangoapp/js/jquery.magnific-popup.min.js' %}></script>
+<script src={% static 'djangoapp/js/jquery.tabs.min.js' %}></script>
+<script src={% static 'djangoapp/js/jquery.nice-select.min.js' %}></script>
+<script src={% static 'djangoapp/js/isotope.pkgd.min.js' %}></script>
+<script src={% static 'djangoapp/js/waypoints.min.js' %}></script>
+<script src={% static 'djangoapp/js/jquery.counterup.min.js' %}></script>
+<script src={% static 'djangoapp/js/simple-skillbar.js' %}></script>
+<script src={% static 'djangoapp/js/owl.carousel.min.js' %}></script>
+<script src={% static 'djangoapp/js/mail-script.js' %}></script>
+<script src={% static 'djangoapp/js/main.js' %}></script>
+</body>
+</html>
