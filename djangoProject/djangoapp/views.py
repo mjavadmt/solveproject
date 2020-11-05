@@ -22,6 +22,10 @@ from django.core import serializers
 def Index(request):
     return render(request, "djangoapp/home.html")
 
+def Ali_esm_bezar(request):
+    return  render(request, "djangoapp/Ali_esm_bezar.html")
+
+
 
 def enterance(request):
     if not request.user.is_authenticated:
