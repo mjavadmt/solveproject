@@ -226,7 +226,7 @@
             margin-top: -100px;
             margin-left: 80%;
             border-left: 1px solid #933f09;
-            height: 800px;
+            height: 250px;
             position: absolute;
         }
 
@@ -1107,13 +1107,15 @@
     </div>
 </header><!-- #header -->
 <div id="changeopacity">
-    <div class="vl"></div>
-
+    {#    <div class="vl"></div>#}
     <div style="float: right;margin-top: -95px;width: 20%">
         <img id="image_filter"
              src="https://www.smashstack.com/articles/wp-content/uploads/2016/09/Screen-Test-How-Web-Filtering-Works-676x676.jpg"
              width="100%" height="246px">
-        <div style="position: fixed">
+    </div>
+    <div style="position: absolute;float: right;margin-top: 225px;margin-left: 1100px;width: 55%">
+
+        <div style="position: fixed;margin-right: 150px;">
             <h1 style="text-align: center;font-family: Mj_Ghalam-1;margin-top: 2%"> فیلتر ها</h1>
             <form id="form_filter" style="margin-top: 1%">
                 {#        <input class="checkbox_input" type="checkbox" id="first">#}
@@ -1124,7 +1126,7 @@
                 {#        <label class="label_checkbox" for="second">برنامه خودت</label>#}
 
             </form>
-            <div class="container">
+            <div>
                 <div class="row">
 
                     <div class="col-sm-12">
@@ -1135,11 +1137,11 @@
                 </div>
 
                 <div class="row slider-labels">
-                    <div class="col-xs-6 caption" style="margin-left: 10px;font-size: medium;font-family: Zeytoon">
+                    <div class="col-xs-6 caption" style="margin-left: 10px;font-family: Zeytoon">
                         <strong>کمترین:</strong> <span id="slider-range-value1"></span>
                     </div>
                     <div class="col-xs-6 text-right caption"
-                         style="margin-left:50px;font-size: medium;font-family: Zeytoon">
+                         style="margin-left:50px;font-family: Zeytoon">
                         <strong>بیشترین:</strong> <span id="slider-range-value2"></span>
                     </div>
                 </div>
@@ -1371,65 +1373,87 @@
 
 <!-- end category -->
 
-
 <!-- start footer Area -->
-{#<footer class="footer-area section-gap">#}
-{#    <div class="container">#}
-{#        <div class="row">#}
-{#            <div class="col-lg-5 col-md-6 col-sm-6">#}
-{#                <div class="single-footer-widget">#}
-{#                    <h4>About Me</h4>#}
-{#                    <p>#}
-{#                        We have tested a number of registry fix and clean utilities and present our top 3 list on our#}
-{#                        site for your convenience.#}
-{#                    </p>#}
-{#                    <p class="footer-text">#}
-{#                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->#}
-{#                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>#}
-{#                        All rights reserved | This template is made with <i class="fa fa-heart-o"#}
-{#                                                                            aria-hidden="true"></i> by <a#}
-{#                            href="https://colorlib.com" target="_blank">Colorlib</a>#}
-{#                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>#}
-{#                </div>#}
-{#            </div>#}
-{#            <div class="col-lg-5 col-md-6 col-sm-6">#}
-{#                <div class="single-footer-widget">#}
-{#                    <h4>Newsletter</h4>#}
-{#                    <p>Stay updated with our latest trends</p>#}
-{#                    <div class="" id="mc_embed_signup">#}
-{#                        <form target="_blank"#}
-{#                              action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"#}
-{#                              method="get">#}
-{#                            <div class="input-group">#}
-{#                                <input type="text" class="form-control" name="EMAIL" placeholder="Enter Email Address"#}
-{#                                       onfocus="this.placeholder = ''"#}
-{#                                       onblur="this.placeholder = 'Enter Email Address '" required="" type="email">#}
-{#                                <div class="input-group-btn">#}
-{#                                    <button class="btn btn-default" type="submit">#}
-{#                                        <span class="lnr lnr-arrow-right"></span>#}
-{#                                    </button>#}
-{#                                </div>#}
-{#                                <div class="info"></div>#}
-{#                            </div>#}
-{#                        </form>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#            <div class="col-lg-2 col-md-6 col-sm-6 social-widget">#}
-{#                <div class="single-footer-widget">#}
-{#                    <h4>Follow Me</h4>#}
-{#                    <p>Let us be social</p>#}
-{#                    <div class="footer-social d-flex align-items-center">#}
-{#                        <a href="{% url 'Index2' %}"><i class="fa fa-facebook"></i></a>#}
-{#                        <a href="{% url 'Index2' %}"><i class="fa fa-twitter"></i></a>#}
-{#                        <a href="{% url 'Index2' %}"><i class="fa fa-dribbble"></i></a>#}
-{#                        <a href="{% url 'Index2' %}"><i class="fa fa-behance"></i></a>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-{#</footer>#}
+<footer class="footer-area section-gap"
+        style="background: #000000;position: absolute;width: 100%;height: 400px;margin-top: 2000px">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-12 col-sm-12">
+                <div class="single-footer-widget text-right" style="font-family: Mj_Ghalam-1">
+                    <h4 style="font-family: Mj_Ghalam-1;font-size: xx-large">درباره</h4>
+                    <ul style="font-size: x-large">
+                        <li>
+                            <a href="{% url 'about' %}">
+                                درباره ما
+                            </a>
+                        </li>
+                        <li>
+                            تماس با ما:09149998124
+                        </li>
+                    </ul>
+                    {#                    <p class="footer-text">#}
+                    {#                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->#}
+                    {#                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>#}
+                    {#                        All rights reserved | This template is made with <i class="fa fa-heart-o"#}
+                    {#                                                                            aria-hidden="true"></i> by <a#}
+                    {#                            href="https://colorlib.com" target="_blank">Colorlib</a>#}
+                    {#                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>#}
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12">
+                <div class="single-footer-widget text-right" style="font-family: Mj_Ghalam-1">
+                    <h4 style="font-family: Mj_Ghalam-1;font-size: xx-large">فریلنسر</h4>
+                    <ul style="font-size: x-large">
+                        <li>
+                            <a href="{% url 'formsign' %}">
+                                ورود/ثبت نام
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                دسته‌بندی ها
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'projectpage' %}">
+                                پروژه ها
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                چگونه کار می کند؟
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                پرسش و پاسخ
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 social-widget">
+                <div class="single-footer-widget text-right" style="font-family: Mj_Ghalam-1">
+                    <h4 style="font-family: Mj_Ghalam-1;font-size: xx-large">ما را دنبال کنید</h4>
+                    <ul style="font-size: x-large">
+                        <li>
+                            <a href="{% url 'Index2' %}"><i class="fa fa-facebook"></i></a>
+                            <a href="{% url 'Index2' %}"><i class="fa fa-twitter"></i></a>
+                            <a href="{% url 'Index2' %}"><i class="fa fa-dribbble"></i></a>
+                            <a href="{% url 'Index2' %}"><i class="fa fa-behance"></i></a>
+                        </li>
+
+                        <li>
+                            cafeproject8@gmail.com
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 <!-- End footer Area -->
 
 <script>
@@ -1440,6 +1464,7 @@
     let fix_project = {{ projects|safe }};
     {#all projects this the okay one#}
     let mother = document.getElementById("changeopacity");
+
     function filtering(tag_a) {
         let get_form = document.getElementById("form_filter");
         get_form.innerHTML = "";
@@ -1487,7 +1512,8 @@
     pr.onclick = slide.bind(this, -1);
     pl.onclick = slide.bind(this, 1);
 
-    var index=0;
+    var index = 0;
+
     function slide(offset) {
         console.log(offset)
         var total = ((all_projects.length / 6) | 0) + 1;
@@ -1574,7 +1600,6 @@
                 get_svg.style.display = "none";
             }, 1000
         );
-
     }
 
 
