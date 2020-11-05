@@ -1146,7 +1146,7 @@
             stroke-linejoin="round"
     ></path>
 </svg>
-<div style="margin-top: 1900px;position: absolute;margin-left: -450px;width: 1950px">
+<div id="pageinate" style="position: absolute;margin-left: -450px;width: 1950px">
     <div class="counter"></div>
     <p style="position: absolute;margin-left: 660px;margin-top: -10px;font-size: xx-large">صفحه قبل</p>
     <button class="butpag paginate left"><i></i><i></i></button>
@@ -1254,44 +1254,9 @@
     {#all projects this the okay one#}
     let start
     let all_projects = {{ projects|safe }};
+    let fix_project = {{ projects|safe }};
     {#all projects this the okay one#}
     let mother = document.getElementById("changeopacity");
-    {#for (let i = 0; i < 6; i++) {#}
-    {#    let div_card = document.createElement("div");#}
-    {#    div_card.style.position = "absolute";#}
-    {#    div_card.style.marginLeft = "10%";#}
-    {#    div_card.className = "blog-card";#}
-    {#    div_card.innerHTML = `<div class="meta" style="background-color: #ffe575">#}
-    {#            <div class="photo"#}
-    {#                 style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>#}
-    {#            <ul class="details">#}
-    {#                <li class="author"><a href="#"> ${all_projects[i].fields.producer}</a></li>#}
-    {#                <li class="date">Aug. 24, 2015</li>#}
-    {#                <li class="tags">#}
-    {#                    <ul>#}
-    {#                        <li><a href="#">Learn</a></li>#}
-    {#                        <li><a href="#">Code</a></li>#}
-    {#                        <li><a href="#">HTML</a></li>#}
-    {#                        <li><a href="#">CSS</a></li>#}
-    {#                    </ul>#}
-    {#                </li>#}
-    {#            </ul>#}
-    {#        </div>#}
-    {#        <div class="description">#}
-    {#            <h1>${all_projects[i].fields.project_name}</h1>#}
-    {#            <h2>Opening a door to the future</h2>#}
-    {#            <p class="project_description">${all_projects[i].fields.description}</p>#}
-    {#            <p class="read-more">#}
-    {#                <a href="#">Read More</a>#}
-    {#            </p>#}
-    {#        </div>`;#}
-    {#    mother.append(div_card);#}
-    //}
-    {#let cards = document.getElementsByClassName("blog-card");#}
-    {#console.log(cards);#}
-    {#for (let i = 0; i < cards.length; i++) {#}
-    {#    cards[i].style.marginTop = `${(i + 1) * 270}px`;#}
-    //}
 
     function filtering(tag_a) {
         let get_form = document.getElementById("form_filter");
@@ -1300,8 +1265,16 @@
         get_svg.style.display = "block";
         let get_div = document.getElementById('changeopacity');
         get_div.style.opacity = "0.1";
+
         setTimeout(
             function () {
+                all_projects = [];
+                for (let j = 0; j < fix_project.length; j++) {
+                    if (fix_project[j].fields.category == tag_a.id) {
+                        all_projects.push(fix_project[j]);
+                    }
+                }
+                slide(0)
                 let list_options = dictionary_categories[tag_a.id];
                 for (let i = 0; i < list_options.length; i++) {
                     let make_input = document.createElement('input');
@@ -1332,9 +1305,9 @@
     pr.onclick = slide.bind(this, -1);
     pl.onclick = slide.bind(this, 1);
 
-    var index = 0, total = ((all_projects.length / 6) | 0) + 1;
 
     function slide(offset) {
+        var index = 0, total = ((all_projects.length / 6) | 0) + 1;
         index = Math.min(Math.max(index + offset, 0), total - 1);
         {#document.querySelector("#getindex").innerHTML = `${index + 1}`;#}
 
@@ -1355,15 +1328,10 @@
     function page(start, end) {
 
         let h = document.getElementsByClassName("blog-card");
-        console.log(end)
-        console.log(start);
-        console.log(h);
-        let len=h.length
-        for (let j = 0; j < len; j++)
-        {
+        let len = h.length
+        for (let j = 0; j < len; j++) {
             h[0].remove();
         }
-        console.log(h);
         for (let i = start; i < end; i++) {
             let div_card = document.createElement("div");
             div_card.style.position = "absolute";
@@ -1387,7 +1355,7 @@
             </div>
             <div class="description">
                 <h1>${all_projects[i].fields.project_name}</h1>
-                <h2>Opening a door to the future</h2>
+                <h2>${all_projects[i].fields.category}</h2>
                 <p class="project_description">${all_projects[i].fields.description}</p>
                 <p class="read-more">
                     <a href="#">Read More</a>
@@ -1396,11 +1364,32 @@
             mother.append(div_card);
         }
         let cards = document.getElementsByClassName("blog-card");
-        {#console.log(cards);#}
         for (let i = 0; i < cards.length; i++) {
             cards[i].style.marginTop = `${(i + 1) * 270}px`;
-       }
-        console.log(h);
+        }
+        let inate = document.getElementById("pageinate");
+        let last = cards[cards.length - 1]
+        let sum = parseInt(last.style.marginTop) + 300;
+        console.log(sum);
+        inate.style.marginTop = `${sum}px`;
+        loader_page();
+    }
+
+    function loader_page() {
+        let get_svg = document.getElementById("loadersvg");
+        get_svg.style.display = "block";
+        let get_div = document.getElementById('changeopacity');
+        get_div.style.opacity = "0.1";
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+        setTimeout(
+            function () {
+
+                get_div.style.opacity = "1";
+                get_svg.style.display = "none";
+            }, 1000
+        );
+
     }
 
 
