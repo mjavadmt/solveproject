@@ -878,6 +878,17 @@
         }
 
         {#range slider#}
+        .box {
+            box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+            0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+            0 12.5px 10px rgba(0, 0, 0, 0.06),
+            0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+            0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+            0 100px 80px rgba(0, 0, 0, 0.12);
+
+            background: white;
+            border-radius: 5px;
+        }
 
 
         @media (min-width: 640px) {
@@ -1113,19 +1124,11 @@
              src="https://www.smashstack.com/articles/wp-content/uploads/2016/09/Screen-Test-How-Web-Filtering-Works-676x676.jpg"
              width="100%" height="246px">
     </div>
-    <div style="position: absolute;float: right;margin-top: 225px;margin-left: 1100px;width: 55%">
+    <div style="position: absolute;float: right;margin-top: 225px;margin-left: 1100px;width: 400px">
 
-        <div style="position: fixed;margin-right: 150px;">
+        <div class="box" style="position: absolute; margin-right: 150px;padding: 2%">
             <h1 style="text-align: center;font-family: Mj_Ghalam-1;margin-top: 2%"> فیلتر ها</h1>
-            <form id="form_filter" style="margin-top: 1%">
-                {#        <input class="checkbox_input" type="checkbox" id="first">#}
-                {#        <label class="label_checkbox" for="first">برنامه نویسی</label>#}
-
-                <br>
-                {#        <input class="checkbox_input" type="checkbox" id="second">#}
-                {#        <label class="label_checkbox" for="second">برنامه خودت</label>#}
-
-            </form>
+            <hr style="background-color: #ffc3c0">
             <div>
                 <div class="row">
 
@@ -1153,6 +1156,20 @@
                         </form>
                     </div>
                 </div>
+                <hr style="background-color: #ffc3c0">
+                <h1 style="text-align: center;font-family: Mj_Ghalam-1;margin-top: 2%">مهارت ها</h1>
+                <h4 id="forhide" style="text-align: center;font-family: Mj_Ghalam-1;margin-top: 2%">برای مشاهده یک دسته
+                    بندی از بالا انتخاب کنید</h4>
+                <form id="form_filter" style="margin-top: 1%">
+                    {#        <input class="checkbox_input" type="checkbox" id="first">#}
+                    {#        <label class="label_checkbox" for="first">برنامه نویسی</label>#}
+
+                    <br>
+                    {#        <input class="checkbox_input" type="checkbox" id="second">#}
+                    {#        <label class="label_checkbox" for="second">برنامه خودت</label>#}
+
+                </form>
+
             </div>
         </div>
 
@@ -1374,8 +1391,7 @@
 <!-- end category -->
 
 <!-- start footer Area -->
-<footer class="footer-area section-gap"
-        style="background: #000000;position: absolute;width: 100%;height: 400px;margin-top: 2000px">
+<footer id="foot" class="footer-area section-gap">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-12 col-sm-12">
@@ -1466,12 +1482,15 @@
     let mother = document.getElementById("changeopacity");
 
     function filtering(tag_a) {
+
         let get_form = document.getElementById("form_filter");
         get_form.innerHTML = "";
         let get_svg = document.getElementById("loadersvg");
         get_svg.style.display = "block";
         let get_div = document.getElementById('changeopacity');
         get_div.style.opacity = "0.1";
+        let tohide = document.getElementById("forhide");
+        tohide.style.display = "none"
 
         setTimeout(
             function () {
@@ -1503,6 +1522,7 @@
     }
 
 </script>
+
 <script>
     // basic paging logic to demo the buttons
 
@@ -1515,6 +1535,7 @@
     var index = 0;
 
     function slide(offset) {
+
         console.log(offset)
         var total = ((all_projects.length / 6) | 0) + 1;
         index = Math.min(Math.max(index + offset, 0), total - 1);
@@ -1581,7 +1602,6 @@
         let inate = document.getElementById("pageinate");
         let last = cards[cards.length - 1]
         let sum = parseInt(last.style.marginTop) + 300;
-        console.log(sum);
         inate.style.marginTop = `${sum}px`;
         loader_page();
     }
@@ -1601,6 +1621,24 @@
             }, 1000
         );
     }
+
+
+</script>
+<script>
+
+    foteer()
+    function foteer() {
+        let foteer = document.getElementById("foot");
+        let dectfrom = document.getElementById("pageinate");
+        console.log(dectfrom.style.marginTop)
+        let xee = parseInt(dectfrom.style.marginTop);
+        foteer.style.position = "absolute";
+        foteer.style.background = "#000000";
+        foteer.style.width = "100%";
+        console.log(xee);
+        foteer.style.marginTop = `${xee + 100}px`;
+    }
+
 
 
 </script>
