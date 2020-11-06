@@ -1809,6 +1809,25 @@
     foteer()
 
     function foteer() {
+         setTimeout(() => {
+          let elms = document.getElementsByClassName('page__toggle');
+          let p=elms.item(elms.length-1);
+
+          if (p!=null)
+          {
+               p.id="kl";
+          var a=$("kl").offset().top;
+          console.log(a)}
+        }, 0);
+        {#let x=document.getElementsByClassName("page__toggle");#}
+        {#console.log(elm)#}
+        {#if (x.length!=0)#}
+        {#{#}
+        {#    let top=x[x.length-1]#}
+        {#console.log(top.style.marginTop);#}
+
+
+
         let foteer = document.getElementById("foot");
         let dectfrom = document.getElementById("pageinate");
         let xee =  parseInt(dectfrom.style.marginTop);
@@ -1821,8 +1840,6 @@
      function filterprice(){
         let min_price= document.getElementsByName('min-value').value;
         let max_price=document.getElementsByName('max-value').value;
-        console.log(max_price)
-         console.log(min_price)
         let store=[];
         for (let i=0;i<all_project_copy.length;i++)
         {
@@ -1831,7 +1848,6 @@
                 store.push(all_project_copy[i]);
             }
         }
-        console.log(store)
         all_projects=store;
         slide(0)
      }
