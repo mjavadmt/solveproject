@@ -454,7 +454,7 @@
             left: -100%;
             margin: auto;
             transition: left 0.2s;
-            background: rgba(253, 6, 6, 0.6);
+            background: rgba(41, 28, 28, 0.6);
             color: #fff;
             padding: 10px;
             width: 100%;
@@ -1315,10 +1315,9 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <form>
-                            <input type="hidden" name="min-value" value="">
-                            <input type="hidden" name="max-value" value="">
-                        </form>
+                            <input id="min1" type="hidden" name="min-value" value="">
+                            <input id="max1" type="hidden" name="max-value" value="">
+                            <button onclick="filterprice()">ddfsd</button>
                     </div>
                 </div>
                 <hr style="background-color: #ffc3c0">
@@ -1328,7 +1327,6 @@
                 <form id="form_filter" style="margin-top: 1%">
                     {#        <input class="checkbox_input" type="checkbox" id="first">#}
                     {#        <label class="label_checkbox" for="first">برنامه نویسی</label>#}
-
 
 
                     <br>
@@ -1645,6 +1643,7 @@
     let start
     let all_projects = {{ projects|safe }};
     let fix_project = {{ projects|safe }};
+    let all_project_copy=[];
     {#all projects this the okay one#}
     let mother = document.getElementById("changeopacity");
 
@@ -1667,17 +1666,10 @@
                         all_projects.push(fix_project[j]);
                     }
                 }
+                all_project_copy=all_projects;
                 slide(0)
                 let list_options = dictionary_categories[tag_a.id];
                 for (let i = 0; i < list_options.length; i++) {
-                    {#let make_input = document.createElement('input');#}
-                    {#make_input.type = 'checkbox';#}
-                    {#make_input.className = 'checkbox_input';#}
-                    {#make_input.id = `${i}`;#}
-                    {#let make_label = document.createElement('label');#}
-                    {#make_label.setAttribute('for', `${i}`);#}
-                    {#make_label.className = "label_checkbox";#}
-                    {#make_label.innerHTML = list_options[i];#}
                     let page_toggle = document.createElement("div");
                     page_toggle.className = "page__toggle";
                     page_toggle.innerHTML = `<div style="margin-left: 50px" class="page__toggle">
@@ -1717,7 +1709,6 @@
         console.log(offset)
         var total = ((all_projects.length / 6) | 0) + 1;
         index = Math.min(Math.max(index + offset, 0), total - 1);
-        {#document.querySelector("#getindex").innerHTML = `${index + 1}`;#}
 
 
         document.querySelector('.counter').innerHTML = (index + 1) + ' / ' + total;
@@ -1726,7 +1717,6 @@
         pl.setAttribute('data-state', index === total - 1 ? 'disabled' : '');
         console.log(index)
         if ((index + 1) * 6 > all_projects.length) {
-            console.log("ssss")
             page(((index + 1) * 6) - 6, all_projects.length);
         } else {
             page(((index + 1) * 6) - 6, (index + 1) * 6);
@@ -1743,17 +1733,23 @@
             h[0].remove();
         }
         for (let i = start; i < end; i++) {
+            let date = "";
             let div_card = document.createElement("div");
             div_card.style.position = "absolute";
             div_card.style.marginLeft = "10%";
             div_card.className = "blog-card";
+            if (all_projects[i].fields.project_day_delivery != 0 || all_projects[i].fields.project_month_delivery != 0) {
+                date = `${all_projects[i].fields.project_year_delivery}/${all_projects[i].fields.project_month_delivery}/${all_projects[i].fields.project_day_delivery}`;
+            } else {
+                date = `${all_projects[i].fields.project_duration}روز`;
+            }
             div_card.innerHTML = `<div class="meta" style="background-color: #ffe575">
                 <div class="photo"
-                     style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
+                     style="background-image: url(https://www.incimages.com/uploaded_files/image/1920x1080/getty_505032744_337116.jpg)"></div>
                 <ul class="details">
-                    <li class="author"><a href="#"> ${all_projects[i].fields.producer}</a></li>
-                    <li class="date">Aug. 24, 2015</li>
-                    <li class="tags">
+                    <li class="author"  style="margin: 10px 0;"><a href="#"> ${all_projects[i].fields.producer}</a></li>
+                    <li class="date" style="margin: 10px 0;">${date}</li>
+                    <li class="tags" style="margin: 10px 0;">
                         <ul>
                             <li><a href="#">Learn</a></li>
                             <li><a href="#">Code</a></li>
@@ -1761,6 +1757,8 @@
                             <li><a href="#">CSS</a></li>
                         </ul>
                     </li>
+                     <br>
+                    <li  style="margin: 10px 0;"> <img style="background-color: #f1f1f1" src="https://img.icons8.com/ios/20/000000/money-bag.png"/> تومان ${all_projects[i].fields.price_employer} </li>
                 </ul>
             </div>
             <div class="description">
@@ -1768,7 +1766,7 @@
                 <h2>${all_projects[i].fields.category}</h2>
                 <p class="project_description">${all_projects[i].fields.description}</p>
                 <p class="read-more">
-                    <a href="#">Read More</a>
+                    <a href="#"> توضیحات بیشتر</a>
                 </p>
             </div>`;
             mother.append(div_card);
@@ -1783,6 +1781,7 @@
         inate.style.marginTop = `${sum}px`;
         loader_page();
         foteer();
+
     }
 
     function loader_page() {
@@ -1799,10 +1798,12 @@
                 get_svg.style.display = "none";
             }, 1000
         );
+
     }
 
 
 </script>
+
 <script>
 
     foteer()
@@ -1810,17 +1811,33 @@
     function foteer() {
         let foteer = document.getElementById("foot");
         let dectfrom = document.getElementById("pageinate");
-        console.log(dectfrom.style.marginTop)
-        let xee = parseInt(dectfrom.style.marginTop);
+        let xee =  parseInt(dectfrom.style.marginTop);
         foteer.style.position = "absolute";
         foteer.style.background = "#000000";
         foteer.style.width = "100%";
-        console.log(xee);
         foteer.style.marginTop = `${xee + 100}px`;
     }
 
+     function filterprice(){
+        let min_price= document.getElementsByName('min-value').value;
+        let max_price=document.getElementsByName('max-value').value;
+        console.log(max_price)
+         console.log(min_price)
+        let store=[];
+        for (let i=0;i<all_project_copy.length;i++)
+        {
+            if(all_project_copy[i].fields.price_employer>min_price && all_project_copy[i].fields.price_employer<max_price)
+            {
+                store.push(all_project_copy[i]);
+            }
+        }
+        console.log(store)
+        all_projects=store;
+        slide(0)
+     }
 
 </script>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src={% static 'djangoapp/js/rangeslider.js' %}></script>
