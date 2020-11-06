@@ -57,6 +57,9 @@ class Related_subject(models.Model):
     subject = models.CharField(max_length=100, blank=True)
     category = models.ForeignKey(Category, related_name="related_subjects", blank=True, on_delete=models.CASCADE)
 
+    def natural_key(self):
+        return self.subject
+
     def __str__(self):
         return f"{self.id} {self.category.name} : {self.subject}"
 
@@ -71,6 +74,7 @@ class Project(models.Model):
                                  default=None)
     description = models.TextField(max_length=1000, blank=True)
     project_name = models.CharField(max_length=100, blank=True)
+    related_fields = models.ManyToManyField(Related_subject, related_name="projects_related", blank=True)
     files = models.FileField(upload_to="files_project", blank=True)
     is_solved = models.BooleanField(default=False)
     project_duration = models.IntegerField(default=0)

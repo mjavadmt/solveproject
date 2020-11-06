@@ -1315,9 +1315,9 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                            <input id="min1" type="hidden" name="min-value" value="">
-                            <input id="max1" type="hidden" name="max-value" value="">
-                            <button onclick="filterprice()">ddfsd</button>
+                        <input id="min1" type="hidden" name="min-value" value="">
+                        <input id="max1" type="hidden" name="max-value" value="">
+                        <button onclick="filterprice()">ddfsd</button>
                     </div>
                 </div>
                 <hr style="background-color: #ffc3c0">
@@ -1637,13 +1637,14 @@
 </footer>
 <!-- End footer Area -->
 
+
 <script>
     dictionary_categories = {{ dict_items|safe }};
     {#all projects this the okay one#}
     let start
     let all_projects = {{ projects|safe }};
     let fix_project = {{ projects|safe }};
-    let all_project_copy=[];
+    let all_project_copy = [];
     {#all projects this the okay one#}
     let mother = document.getElementById("changeopacity");
 
@@ -1666,7 +1667,7 @@
                         all_projects.push(fix_project[j]);
                     }
                 }
-                all_project_copy=all_projects;
+                all_project_copy = all_projects;
                 slide(0)
                 let list_options = dictionary_categories[tag_a.id];
                 for (let i = 0; i < list_options.length; i++) {
@@ -1674,7 +1675,8 @@
                     page_toggle.className = "page__toggle";
                     page_toggle.innerHTML = `<div style="margin-left: 50px" class="page__toggle">
                         <label class="toggle">
-                            <input id="${i}" class="toggle__input" type="checkbox" >
+                            <input onchange="filtered_related_subjest()" id="${i}" class="toggle__input" type="checkbox"
+                                value="${list_options[i]}" >
                             <span class="toggle__label">
           <span class="toggle__text">${list_options[i]}</span>
         </span>
@@ -1688,7 +1690,6 @@
                 get_svg.style.display = "none";
             }, 2000
         );
-
     }
 
 </script>
@@ -1732,7 +1733,18 @@
         for (let j = 0; j < len; j++) {
             h[0].remove();
         }
+        if (start >= end)
+        {
+            return ;
+        }
         for (let i = start; i < end; i++) {
+            make_str_for_fields = "";
+            for (let j = 0; j < all_projects[i].fields.related_fields.length; j++) {
+                make_str_for_fields += `${all_projects[i].fields.related_fields[j]}`;
+                if (j == all_projects[i].fields.related_fields.length - 1)
+                    break
+                make_str_for_fields += " , ";
+            }
             let date = "";
             let div_card = document.createElement("div");
             div_card.style.position = "absolute";
@@ -1751,10 +1763,8 @@
                     <li class="date" style="margin: 10px 0;">${date}</li>
                     <li class="tags" style="margin: 10px 0;">
                         <ul>
-                            <li><a href="#">Learn</a></li>
-                            <li><a href="#">Code</a></li>
-                            <li><a href="#">HTML</a></li>
-                            <li><a href="#">CSS</a></li>
+                            <li><a href="#">${make_str_for_fields}</a></li>
+
                         </ul>
                     </li>
                      <br>
@@ -1780,9 +1790,10 @@
         let sum = parseInt(last.style.marginTop) + 300;
         inate.style.marginTop = `${sum}px`;
         loader_page();
-        foteer();
+        footer();
 
     }
+
 
     function loader_page() {
         let get_svg = document.getElementById("loadersvg");
@@ -1798,7 +1809,6 @@
                 get_svg.style.display = "none";
             }, 1000
         );
-
     }
 
 
@@ -1806,52 +1816,87 @@
 
 <script>
 
-    foteer()
+    footer()
 
-    function foteer() {
-         setTimeout(() => {
-          let elms = document.getElementsByClassName('page__toggle');
-          let p=elms.item(elms.length-1);
+    function footer() {
+        var elDistanceToTop = 0;
+        {#setTimeout(() => {#}
+        let elms = document.getElementsByClassName('page__toggle');
+        let p = elms.item(elms.length - 1);
 
-          if (p!=null)
-          {
-               p.id="kl";
-          var a=$("kl").offset().top;
-          console.log(a)}
-        }, 0);
-        {#let x=document.getElementsByClassName("page__toggle");#}
-        {#console.log(elm)#}
-        {#if (x.length!=0)#}
-        {#{#}
-        {#    let top=x[x.length-1]#}
-        {#console.log(top.style.marginTop);#}
+        if (p != null) {
+
+            elDistanceToTop = window.pageYOffset + p.getBoundingClientRect().top;
+            console.log(`if inisdie if ${elDistanceToTop}`);
+        }
+        //}, 0);
 
 
-
-        let foteer = document.getElementById("foot");
+        let footer = document.getElementById("foot");
         let dectfrom = document.getElementById("pageinate");
-        let xee =  parseInt(dectfrom.style.marginTop);
-        foteer.style.position = "absolute";
-        foteer.style.background = "#000000";
-        foteer.style.width = "100%";
-        foteer.style.marginTop = `${xee + 100}px`;
+        let xee = parseInt(dectfrom.style.marginTop);
+        footer.style.position = "absolute";
+        footer.style.background = "#000000";
+        footer.style.width = "100%";
+        console.log(elDistanceToTop);
+        xee = Math.max(xee, elDistanceToTop);
+        console.log(`new xee ${xee}`);
+        footer.style.marginTop = `${xee + 100}px`;
     }
 
-     function filterprice(){
-        let min_price= document.getElementsByName('min-value').value;
-        let max_price=document.getElementsByName('max-value').value;
-        let store=[];
-        for (let i=0;i<all_project_copy.length;i++)
-        {
-            if(all_project_copy[i].fields.price_employer>min_price && all_project_copy[i].fields.price_employer<max_price)
-            {
+    function filterprice() {
+        let min_price = document.getElementsByName('min-value').value;
+        let max_price = document.getElementsByName('max-value').value;
+        let store = [];
+        for (let i = 0; i < all_project_copy.length; i++) {
+            if (all_project_copy[i].fields.price_employer > min_price && all_project_copy[i].fields.price_employer < max_price) {
                 store.push(all_project_copy[i]);
             }
         }
-        all_projects=store;
+        all_projects = store;
         slide(0)
-     }
+    }
 
+</script>
+<script>
+    function filtered_related_subjest() {
+        let get_div = document.getElementById('changeopacity');
+        get_div.style.opacity = "0.1";
+        let get_svg = document.getElementById("loadersvg");
+        get_svg.style.display = "block";
+        setTimeout(
+            function () {
+                var checkboxes = document.getElementsByClassName("toggle__input");
+                var checked_checkboxes = [];
+                for (let i = 0; i < checkboxes.length; i++) {
+                    if (checkboxes[i].checked)
+                        checked_checkboxes.push(checkboxes[i].value);
+                }
+                if (checked_checkboxes.length == 0)
+                {
+                    for (let i = 0; i < checkboxes.length; i++)
+                    {
+                        checked_checkboxes.push(checkboxes[i].value);
+                    }
+                }
+                console.log(checked_checkboxes);
+                all_projects = [];
+                for (let j = 0; j < fix_project.length; j++) {
+
+                    var isSuperset = checked_checkboxes.every(function (val) {
+                        return fix_project[j].fields.related_fields.indexOf(val) >= 0;
+                    });
+                    if (isSuperset)
+                        all_projects.push(fix_project[j]);
+                }
+                console.log(all_projects);
+                all_project_copy = all_projects;
+                slide(0);
+                get_div.style.opacity = "1";
+                get_svg.style.display = "none";
+            }, 2000
+        );
+    }
 </script>
 
 
