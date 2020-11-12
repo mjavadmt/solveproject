@@ -1055,6 +1055,45 @@
         }
 
         {#checkbox#}
+        {#    sort but    #}
+        .dropbtn {
+            background-color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+
+        .dropdown {
+            position: absolute;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            overflow: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 0;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown a:hover {
+            background-color: #ddd;
+        }
+
+        .show1 {
+            display: block;
+        }
+
+        {#end sort but#}
 
         @media (min-width: 640px) {
             .blog-card {
@@ -1432,10 +1471,21 @@
 
     </div>
 
+
     <div class="width80" style="position: absolute">
         <div class="divider light"
              style="position: absolute;width: 100%;background-color: #933f09 "></div>
     </div>
+    <div class="dropdown" style="margin-top: 180px;margin-left: 50px">
+        <button onclick="myFunction()" class="dropbtn"><img src="https://img.icons8.com/wired/40/000000/sort-down.png"/>
+        </button>
+        <div id="myDropdown" class="dropdown-content">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+
     {#    {% for project in projects_not_json %}#}
     {#        <div class="blog-card" style="position: absolute;margin-left: 10%;background-color: #ffe575;">#}
     {#            <div class="meta" style="background-color: #ffe575">#}
@@ -1466,6 +1516,7 @@
     {##}
     {#    {% endfor %}#}
 </div>
+
 {#loading page #}
 {#loading page #}
 <svg
@@ -1513,6 +1564,7 @@
             stroke-linejoin="round"
     ></path>
 </svg>
+
 <div id="pageinate" style="position: absolute;margin-left: -450px;width: 1950px">
     <div class="counter"></div>
     <p style="position: absolute;margin-left: 660px;margin-top: -10px;font-size: xx-large">صفحه قبل</p>
@@ -1733,9 +1785,8 @@
         for (let j = 0; j < len; j++) {
             h[0].remove();
         }
-        if (start >= end)
-        {
-            return ;
+        if (start >= end) {
+            return;
         }
         for (let i = start; i < end; i++) {
             make_str_for_fields = "";
@@ -1859,6 +1910,24 @@
 
 </script>
 <script>
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show1");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+
     function filtered_related_subjest() {
         let get_div = document.getElementById('changeopacity');
         get_div.style.opacity = "0.1";
@@ -1872,10 +1941,8 @@
                     if (checkboxes[i].checked)
                         checked_checkboxes.push(checkboxes[i].value);
                 }
-                if (checked_checkboxes.length == 0)
-                {
-                    for (let i = 0; i < checkboxes.length; i++)
-                    {
+                if (checked_checkboxes.length == 0) {
+                    for (let i = 0; i < checkboxes.length; i++) {
                         checked_checkboxes.push(checkboxes[i].value);
                     }
                 }
