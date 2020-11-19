@@ -1060,6 +1060,7 @@
             background-color: white;
             border: none;
             cursor: pointer;
+
         }
 
 
@@ -1094,6 +1095,69 @@
         }
 
         {#end sort but#}
+        {#  button filter price#}
+        .button_price_button {
+            display: inline-flex;
+            height: 40px;
+            width: 150px;
+            border: 2px solid #BFC0C0;
+            margin: 20px 20px 20px 20px;
+            color: #BFC0C0;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-size: .8em;
+            letter-spacing: 1.5px;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+
+        #button_price_button {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+
+        #button_price_button a {
+            color: #0a0a0a;
+            text-decoration: none;
+            letter-spacing: 1px;
+            position: relative;
+            transition: all .45s ease-Out;
+        }
+
+
+        #spin_price_button {
+            width: 0;
+            height: 0;
+            opacity: 0;
+            left: 70px;
+            top: 20px;
+            transform: rotate(0deg);
+            background: none;
+            position: absolute;
+            transition: all .5s ease-Out;
+        }
+
+
+        #button_price_button:hover #spin_price_button {
+            width: 200%;
+            height: 500%;
+            opacity: 1;
+            left: -70px;
+            top: -70px;
+            background: #aeae81;
+            transform: rotate(80deg);
+        }
+
+
+        #button_price_button:hover a {
+            color: #2D3142;
+        }
+
+        {#  button filter price#}
 
         @media (min-width: 640px) {
             .blog-card {
@@ -1271,25 +1335,6 @@
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
 
-                    {##}
-                    {#                                                                        <li class="menu-has-children"><a href="">Blog</a>#}
-                    {#                                                        <ul>#}
-                    {#                                                            <li><a href="blog-home.html">Blog Home</a></li>#}
-                    {#                                                            <li><a href="projectpage.html">Blog Single</a></li>#}
-                    {#                                                        </ul>#}
-                    {#                                                                        </li>#}
-                    {#                                                    <li class="menu-has-children"><a href="">Pages</a>#}
-                    {#                                                        <ul>#}
-                    {#                                                            <li><a href="{% url 'elements' %}">Elements</a></li>#}
-                    {#                                                            <li class="menu-has-children"><a href="">Level 2 </a>#}
-                    {#                                                                <ul>#}
-                    {#                                                                    <li><a href="#">Item One</a></li>#}
-                    {#                                                                    <li><a href="#">Item Two</a></li>#}
-                    {#                                                                </ul>#}
-                    {#                                                            </li>#}
-                    {#                                                        </ul>#}
-                    {#                                                    </li>#}
-
 
                     <li><a class="change_hover" href="{% url 'formsign' %}"
                            style="font-size: large;font-family:'B Badr';color: white;text-decoration: none">ورود / ثبت
@@ -1356,7 +1401,11 @@
                     <div class="col-sm-12">
                         <input id="min1" type="hidden" name="min-value" value="">
                         <input id="max1" type="hidden" name="max-value" value="">
-                        <button onclick="filterprice()">ddfsd</button>
+                        {#                        <button onclick="filterprice()">ddfsd</button>#}
+                        <div onclick="filterprice()" class="button_price_button" id="button_price_button">
+                            <div id="spin_price_button"></div>
+                            <a style="font-size: large" href="#">اعمال</a>
+                        </div>
                     </div>
                 </div>
                 <hr style="background-color: #ffc3c0">
@@ -1364,13 +1413,10 @@
                 <h4 id="forhide" style="text-align: center;font-family: Mj_Ghalam-1;margin-top: 2%">برای مشاهده یک دسته
                     بندی از بالا انتخاب کنید</h4>
                 <form id="form_filter" style="margin-top: 1%">
-                    {#        <input class="checkbox_input" type="checkbox" id="first">#}
-                    {#        <label class="label_checkbox" for="first">برنامه نویسی</label>#}
 
 
                     <br>
-                    {#        <input class="checkbox_input" type="checkbox" id="second">#}
-                    {#        <label class="label_checkbox" for="second">برنامه خودت</label>#}
+
 
                 </form>
 
@@ -1476,45 +1522,18 @@
         <div class="divider light"
              style="position: absolute;width: 100%;background-color: #933f09 "></div>
     </div>
-    <div class="dropdown" style="margin-top: 180px;margin-left: 50px">
-        <button onclick="myFunction()" class="dropbtn"><img src="https://img.icons8.com/wired/40/000000/sort-down.png"/>
+    <div class="dropdown" style="margin-top: 180px;margin-left: 50px;">
+        <button onclick="myFunction(this)" class="dropbtn"><img style="padding: 0" id="img_drp"
+                                                                src="https://img.icons8.com/wired/40/000000/sort-down.png"/>
         </button>
         <div id="myDropdown" class="dropdown-content">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <a style="font-family: Zeytoon;text-align: right;font-size: smaller" onclick="sort_project('asc')"> بر اساس بیشترین قیمت</a>
+            <a style="font-family: Zeytoon;text-align: right;font-size: smaller" onclick="sort_project('des')">  بر اساس کمترین قیمت</a>
+            <a style="font-family: Zeytoon;text-align: right;font-size: smaller" onclick="sort_project('date')">بر اساس جدیدترین</a>
         </div>
     </div>
 
-    {#    {% for project in projects_not_json %}#}
-    {#        <div class="blog-card" style="position: absolute;margin-left: 10%;background-color: #ffe575;">#}
-    {#            <div class="meta" style="background-color: #ffe575">#}
-    {#                <div class="photo"#}
-    {#                     style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>#}
-    {#                <ul class="details">#}
-    {#                    <li class="author"><a href="#">{{ project.producer.user.username }}</a></li>#}
-    {#                    <li class="date">Aug. 24, 2015</li>#}
-    {#                    <li class="tags">#}
-    {#                        <ul>#}
-    {#                            <li><a href="#">Learn</a></li>#}
-    {#                            <li><a href="#">Code</a></li>#}
-    {#                            <li><a href="#">HTML</a></li>#}
-    {#                            <li><a href="#">CSS</a></li>#}
-    {#                        </ul>#}
-    {#                    </li>#}
-    {#                </ul>#}
-    {#            </div>#}
-    {#            <div class="description">#}
-    {#                <h1>{{ project.project_name }}</h1>#}
-    {#                <h2>Opening a door to the future</h2>#}
-    {#                <p class="project_description"> {{ project.description }}</p>#}
-    {#                <p class="read-more">#}
-    {#                    <a href="#">Read More</a>#}
-    {#                </p>#}
-    {#            </div>#}
-    {#        </div>#}
-    {##}
-    {#    {% endfor %}#}
+
 </div>
 
 {#loading page #}
@@ -1696,7 +1715,7 @@
     let start
     let all_projects = {{ projects|safe }};
     let fix_project = {{ projects|safe }};
-    let all_project_copy = [];
+    let all_project_copy = fix_project;
     {#all projects this the okay one#}
     let mother = document.getElementById("changeopacity");
 
@@ -1720,7 +1739,7 @@
                     }
                 }
                 all_project_copy = all_projects;
-                slide(0)
+                slide(0);
                 let list_options = dictionary_categories[tag_a.id];
                 for (let i = 0; i < list_options.length; i++) {
                     let page_toggle = document.createElement("div");
@@ -1743,6 +1762,53 @@
             }, 2000
         );
     }
+    function sort_project(string_sort_by)
+    {
+        if (string_sort_by === "asc")
+        {
+            for (let i = 0 ; i<all_projects.length ; i++)
+            {
+                for (let j = i + 1; j<all_projects.length ; j++)
+                {
+                    if (all_projects[i].fields.price_employer < all_projects[j].fields.price_employer)
+                    {
+                        [all_projects[i],all_projects[j]] = [all_projects[j],all_projects[i]];
+                    }
+                }
+
+            }
+            slide(0);
+        }
+        else if (string_sort_by === "des")
+        {
+            for (let i = 0 ; i<all_projects.length ; i++)
+            {
+                for (let j = i + 1; j<all_projects.length ; j++)
+                {
+                    if (all_projects[i].fields.price_employer > all_projects[j].fields.price_employer)
+                    {
+                        [all_projects[i],all_projects[j]] = [all_projects[j],all_projects[i]];
+                    }
+                }
+            }
+            slide(0);
+        }
+        else
+        {
+            for (let i = 0 ; i<all_projects.length ; i++)
+            {
+                for (let j = i + 1; j<all_projects.length ; j++)
+                {
+                    if (all_projects[i].fields.published_date < all_projects[j].fields.published_date)
+                    {
+                        [all_projects[i],all_projects[j]] = [all_projects[j],all_projects[i]];
+                    }
+                }
+            }
+            console.log(all_projects);
+            slide(0);
+        }
+    }
 
 </script>
 
@@ -1759,7 +1825,6 @@
 
     function slide(offset) {
 
-        console.log(offset)
         var total = ((all_projects.length / 6) | 0) + 1;
         index = Math.min(Math.max(index + offset, 0), total - 1);
 
@@ -1768,7 +1833,6 @@
 
         pr.setAttribute('data-state', index === 0 ? 'disabled' : '');
         pl.setAttribute('data-state', index === total - 1 ? 'disabled' : '');
-        console.log(index)
         if ((index + 1) * 6 > all_projects.length) {
             page(((index + 1) * 6) - 6, all_projects.length);
         } else {
@@ -1878,7 +1942,6 @@
         if (p != null) {
 
             elDistanceToTop = window.pageYOffset + p.getBoundingClientRect().top;
-            console.log(`if inisdie if ${elDistanceToTop}`);
         }
         //}, 0);
 
@@ -1889,9 +1952,7 @@
         footer.style.position = "absolute";
         footer.style.background = "#000000";
         footer.style.width = "100%";
-        console.log(elDistanceToTop);
         xee = Math.max(xee, elDistanceToTop);
-        console.log(`new xee ${xee}`);
         footer.style.marginTop = `${xee + 100}px`;
     }
 
@@ -1905,24 +1966,26 @@
             }
         }
         all_projects = store;
+        console.log(all_projects);
         slide(0)
     }
 
 </script>
 <script>
-    function myFunction() {
+    function myFunction(get_this) {
         document.getElementById("myDropdown").classList.toggle("show1");
+        get_this.style.border = "none";
     }
 
     // Close the dropdown if the user clicks outside of it
     window.onclick = function (event) {
-        if (!event.target.matches('.dropbtn')) {
+        if ((!event.target.matches('.dropbtn')) && (!event.target.matches('#img_drp'))) {
             var dropdowns = document.getElementsByClassName("dropdown-content");
             var i;
             for (i = 0; i < dropdowns.length; i++) {
                 var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
+                if (openDropdown.classList.contains('show1')) {
+                    openDropdown.classList.remove('show1');
                 }
             }
         }
@@ -1946,7 +2009,6 @@
                         checked_checkboxes.push(checkboxes[i].value);
                     }
                 }
-                console.log(checked_checkboxes);
                 all_projects = [];
                 for (let j = 0; j < fix_project.length; j++) {
 
@@ -1956,7 +2018,6 @@
                     if (isSuperset)
                         all_projects.push(fix_project[j]);
                 }
-                console.log(all_projects);
                 all_project_copy = all_projects;
                 slide(0);
                 get_div.style.opacity = "1";
