@@ -45,6 +45,34 @@
     <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
           rel='stylesheet'>
     {#    end new sth#}
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let links = document.getElementsByClassName("change_hover");
+            for (let i = 0; i < links.length; i++) {
+                links[i].addEventListener("mouseover", (event) => {
+                    event.target.style.borderBottom = "1px solid #6f4e37";
+                    event.target.style.paddingBottom = "2px";
+                })
+                links[i].addEventListener("mouseout", (event) => {
+                    event.target.style.removeProperty('border-bottom');
+                    event.target.style.removeProperty('padding-bottom');
+                })
+            }
+        })
+    </script>
+    <style>
+        .move_up {
+            position: relative;
+            top: 0;
+            transition: top ease 0.5s;
+        }
+
+        .move_up:hover {
+            -ms-transform: scale(1.1); /* IE 9 */
+            -webkit-transform: scale(1.1); /* Safari 3-8 */
+            transform: scale(1.1);
+        }
+    </style>
     <style>
         {#start tabs css#}
         button:focus,
@@ -222,6 +250,57 @@
         }
 
         {#end freelacer cards css#}
+        {#        start table#}
+        table {
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        .tbl-header {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .tbl-content {
+            height: 300px;
+            overflow-x: auto;
+            margin-top: 0px;
+            {#border: 1px solid rgba(255, 255, 255, 0.3);#}
+        }
+
+        th {
+            padding: 20px 15px;
+            text-align: left;
+            font-weight: 500;
+            font-size: 12px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        td {
+            padding: 15px;
+            text-align: left;
+            vertical-align: middle;
+            font-weight: 300;
+            font-size: 12px;
+            color: #fff;
+            border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+        }
+
+
+        /* demo styles */
+
+        @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+        body {
+            background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+            background: linear-gradient(to right, #25c481, #25b7c4);
+            font-family: 'Roboto', sans-serif;
+        }
+
+        section {
+            margin: 50px;
+        }
+
+        {#end table#}
     </style>
 </head>
 <body style="font-family: Mj_Ghalam-1">
@@ -280,8 +359,8 @@
                         ها</a>
                     </li>
                     <li>
-                        <a href="{% url 'Index2' %}"
-                           style="font-size: x-large;font-family:'Mj_Ghalam-1';color: #fdfff8;border-bottom: 1px solid white;padding-bottom: 2px;text-decoration: none">صفحه
+                        <a class="change_hover" href="{% url 'Index2' %}"
+                           style="font-size: x-large;font-family:'Mj_Ghalam-1';color: #fdfff8;text-decoration: none">صفحه
                             اصلی</a></li>
                     <li class="nav-user dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="{% static 'djangoapp/img/elements/user1.png' %}" class="nav-avatar"/>
@@ -304,7 +383,7 @@
     <div class="container" style="display: inline">
         <div class="row">
             {#           start tabs #}
-            <div class="tabs">
+            <div class="tabs" style="width: 75%">
                 <div class="tab-2">
                     <label for="tab2-1">One</label>
                     <input id="tab2-1" name="tabs-two" type="radio" checked="checked">
@@ -325,40 +404,73 @@
                     <label for="tab2-2">Two</label>
                     <input id="tab2-2" name="tabs-two" type="radio">
                     <div>
-                        <h4>Tab Two</h4>
+{#                        <h4>Tab Two</h4>#}
                         {#                        <p>Quisque sit amet turpis leo. Maecenas sed dolor mi. Pellentesque varius elit in neque ornare#}
                         {#                            commodo ac non tellus. Mauris id iaculis quam. Donec eu felis quam. Morbi tristique lorem#}
                         {#                            eget iaculis consectetur. Class aptent taciti sociosqu ad litora torquent per conubia#}
                         {#                            nostra, per inceptos himenaeos. Aenean at tellus eget risus tempus ultrices. Nam condimentum#}
                         {#                            nisi enim, scelerisque faucibus lectus sodales at.</p>#}
-                        <div class="card-container" style="">
-                            <span class="pro">PRO</span>
-                            <img class="round" src="https://randomuser.me/api/portraits/women/79.jpg" alt="user"/>
-                            <h3 style="margin: 10px 0">Ricky Park</h3>
-                            <h6 style="margin: 5px 0; text-transform: uppercase;">New York</h6>
-                            <p style="font-size: 14px;
-	line-height: 21px;">User interface designer and <br/> front-end developer</p>
-                            <div class="buttons">
-                                <button class="primary">
-                                    Message
-                                </button>
-                                <button class="primary ghost">
-                                    Following
-                                </button>
+                        {#                       start free lancer card#}
+                        {#                        <div class="card-container" style="">#}
+                        {#                            <span class="pro">PRO</span>#}
+                        {#                            <img class="round" src="https://randomuser.me/api/portraits/women/79.jpg" alt="user"/>#}
+                        {#                            <h3 style="margin: 10px 0">Ricky Park</h3>#}
+                        {#                            <h6 style="margin: 5px 0; text-transform: uppercase;">New York</h6>#}
+                        {#                            <p style="font-size: 14px;#}
+                        {#	line-height: 21px;">User interface designer and <br/> front-end developer</p>#}
+                        {#                            <div class="buttons">#}
+                        {#                                <button class="primary">#}
+                        {#                                    Message#}
+                        {#                                </button>#}
+                        {#                                <button class="primary ghost">#}
+                        {#                                    Following#}
+                        {#                                </button>#}
+                        {#                            </div>#}
+                        {#                            <div class="skills">#}
+                        {#                                <h6>Skills</h6>#}
+                        {#                                <ul>#}
+                        {#                                    <li>UI / UX</li>#}
+                        {#                                    <li>Front End Development</li>#}
+                        {#                                    <li>HTML</li>#}
+                        {#                                    <li>CSS</li>#}
+                        {#                                    <li>JavaScript</li>#}
+                        {#                                    <li>React</li>#}
+                        {#                                    <li>Node</li>#}
+                        {#                                </ul>#}
+                        {#                            </div>#}
+                        {#                        </div>#}
+
+                        {#                        end freelancer card#}
+                        <section>
+                            <!--for demo wrap-->
+                            <div class="tbl-header">
+                                <table cellpadding="0" cellspacing="0" border="0">
+                                    <thead>
+                                    <tr>
+                                        <th>Code</th>
+                                        <th>Company</th>
+                                        <th>Price</th>
+                                        <th>Change</th>
+                                        <th>Change %</th>
+                                    </tr>
+                                    </thead>
+                                </table>
                             </div>
-                            <div class="skills">
-                                <h6>Skills</h6>
-                                <ul>
-                                    <li>UI / UX</li>
-                                    <li>Front End Development</li>
-                                    <li>HTML</li>
-                                    <li>CSS</li>
-                                    <li>JavaScript</li>
-                                    <li>React</li>
-                                    <li>Node</li>
-                                </ul>
+                            <div class="tbl-content">
+                                <table cellpadding="0" cellspacing="0" border="0">
+                                    <tbody>
+                                    <tr>
+                                        <td><a href="#">AAC</a></td>
+                                        <td>AUSTRALIAN COMPANY</td>
+                                        <td>$1.38</td>
+                                        <td>+2.01</td>
+                                        <td>-0.36%</td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
                             </div>
-                        </div>
+                        </section>
 
 
                     </div>
@@ -368,15 +480,15 @@
             <div class="span3">
                 <div class="sidebar">
                     <!-- side bar -->
-                    <ul class="widget widget-menu unstyled">
-                        <li class="active"><a href="index.html"><i class="menu-icon icon-dashboard"></i>Dashboard
+                    <ul class="widget widget-menu unstyled" style="font-family: Mj_Ghalam-1;font-size: x-large">
+                        <li class="active"><a href="index.html"><i class="menu-icon icon-dashboard"></i>داشبورد
                         </a></li>
-                        <li><a href="{% url 'Ali_esm_bezar' %}"><i class="menu-icon icon-bullhorn"></i>News Feed </a>
+                        <li><a href="{% url 'Ali_esm_bezar' %}"><i class="menu-icon icon-bullhorn"></i>مدیریت پروژه‌ها </a>
                         </li>
-                        <li><a href="message.html"><i class="menu-icon icon-inbox"></i>recomended <b
+                        <li><a href="message.html"><i class="menu-icon icon-inbox"></i>پیشنهاد‌ها <b
                                 class="label green pull-right">
                             11</b> </a></li>
-                        <li><a href="task.html"><i class="menu-icon icon-tasks"></i>chats <b
+                        <li><a href="task.html"><i class="menu-icon icon-tasks"></i>چت‌ها <b
                                 class="label orange pull-right">
                             19</b> </a></li>
                     </ul>
@@ -406,7 +518,7 @@
                                 <li><a href="other-user-listing.html"><i class="icon-inbox"></i>All Users </a></li>
                             </ul>
                         </li> -->
-                        <li><a href="#"><i class="menu-icon icon-signout"></i>Logout </a></li>
+                        <li style="font-family: Mj_Ghalam-1;font-size: x-large"><a href="#"><i class="menu-icon icon-signout"></i>خروج </a></li>
                     </ul>
                 </div>
                 <!--/.sidebar-->
@@ -419,59 +531,146 @@
 </div>
 <!--/.wrapper-->
 
+<!-- Start brands Area -->
+<section class="brands-area" style="background: -webkit-linear-gradient(0deg, #eef7a3 0%, #ad6d31 100%);">
+    <div class="container">
+        <div class="brand-wrap">
+            <div class="row align-items-center active-brand-carusel justify-content-start no-gutters">
+                <div class="col single-brand move_up">
+                    <a href="{% url 'Index2' %}" style="font-family: Mj_Ghalam-1;font-size: x-large"><img
+                            class="mx-auto"
+                            src={% static 'djangoapp/img/icons8-edit-image-64.png' %} alt="">ویرایش عکس و فیلم</a>
+                </div>
+                <div class="col single-brand move_up">
+                    <a href="{% url 'Index2' %}"><img class="mx-auto"
+                                                      src={% static 'djangoapp/img/icons8-apple-logo-64.png' %} alt="">IOS</a>
+                </div>
+                <div class="col single-brand move_up" style="font-family: Mj_Ghalam-1;font-size: x-large">
+                    <a href="{% url 'Index2' %}"><img class="mx-auto"
+                                                      src={% static 'djangoapp/img/icons8-android-64.png' %} alt="">اندروید</a>
+                </div>
+                <div class="col single-brand move_up" style="font-family: Mj_Ghalam-1;font-size: x-large">
+                    <a href="{% url 'Index2' %}"><img class="mx-auto"
+                                                      src={% static 'djangoapp/img/icons8-edit-property-64.png' %} alt="">تولید
+                        محتوا</a>
+                </div>
+                <div class="col single-brand move_up" style="font-family: Mj_Ghalam-1;font-size: x-large">
+                    <a href="{% url 'Index2' %}"><img class="mx-auto"
+                                                      src={% static 'djangoapp/img/icons8-web-design-64.png' %} alt="">توسعه
+                        وب</a>
+                </div>
+                <div class="col single-brand move_up" style="font-family: Mj_Ghalam-1;font-size: x-large">
+                    <a href="{% url 'Index2' %}"><img class="mx-auto"
+                                                      src={% static 'djangoapp/img/icons8-switch-host-64.png' %} alt="">سیستم
+                        عامل</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End brands Area -->
 <!-- start footer Area -->
-<footer class="footer-area section-gap">
+<footer class="footer-area section-gap" style="background: #000000">
     <div class="container">
         <div class="row">
-            <div class="col-lg-5 col-md-6 col-sm-6">
-                <div class="single-footer-widget">
-                    <h4>About Me</h4>
-                    <p>
-                        We have tested a number of registry fix and clean utilities and present our top 3 list on our
-                        site for your convenience.
-                    </p>
-                    <p class="footer-text">
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-                        All rights reserved | This template is made with <i class="fa fa-heart-o"
-                                                                            aria-hidden="true"></i> by <a
-                            href="https://colorlib.com" target="_blank">Colorlib</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+            <div class="col-lg-4 col-md-12 col-sm-12">
+                <div class="single-footer-widget text-right" style="font-family: Mj_Ghalam-1">
+                    <h4 style="font-family: Mj_Ghalam-1;font-size: xx-large">درباره</h4>
+                    <ul style="font-size: x-large">
+                        <li>
+                            <a href="{% url 'about' %}">
+                                درباره ما
+                            </a>
+                        </li>
+                        <li>
+                            تماس با ما:09149998124
+                        </li>
+                    </ul>
+                    {#                    <p class="footer-text">#}
+                    {#                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->#}
+                    {#                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>#}
+                    {#                        All rights reserved | This template is made with <i class="fa fa-heart-o"#}
+                    {#                                                                            aria-hidden="true"></i> by <a#}
+                    {#                            href="https://colorlib.com" target="_blank">Colorlib</a>#}
+                    {#                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>#}
                 </div>
             </div>
-            <div class="col-lg-5 col-md-6 col-sm-6">
-                <div class="single-footer-widget">
-                    <h4>Newsletter</h4>
-                    <p>Stay updated with our latest trends</p>
-                    <div class="" id="mc_embed_signup">
-                        <form target="_blank"
-                              action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                              method="get">
-                            <div class="input-group">
-                                <input type="text" class="form-control" name="EMAIL" placeholder="Enter Email Address"
-                                       onfocus="this.placeholder = ''"
-                                       onblur="this.placeholder = 'Enter Email Address '" required="" type="email">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-default" type="submit">
-                                        <span class="lnr lnr-arrow-right"></span>
-                                    </button>
-                                </div>
-                                <div class="info"></div>
-                            </div>
-                        </form>
-                    </div>
+            <div class="col-lg-4 col-md-12 col-sm-12">
+                <div class="single-footer-widget text-right" style="font-family: Mj_Ghalam-1">
+                    <h4 style="font-family: Mj_Ghalam-1;font-size: xx-large">فریلنسر</h4>
+                    <ul style="font-size: x-large">
+                        <li>
+                            <a href="{% url 'formsign' %}">
+                                ورود/ثبت نام
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                دسته‌بندی ها
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'projectpage' %}">
+                                پروژه ها
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                چگونه کار می کند؟
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                پرسش و پاسخ
+                            </a>
+                        </li>
+                    </ul>
+                    {#                    <p>Stay updated with our latest trends</p>#}
+                    {#                    <div class="" id="mc_embed_signup">#}
+                    {#                        <form target="_blank"#}
+                    {#                              action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"#}
+                    {#                              method="get">#}
+                    {#                            <div class="input-group">#}
+                    {#                                <input type="text" class="form-control" name="EMAIL" placeholder="Enter Email Address"#}
+                    {#                                       onfocus="this.placeholder = ''"#}
+                    {#                                       onblur="this.placeholder = 'Enter Email Address '" required="" type="email">#}
+                    {#                                <div class="input-group-btn">#}
+                    {#                                    <button class="btn btn-default" type="submit">#}
+                    {#                                        <span class="lnr lnr-arrow-right"></span>#}
+                    {#                                    </button>#}
+                    {#                                </div>#}
+                    {#                                <div class="info"></div>#}
+                    {#                            </div>#}
+                    {#                        </form>#}
+                    {#                    </div>#}
                 </div>
             </div>
-            <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
-                <div class="single-footer-widget">
-                    <h4>Follow Me</h4>
-                    <p>Let us be social</p>
-                    <div class="footer-social d-flex align-items-center">
-                        <a href="{% url 'Index2' %}"><i class="fa fa-facebook"></i></a>
-                        <a href="{% url 'Index2' %}"><i class="fa fa-twitter"></i></a>
-                        <a href="{% url 'Index2' %}"><i class="fa fa-dribbble"></i></a>
-                        <a href="{% url 'Index2' %}"><i class="fa fa-behance"></i></a>
-                    </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 social-widget">
+                <div class="single-footer-widget text-right" style="font-family: Mj_Ghalam-1">
+                    <h4 style="font-family: Mj_Ghalam-1;font-size: xx-large">ما را دنبال کنید</h4>
+                    <ul style="font-size: x-large">
+                        <li>
+                            <a href="{% url 'Index2' %}"><i class="fa fa-facebook"></i></a>
+                            <a href="{% url 'Index2' %}"><i class="fa fa-twitter"></i></a>
+                            <a href="{% url 'Index2' %}"><i class="fa fa-dribbble"></i></a>
+                            <a href="{% url 'Index2' %}"><i class="fa fa-behance"></i></a>
+                        </li>
+
+                        <li>
+                            cafeproject8@gmail.com
+                        </li>
+                    </ul>
+                    {#                        <li >#}
+                    {#                            <a href="{% url 'Index2' %}"><i class="fa fa-twitter"></i></a>#}
+                    {#                        </li>#}
+                    {#                    <p>Let us be social</p>#}
+                    {#                    <div class="footer-social d-flex align-items-center ">#}
+                    {#                        <a href="{% url 'Index2' %}"><i class="fa fa-facebook"></i></a>#}
+                    {#                        <a href="{% url 'Index2' %}"><i class="fa fa-twitter"></i></a>#}
+                    {#                        <a href="{% url 'Index2' %}"><i class="fa fa-dribbble"></i></a>#}
+                    {#                        <a href="{% url 'Index2' %}"><i class="fa fa-behance"></i></a>#}
+                    {#                        <img>#}
+                    {#                    </div>#}
                 </div>
             </div>
         </div>
