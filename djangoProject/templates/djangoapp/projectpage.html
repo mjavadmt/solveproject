@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="{% static 'djangoapp/css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'djangoapp/css/bootstrap.css' %} ">
     <link rel="stylesheet" href="{% static 'djangoapp/css/magnific-popup.css' %} ">
-    <link rel="stylesheet" href="{% static 'djangoapp/css/jquery-ui.css' %} ">
+    {#    <link rel="stylesheet" href="{% static 'djangoapp/css/jquery-ui.css' %} ">#}
     <link rel="stylesheet" href="{% static 'djangoapp/css/nice-select.css' %} ">
     <link rel="stylesheet" href="{% static 'djangoapp/css/animate.min.css' %} ">
     <link rel="stylesheet" href="{% static 'djangoapp/css/owl.carousel.css' %} ">
@@ -1229,11 +1229,30 @@
                 height: 200px;
             }
 
+            .pagination-arrow {
+                position: absolute;
+                margin-left: -450px;
+                width: 1950px
+            }
 
+            .next-pagination {
+                position: absolute;
+                margin-left: 1210px;
+                margin-top: -10px;
+                font-size: xx-large
+
+            }
+
+            .before-pagination {
+                position: absolute;
+                margin-left: 660px;
+                margin-top: -10px;
+                font-size: xx-large
+            }
         }
 
 
-        @media all and (max-width: 1500px) {
+        @media all and (max-width: 1400px) {
 
             .respo {
                 margin-top: 200px;
@@ -1259,6 +1278,26 @@
             .blog-card {
                 width: 600px;
                 height: 250px;
+            }
+            .pagination-arrow {
+                position: absolute;
+                margin-left: -450px;
+                width: 1950px
+            }
+
+            .next-pagination {
+                position: absolute;
+                margin-left: 1210px;
+                margin-top: -10px;
+                font-size: xx-large
+
+            }
+
+            .before-pagination {
+                position: absolute;
+                margin-left: 660px;
+                margin-top: -10px;
+                font-size: xx-large
             }
         }
 
@@ -1287,6 +1326,26 @@
             .blog-card {
                 width: 400px;
                 height: 250px;
+            }
+            .pagination-arrow {
+                position: absolute;
+                margin-left: -450px;
+                width: 1950px
+            }
+
+            .next-pagination {
+                position: absolute;
+                margin-left: 1210px;
+                margin-top: -10px;
+                font-size: xx-large
+
+            }
+
+            .before-pagination {
+                position: absolute;
+                margin-left: 660px;
+                margin-top: -10px;
+                font-size: xx-large
             }
         }
 
@@ -1321,6 +1380,45 @@
 
             .width80 {
             {#margin-top: 200px;#} display: none;
+            }
+            .pagination-arrow {
+                position: absolute;
+                margin-left: -650px;
+                width: 1950px
+            }
+
+            .next-pagination {
+                position: absolute;
+                margin-left: 1210px;
+                margin-top: -10px;
+                font-size: xx-large
+            }
+
+            .before-pagination {
+                position: absolute;
+                margin-left: 660px;
+                margin-top: -10px;
+                font-size: xx-large
+            }
+        }
+        @media all and (max-width: 600px){
+            .pagination-arrow {
+                position: absolute;
+                margin-left: 0px;
+                width: 500px;
+            }
+            .next-pagination {
+                position: absolute;
+                margin-left: 350px;
+                margin-top: -10px;
+                font-size: xx-large
+            }
+
+            .before-pagination {
+                position: absolute;
+                margin-left: 50px;
+                margin-top: -10px;
+                font-size: xx-large
             }
         }
     </style>
@@ -1393,7 +1491,7 @@
                         <strong>کمترین:</strong> <span id="slider-range-value1"></span>
                     </div>
                     <div class="col-xs-6 text-right caption"
-                         style="margin-left:50px;font-family: Zeytoon">
+                         style="margin-left:90px;font-family: Zeytoon">
                         <strong>بیشترین:</strong> <span id="slider-range-value2"></span>
                     </div>
                 </div>
@@ -1402,7 +1500,8 @@
                         <input id="min1" type="hidden" name="min-value" value="">
                         <input id="max1" type="hidden" name="max-value" value="">
                         {#                        <button onclick="filterprice()">ddfsd</button>#}
-                        <div style="margin-left: 40px" onclick="filterprice()" class="button_price_button" id="button_price_button">
+                        <div style="margin-left: 40px" onclick="filterprice()" class="button_price_button"
+                             id="button_price_button">
                             <div id="spin_price_button"></div>
                             <a style="font-size: large" href="#">اعمال</a>
                         </div>
@@ -1527,9 +1626,12 @@
                                                                 src="https://img.icons8.com/wired/40/000000/sort-down.png"/>
         </button>
         <div id="myDropdown" class="dropdown-content">
-            <a style="cursor: pointer;font-family: Zeytoon;text-align: right;font-size: smaller" onclick="sort_project('asc')"> بر اساس بیشترین قیمت</a>
-            <a style="cursor: pointer;font-family: Zeytoon;text-align: right;font-size: smaller" onclick="sort_project('des')">  بر اساس کمترین قیمت</a>
-            <a style="cursor: pointer;font-family: Zeytoon;text-align: right;font-size: smaller" onclick="sort_project('date')">بر اساس جدیدترین</a>
+            <a style="cursor: pointer;font-family: Zeytoon;text-align: right;font-size: smaller"
+               onclick="sort_project('asc')"> بر اساس بیشترین قیمت</a>
+            <a style="cursor: pointer;font-family: Zeytoon;text-align: right;font-size: smaller"
+               onclick="sort_project('des')"> بر اساس کمترین قیمت</a>
+            <a style="cursor: pointer;font-family: Zeytoon;text-align: right;font-size: smaller"
+               onclick="sort_project('date')">بر اساس جدیدترین</a>
         </div>
     </div>
 
@@ -1583,48 +1685,19 @@
             stroke-linejoin="round"
     ></path>
 </svg>
+{# loading page ended #}
 
-<div id="pageinate" style="position: absolute;margin-left: -450px;width: 1950px">
+
+<div id="pageinate" class="pagination-arrow">
     <div class="counter"></div>
-    <p style="position: absolute;margin-left: 660px;margin-top: -10px;font-size: xx-large">صفحه قبل</p>
+    <p class="before-pagination">
+        صفحه قبل</p>
     <button class="butpag paginate left"><i></i><i></i></button>
-
     <button class="butpag paginate right"><i></i><i></i></button>
-    <p style="position: absolute;margin-left: 1210px;margin-top: -10px;font-size: xx-large">صفحه بعد</p>
-
+    <p class="next-pagination">صفحه
+        بعد</p>
 </div>
-{#<p id="getindex"></p>#}
 
-
-{#<div class="blog-card alt" >#}
-{#    <div class="meta">#}
-{#        <div class="photo"#}
-{#             style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-2.jpg)"></div>#}
-{#        <ul class="details">#}
-{#            <li class="author"><a href="#">Jane Doe</a></li>#}
-{#            <li class="date">July. 15, 2015</li>#}
-{#            <li class="tags">#}
-{#                <ul>#}
-{#                    <li><a href="#">Learn</a></li>#}
-{#                    <li><a href="#">Code</a></li>#}
-{#                    <li><a href="#">JavaScript</a></li>#}
-{#                </ul>#}
-{#            </li>#}
-{#        </ul>#}
-{#    </div>#}
-{#    <div class="description">#}
-{#        <h1>Mastering the Language</h1>#}
-{#        <h2>Java is not the same as JavaScript</h2>#}
-{#        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta#}
-{#            praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>#}
-{#        <p class="read-more">#}
-{#            <a href="#">Read More</a>#}
-{#        </p>#}
-{#    </div>#}
-{#</div>#}
-
-
-<!-- end category -->
 
 <!-- start footer Area -->
 <footer id="foot" class="footer-area section-gap">
@@ -1754,54 +1827,40 @@
                         </label>
                     </div>`
                     get_form.append(page_toggle);
-                    {#get_form.append(make_input);#}
-                    {#get_form.append(make_label);#}
+
+                    footer();
                 }
                 get_div.style.opacity = "1";
                 get_svg.style.display = "none";
             }, 2000
         );
     }
-    function sort_project(string_sort_by)
-    {
-        if (string_sort_by === "asc")
-        {
-            for (let i = 0 ; i<all_projects.length ; i++)
-            {
-                for (let j = i + 1; j<all_projects.length ; j++)
-                {
-                    if (all_projects[i].fields.price_employer < all_projects[j].fields.price_employer)
-                    {
-                        [all_projects[i],all_projects[j]] = [all_projects[j],all_projects[i]];
+
+    function sort_project(string_sort_by) {
+        if (string_sort_by === "asc") {
+            for (let i = 0; i < all_projects.length; i++) {
+                for (let j = i + 1; j < all_projects.length; j++) {
+                    if (all_projects[i].fields.price_employer < all_projects[j].fields.price_employer) {
+                        [all_projects[i], all_projects[j]] = [all_projects[j], all_projects[i]];
                     }
                 }
 
             }
             slide(0);
-        }
-        else if (string_sort_by === "des")
-        {
-            for (let i = 0 ; i<all_projects.length ; i++)
-            {
-                for (let j = i + 1; j<all_projects.length ; j++)
-                {
-                    if (all_projects[i].fields.price_employer > all_projects[j].fields.price_employer)
-                    {
-                        [all_projects[i],all_projects[j]] = [all_projects[j],all_projects[i]];
+        } else if (string_sort_by === "des") {
+            for (let i = 0; i < all_projects.length; i++) {
+                for (let j = i + 1; j < all_projects.length; j++) {
+                    if (all_projects[i].fields.price_employer > all_projects[j].fields.price_employer) {
+                        [all_projects[i], all_projects[j]] = [all_projects[j], all_projects[i]];
                     }
                 }
             }
             slide(0);
-        }
-        else
-        {
-            for (let i = 0 ; i<all_projects.length ; i++)
-            {
-                for (let j = i + 1; j<all_projects.length ; j++)
-                {
-                    if (all_projects[i].fields.published_date < all_projects[j].fields.published_date)
-                    {
-                        [all_projects[i],all_projects[j]] = [all_projects[j],all_projects[i]];
+        } else {
+            for (let i = 0; i < all_projects.length; i++) {
+                for (let j = i + 1; j < all_projects.length; j++) {
+                    if (all_projects[i].fields.published_date < all_projects[j].fields.published_date) {
+                        [all_projects[i], all_projects[j]] = [all_projects[j], all_projects[i]];
                     }
                 }
             }
@@ -1841,6 +1900,7 @@
     }
 
     slide(0);
+    var blog_cards;
 
     function page(start, end) {
 
@@ -1896,17 +1956,77 @@
             </div>`;
             mother.append(div_card);
         }
-        let cards = document.getElementsByClassName("blog-card");
-        for (let i = 0; i < cards.length; i++) {
-            cards[i].style.marginTop = `${(i + 1) * 270}px`;
-        }
-        let inate = document.getElementById("pageinate");
-        let last = cards[cards.length - 1]
-        let sum = parseInt(last.style.marginTop) + 300;
-        inate.style.marginTop = `${sum}px`;
+        {#let cards = document.getElementsByClassName("blog-card");#}
+        {#for (let i = 0; i < cards.length; i++) {#}
+        {#    if (window.innerWidth > 1500)#}
+        {#    {#}
+        {#        cards[i].style.marginTop = `${(i + 1) * 270}px`;#}
+        {#    }#}
+        {#    else if (window.innerWidth >= 1400)#}
+        {#    {#}
+        {#        cards[i].style.marginTop = `${(i + 1) * 290}px`;#}
+        {#    }#}
+        {#    else if (window.innerWidth >= 1000)#}
+        {#    {#}
+        {#        cards[i].style.marginTop = `${(i + 1) * 310}px`;#}
+        {#    }#}
+        {#    else if (window.innerWidth >= 700)#}
+        {#    {#}
+        {#        cards[i].style.marginTop = `${(i + 1) * 330}px`;#}
+        {#    }#}
+        {#    else#}
+        {#    {#}
+        {#        cards[i].style.marginTop = `${(i + 1) * 400}px`;#}
+        {#    }#}
+        {#700 1000 1400 1800#}
+        {##}
+        {##}
+        //}
+        blog_cards = document.getElementsByClassName("blog-card");
+        window_size_changed();
+        {#let inate = document.getElementById("pageinate");#}
+        {#let last = blog_cards[blog_cards.length - 1]#}
+        {#let sum = parseInt(last.style.marginTop) + 300;#}
+        {#inate.style.marginTop = `${sum}px`;#}
         loader_page();
         footer();
 
+    }
+
+    window.addEventListener('resize', function () {
+        window_size_changed();
+    })
+
+    function window_size_changed() {
+        let inate = document.getElementById("pageinate");
+        let last = blog_cards[blog_cards.length - 1];
+        for (let i = 0; i < blog_cards.length; i++) {
+            if (window.innerWidth > 1500) {
+                blog_cards[i].style.marginTop = `${(i + 1) * 270}px`;
+                let sum = parseInt(last.style.marginTop) + 300;
+                inate.style.marginTop = `${sum}px`;
+            } else if (window.innerWidth >= 1400) {
+                blog_cards[i].style.marginTop = `${(i + 1) * 290}px`;
+                let sum = parseInt(last.style.marginTop) + 300;
+                inate.style.marginTop = `${sum}px`;
+            } else if (window.innerWidth >= 1000) {
+                blog_cards[i].style.marginTop = `${(i + 1) * 310}px`;
+                let sum = parseInt(last.style.marginTop) + 300;
+                inate.style.marginTop = `${sum}px`;
+            } else if (window.innerWidth >= 700) {
+                blog_cards[i].style.marginTop = `${(i + 1) * 330}px`;
+                let sum = parseInt(last.style.marginTop) + 400;
+                inate.style.marginTop = `${sum}px`;
+            } else {
+                blog_cards[i].style.marginTop = `${(i + 1) * 400}px`;
+                let sum = parseInt(last.style.marginTop) + 500;
+                inate.style.marginTop = `${sum}px`;
+                {#inate.style.width = "100%";#}
+            }
+        }
+
+
+        footer();
     }
 
 
@@ -1924,6 +2044,29 @@
                 get_svg.style.display = "none";
             }, 1000
         );
+    }
+
+    function footer() {
+        var elDistanceToTop = 0;
+        {#setTimeout(() => {#}
+        let elms = document.getElementsByClassName('page__toggle');
+        let p = elms.item(elms.length - 1);
+
+        if (p != null) {
+
+            elDistanceToTop = window.pageYOffset + p.getBoundingClientRect().top;
+        }
+        //}, 0);
+
+
+        let footer = document.getElementById("foot");
+        let dectfrom = document.getElementById("pageinate");
+        let xee = parseInt(dectfrom.style.marginTop);
+        footer.style.position = "absolute";
+        footer.style.background = "#000000";
+        footer.style.width = "100%";
+        xee = Math.max(xee, elDistanceToTop);
+        footer.style.marginTop = `${xee + 100}px`;
     }
 
 
