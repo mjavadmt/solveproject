@@ -20,7 +20,11 @@ from django.core import serializers
 
 
 def Index(request):
-    return render(request, "djangoapp/home.html")
+    free_lancer= list(Freelancer.objects.all().order_by("rate"))
+    return render(request, "djangoapp/home.html",
+    {
+        "bestfreelancer":free_lancer[:3]
+    })
 
 def Ali_esm_bezar(request):
     return  render(request, "djangoapp/Ali_esm_bezar.html")

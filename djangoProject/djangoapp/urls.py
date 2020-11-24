@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
-
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path("", views.Index, name="Index2"),
     path("chat", views.show_chat, name="show_chat"),
@@ -19,4 +20,4 @@ urlpatterns = [
     path("logout", views.logoutuser, name="logout"),
     path("choosefremp", views.choosefremp, name="choosefremp"),
     path("Ali_esm_bezar", views.Ali_esm_bezar, name="Ali_esm_bezar")
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
